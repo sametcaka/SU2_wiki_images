@@ -1,4 +1,4 @@
-# SU2 User's Mailing List
+### SU2 User's Mailing List
 Users are encouraged to join the SU2 user's email list. This list will be used to communicate important information to users such as new releases and bug fixes. It will be used for forwarding information alone, and the ability to reply or post to the list is disabled for non-developers. If you have comments, requests, or questions for the developers, please see the developer's mailing list below. To join, follow the link below, enter your email address, and follow the directions for confirmation. Your email address will not be shared or used for anything except email communication from the development team.
 
 [Join the List!](https://mailman.stanford.edu/mailman/listinfo/susquared-users)
