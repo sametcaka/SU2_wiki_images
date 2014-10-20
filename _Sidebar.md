@@ -20,3 +20,6 @@
   7. [[Optimal Shape Design of a Rotating Airfoil]]
   8. [[Constrained Optimal Shape Design of a Fixed Wing]]
   9. [[Inviscid Supersonic Wedge]]
+* [[Developer Docs]]
+  * [[Code Structure]]
+  * [[Style Guide]]
