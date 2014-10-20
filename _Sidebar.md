@@ -23,3 +23,5 @@
 * [[Developer Docs]]
   * [[Code Structure]]
   * [[Style Guide]]
+* [[License]]
+* [[Contact]]
