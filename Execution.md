@@ -16,62 +16,69 @@ where the executable, SU2_CFD, and the configuration file, config.cfg, are locat
 
 `$ mpirun -n 8 SU2_CFD default.cfg`
 
+Note that, depending on your flavor of MPI, you may need to use a different launcher, such as *mpiexec*. Please see the documentation for your particular MPI implementation.
+
 ## Python Scripts
 
-The distribution of SU2 includes several python scripts that coordinate the use of the C++ modules to perform more advanced analyses and simulations. A working installation of python is highly recommended, even for users interested in the CFD module of SU2 only, as the compilation procedure for the source code has been automated using one of these python scripts, making the installation from source much easier. These python scripts can be found in the $SU2_HOME/SU2_PY directory and are as follows:
-- continuous_adjoint.py
-- finite_differences.py
-- parallel_computation.py
-- shape_optimization.py
+The distribution of SU2 includes several Python scripts that coordinate the use of the C++ modules to perform more advanced analyses and simulations. A working installation of Python is highly recommended, as a number of tasks can be easily automated using provided scripts (e.g., computing a drag polar). These Python scripts can be found in the $SU2_HOME/SU2_PY.
 
 All of the scripts can be executed by calling python and passing the appropriate SU2 python script and options at runtime. The syntax is as follows:
 
 `$ python script_name.py [options]`
 
-where *script_name.py* is the name of the script to be run, and Options is a list of options available to each script file.  A brief description of the each of the scripts, their execution syntax and runtime options are included below. Users are encouraged to look at the source code for the python scripts. As with many python programs, the code is easily readable and gives the specifics of the implementation.
+where *script_name.py* is the name of the script to be run, and [options] is a list of options available to each script file.  A brief description of the most commonly used scripts, their execution syntax, and runtime options are included below. Users are encouraged to look at the source code of the python scripts. As with many Python programs, the code is easily readable and gives the specifics of the implementation. They can also be used as templates for writing your own scripts for automating SU2 tasks.
 
-### Analysis Scripts 
+### Parallel Computation Script (parallel_computation.py)
 
-Parallel Computation Script (parallel_computation.py)
-The parallel computation script, parallel_computation.py, coordinates the steps necessary to run SU2_CFD in parallel. The script first calls SU2_DDC, which, in turn, uses METIS to decompose the computational domain into a specified number of sub-problems. The script then calls SU2_CFD in parallel using mpirun with the indicated number of processors, sending each decomposed domain to its correspondingly-ranked MPI process. At the conclusion of the simulation, the parallel_computation.py script stitches the decomposed solutions back together by executing the merge_solution.py script, and deletes the decomposed domains and input files.
-Usage: $ python parallel_computation.py [options]
+The parallel computation script, parallel_computation.py, coordinates the steps necessary to run SU2_CFD in parallel. The script first calls SU2_PRT, which, in turn, uses METIS to partition the computational domain into a specified number of sub-problems. The script then calls SU2_CFD in parallel (using MPI) with the indicated number of ranks, sending each partitioned piece of the domain to its correspondingly-ranked MPI process. At the conclusion of the simulation, the parallel_computation.py script generates the solution files from the restart file written during execution by calling the SU2_SOL module. Note that during parallel execution, only restart files are written by SU2_CFD, not solution files, in order to reduce the overhead associated with I/O for large calculations. The SU2_SOL module can be executed at any time (in serial or parallel) to generate solution files in a specified format from a restart file and corresponding mesh.
+
+Usage: `$ python parallel_computation.py [options]`
+
 Options:
--h, --help show this help message and exit
--f FILE, --file=FILE read config from FILE
--p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
--d DIVIDE, --divide=DIVIDE DIVIDE the numerical grid using SU2_DDC
-Design Scripts
+* -h, --help show this help message and exit
+* -f FILE, --file=FILE read config from FILE
+* -p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
+* -d DIVIDE, --divide=DIVIDE DIVIDE the numerical grid using SU2_DDC
 
-Continuous Adjoint Gradient Calculation (continuous_adjoint.py)
-The continuous adjoint calculation script, continuous_adjoint.py, automates the procedure for calculating sensitivities using the SU2 suite using adjoint methods. The script calls SU2_CFD to first run a direct analysis to obtain a converged solution, then calls SU2_CFD again to run an adjoint analysis on the converged flow solution to obtain surface sensitivities. Perturbations in the design variables are made, then the SU2_GPC module is called to project the design variable perturbations onto the surface sensitivities calculated in the adjoint solution to arrive at the gradient of the objective function with respect to the specified design variables.
-Usage: $ python continuous_adjoint.py [options]
-Options:
--h, --help show this help message and exit
--f FILE, --file=FILE read config from FILE
--p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
--c COMPUTE, --compute=COMPUTE direct and adjoint problem (False only runs SU2_GPC)
--s STEP, --step=STEP finite difference STEP
+### Continuous Adjoint Gradient Calculation (continuous_adjoint.py)
 
-Finite Difference Gradient Calculation (finite_differences.py)
-The finite difference calculation script, finite_difference.py, is used to calculate the gradient of an objective function with respect to specified design variables using a finite difference method. This script calls SU2_CFD repeatedly, perturbing the input design variables, and storing gradient values.
-Usage: $ python finite_differences.py [options]
-Options:
--h, --help show this help message and exit
--f FILE, --file=FILE read config from FILE
--p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
--s STEP, --step=STEP finite difference STEP
--q QUIET, --quiet=QUIET, if True, output to log files 
+The continuous adjoint calculation script, continuous_adjoint.py, automates the procedure for calculating sensitivities using the SU2 suite using adjoint methods. The script calls SU2_CFD to first run a direct analysis to obtain a converged solution, then calls SU2_CFD again to run an adjoint analysis on the converged flow solution to obtain surface sensitivities. The SU2_DOT module is then called to project design variable perturbations onto the surface sensitivities calculated in the adjoint solution to arrive at the gradient of the objective function with respect to the specified design variables.
 
-Shape Optimization Script (shape_optimization.py)
-The shape optimization script, shape_optimization.py, coordinates and synchronizes the steps necessary to run a shape optimization problem using the design variables and objective function specified in the configuration file. The optimization is handled using Scipy's BFGS or SLSQP optimization algorithms. Objective functions (drag, lift, etc.) are determined running a direct flow solution in SU2_CFD and gradients are obtained using the adjoint solution. For each iteration in the design process, the mesh is deformed using SU2_MDC, and the analysis is repeated until a local optimum is reached.
-Usage: $ python shape_optimization.py [options]
+Usage: `$ python continuous_adjoint.py [options]`
+
 Options:
--h, --help show this help message and exit
--f FILE, --file=FILE read config from FILE
--n NAME, --name=NAME try to restart from project file NAME
--p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
--g GRADIENT, --gradient=GRADIENT Method for computing the GRADIENT (ADJOINT, FINDIFF, NONE)
--q QUIET, --quiet=QUIET True/False Quiet all SU2 output (optimizer output only)
--c CYCLE, --cycle=CYCLE number of mesh adaptation CYCLEs
--i ITER, --its=ITER number of ITERations
--s STEP, --step=STEP finite difference STEP
+* -h, --help show this help message and exit
+* -f FILE, --file=FILE read config from FILE
+* -p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
+* -c COMPUTE, --compute=COMPUTE direct and adjoint problem (False only runs SU2_GPC)
+* -s STEP, --step=STEP finite difference STEP
+
+### Finite Difference Gradient Calculation (finite_differences.py)
+
+The finite difference calculation script, finite_difference.py, is used to calculate the gradient of an objective function with respect to specified design variables using a finite difference method. This script calls SU2_CFD repeatedly, perturbing the input design variables and mesh using SU2_DEF, and stores the gradient values.
+
+Usage: `$ python finite_differences.py [options]`
+
+Options:
+* -h, --help show this help message and exit
+* -f FILE, --file=FILE read config from FILE
+* -p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
+* -s STEP, --step=STEP finite difference STEP
+* -q QUIET, --quiet=QUIET, if True, output to log files 
+
+### Shape Optimization Script (shape_optimization.py)
+
+The shape optimization script, shape_optimization.py, coordinates and synchronizes the steps necessary to run a shape optimization problem using the design variables and objective function specified in the configuration file. The optimization is handled using SciPy's BFGS or SLSQP optimization algorithms. Objective functions (drag, lift, etc.) are determined by running a direct flow solution in SU2_CFD, and gradients are obtained using the adjoint solution by default. For each iteration in the design process, the mesh is deformed using SU2_DEF, and the sequence is repeated until a local optimum is reached.
+
+Usage: `$ python shape_optimization.py [options]`
+
+Options:
+* -h, --help show this help message and exit
+* -f FILE, --file=FILE read config from FILE
+* -n NAME, --name=NAME try to restart from project file NAME
+* -p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
+* -g GRADIENT, --gradient=GRADIENT Method for computing the GRADIENT (ADJOINT, FINDIFF, NONE)
+* -q QUIET, --quiet=QUIET True/False Quiet all SU2 output (optimizer output only)
+* -c CYCLE, --cycle=CYCLE number of mesh adaptation CYCLEs
+* -i ITER, --its=ITER number of ITERations
+* -s STEP, --step=STEP finite difference STEP
