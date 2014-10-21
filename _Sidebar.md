@@ -2,6 +2,7 @@
 * [[Quick Start]]
 * [[User Docs]]
   * [[Software Components]]
+  * [[Download]]
   * [[Installation]]
     * [[Build from Source]]
     * [[Windows Installation]]
