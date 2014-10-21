@@ -2,8 +2,13 @@ The following pages contain user docs for the SU2 software suite. This guide pro
 
 This guide does not give the details of the implementation and structure of the source code. However, some of that information is available in the developer docs, and we are in the process of creating more content and training materials for developers. The pages below are ideal for new users looking to do analysis and design, using features already implemented in the software.
 
-- [[Download]]
-- [[Installation]]
-- [[Input Files]]
-  - [[Configuration File]]
-  - [[Mesh Files]]
+* [[Software Components]]
+* [[Download]]
+* [[Installation]]
+  * [[Build from Source]]
+  * [[Windows Installation]]
+* [[Input Files]]
+  * [[Configuration File]]
+  * [[Mesh File]]
+* [[Execution]]
+* [[Post-processing]]
