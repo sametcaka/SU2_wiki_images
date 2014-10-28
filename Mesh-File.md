@@ -12,9 +12,7 @@ The SU2 mesh format carries an extension of .su2, and the files are in a readabl
 
 Consider the following simple, 2-D mesh for a square domain consisting of 8 triangular elements. It will be used to explain the .su2 mesh format.
 
-```
-SU2 > Mesh files > square.png (square.png)
-```
+![Square Mesh Example](http://su2.stanford.edu/github_wiki/square.png)
 
 The first line of the .su2 mesh declares the dimensionality of the problem. SU2 can handle 2-D or 3-D geometries. As a note, for 2D simulations, it is recommended that a truly 2D mesh is used (no z-coordinates) rather than a quasi-2D mesh (one or more cells deep in the third dimension with symmetry boundary conditions). For the 2D square mesh, the dimension is defined as follows: 
 
