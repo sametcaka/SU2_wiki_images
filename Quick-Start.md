@@ -87,7 +87,7 @@ Next, we want to run the adjoint solution to get the sensitivity of the objectiv
 
 The following figures were created in Tecplot using the SU2 results. These results are contained in the flow.dat, surface_flow.dat, adjoint.dat, and surface_adjoint.dat files.
 
-Flow Solution
+#### Flow Solution
 
 ![NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/naca0012_pressure.png)
 Figure (2): Pressure contours around the NACA 0012 airfoil.
@@ -95,7 +95,7 @@ Figure (2): Pressure contours around the NACA 0012 airfoil.
 ![NACA 0012 Pressure Distribution](http://su2.stanford.edu/github_wiki/naca0012_cp.png)
 Figure (3): Coefficient of pressure distribution along the airfoil surface. Notice the strong shock on the upper surface (top line) and a weaker shock along the lower surface (bottom line).
 
-Adjoint Solution
+#### Adjoint Solution
 
 ![NACA 0012 Adjoint Density](http://su2.stanford.edu/github_wiki/naca0012_psirho.png)
 Figure (4): Contours of the adjoint density variable.
