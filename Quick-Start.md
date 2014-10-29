@@ -37,7 +37,8 @@ The aim is to find the flow solution and the adjoint solution with respect to an
 
 The unstructured mesh provided is in the native .su2 format. It consists of 10,216 triangular cells, 5,233 points, and two boundaries (or "markers") named *airfoil* and *farfield*. The airfoil surface uses a flow-tangency Euler wall boundary condition, while the farfield uses a standard characteristic-based boundary condition. The figure below gives a view of the mesh.
 
-SU2 > Quick Start Tutorial > mesh.png (mesh.png)
+![NACA 0012 Mesh](http://su2.stanford.edu/github_wiki/naca0012_mesh.png)
+Figure (1): Far-field and zoom view of the computational mesh.
 
 ### Configuration File Options
 
@@ -88,16 +89,18 @@ The following figures were created in Tecplot using the SU2 results. These resul
 
 Flow Solution
 
-SU2 > Quick Start Tutorial > pressure.png (pressure.png)
+![NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/naca0012_pressure.png)
 Figure (2): Pressure contours around the NACA 0012 airfoil.
-SU2 > Quick Start Tutorial > naca0012_Cp.png (naca0012_Cp.png)
+
+![NACA 0012 Pressure Distribution](http://su2.stanford.edu/github_wiki/naca0012_cp.png)
 Figure (3): Coefficient of pressure distribution along the airfoil surface. Notice the strong shock on the upper surface (top line) and a weaker shock along the lower surface (bottom line).
 
 Adjoint Solution
 
-SU2 > Quick Start Tutorial > psirho.png (psirho.png)
+![NACA 0012 Adjoint Density](http://su2.stanford.edu/github_wiki/naca0012_psirho.png)
 Figure (4): Contours of the adjoint density variable.
-SU2 > Quick Start Tutorial > naca0012_sensitivity.png (naca0012_sensitivity.png)
+
+![NACA 0012 Surface Sensitivity](http://su2.stanford.edu/github_wiki/naca0012_sensitivity.png)
 Figure (5): Surface sensitivities. The surface sensitivity is the change in the objective function due to an infinitesimal deformation of the surface in the local normal direction. These values are calculated at each node on the airfoil surface from the flow and adjoint solutions at negligible computational cost.
 
 Congratulations! You've successfully performed your first flow simulations with SU2. Move on to the tutorials to learn much more about using the code, and don't forget to read through the information in the user's guide. Having problems with the quick start or visualizing the results?  Visit the FAQs page, or see our forum at CFD-online.
