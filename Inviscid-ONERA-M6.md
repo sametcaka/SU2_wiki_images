@@ -1,3 +1,5 @@
+![ONERA M6 Cp](http://su2.stanford.edu/github_wiki/oneram6_cp.png)
+
 ## Goals
 
 Upon completing this tutorial, the user will be familiar with performing a simulation of external, inviscid flow around a 3D geometry. The specific geometry chosen for the tutorial is the classic ONERA M6 wing. Consequently, the following capabilities of SU2 will be showcased in this tutorial:
