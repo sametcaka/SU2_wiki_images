@@ -61,10 +61,10 @@ SU2 can output solution files in the .vtk (ParaView), .dat (Tecplot ASCII), and 
 ### Running SU2
 
 The first step in this tutorial is to solve the Euler equations:
-1. Create a directory in which to run the tutorial. Copy the config file (inv_NACA0012.cfg) and the mesh file (mesh_NACA0012_inv.su2) to this directory. Navigate to this directory in a terminal.
-2. Run the executable by entering "SU2_CFD inv_NACA0012.cfg" at the command line.
-3. SU2 will print residual updates with each iteration of the flow solver, and the simulation will finish after reaching the specified convergence criteria.
-4. Files containing the flow results (with "flow" in the file name) will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat or .plt). More specifically, these files are:
+ 1. Create a directory in which to run the tutorial. Copy the config file (inv_NACA0012.cfg) and the mesh file (mesh_NACA0012_inv.su2) to this directory. Navigate to this directory in a terminal.
+ 2. Run the executable by entering "SU2_CFD inv_NACA0012.cfg" at the command line.
+ 3. SU2 will print residual updates with each iteration of the flow solver, and the simulation will finish after reaching the specified convergence criteria.
+ 4. Files containing the flow results (with "flow" in the file name) will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat or .plt). More specifically, these files are:
   - **flow.dat** or **flow.vtk** - full volume flow solution.
   - **surface_flow.dat** or **surface_flow.vtk** - flow solution along the airfoil surface.
   - **surface_flow.csv** - comma separated values (.csv) file containing values along the airfoil surface.
