@@ -1,3 +1,5 @@
+![Channel Mach](http://su2.stanford.edu/github_wiki/channel_mach.png)
+
 ## Goals
 
 Upon completing this tutorial, the user will be familiar with performing a simulation of internal, inviscid flow through a 2D geometry. The specific geometry chosen for the tutorial is a channel with a bump along the lower wall. Consequently, the following capabilities of SU2 will be showcased in this tutorial:
@@ -35,7 +37,7 @@ There is also a set of inlet/outlet conditions for transonic flow available in t
 
 The channel is of length 3L, height L, with a circular bump centered along the lower wall with height 0.1L. For the SU2 mesh, L = 1.0 was chosen, as seen in the figure of the mesh below. The mesh is made up of quadrilaterals with 256 nodes along the length of the channel and 128 nodes along the height. The following figure contains a view of the mesh (coarser mesh shown for clarity).
 
-![Channel Mesh](http://su2.stanford.edu/github_wiki/channel_mesh.png)
+![Channel Mesh](http://su2.stanford.edu/github_wiki/channel_mesh_bcs.png)
 Figure (1): The computational mesh with boundary conditions highlighted.
 
 The boundary conditions for the channel are also highlighted in the figure. Inlet, outlet, and Euler wall boundary conditions are used. The Euler wall boundary condition enforces flow tangency at the upper and lower walls. It is important to note that the subsonic inlet and outlet boundary conditions are based on characteristic information, meaning that only certain flow quantities can be specified at the inlet and outlet. In SU2, the stagnation temperature, stagnation pressure, and a unit vector describing the incoming flow direction must all be specified (the density and velocity, or mass flow, can also be specified). At an exit boundary, only the static pressure is required. These options are explained in further detail below under configuration file options. If there are multiple inlet or outlet boundaries for a problem, this information can be specified for each additional boundary by continuing the lists under the MARKER_INLET or MARKER_OUTLET specifications.
