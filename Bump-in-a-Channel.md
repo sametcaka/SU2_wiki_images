@@ -110,3 +110,7 @@ The channel simulation for the 256x128 node mesh will execute on a single workst
 
 The following images show some SU2 results for the inviscid channel problem.
 
+SU2 > Tutorial 1 - Bump in a Channel > mach.png
+Figure (2): Mach number contours for the 2-D channel.
+SU2 > Tutorial 1 - Bump in a Channel > pressure.png
+Figure (3): Pressure contours for the 2-D channel.
