@@ -72,11 +72,11 @@ The first step in this tutorial is to solve the Euler equations:
   - **history.dat** or **history.csv** - file containing the convergence history information.
 
 Next, we want to run the adjoint solution to get the sensitivity of the objective function (the drag over the airfoil) to conditions within the flow:
-1. Open the config file and change the parameter MATH_PROBLEM from DIRECT to ADJOINT, and save this file.
-2. Rename the restart file (restart_flow.dat) to "solution_flow.dat" so that the adjoint code has access to the direct flow solution.
-3. Run the executable again by entering "./SU2_CFD inv_NACA0012.cfg" at the command line.
-4. SU2 will print residual updates with each iteration of the flow solver, and the simulation will finish after reaching the specified convergence criteria.
-5. Files containing the adjoint results (with "adjoint" in the file name) will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat or .plt). More specifically, these files are:
+ 1. Open the config file and change the parameter MATH_PROBLEM from DIRECT to ADJOINT, and save this file.
+ 2. Rename the restart file (restart_flow.dat) to "solution_flow.dat" so that the adjoint code has access to the direct flow solution.
+ 3. Run the executable again by entering "./SU2_CFD inv_NACA0012.cfg" at the command line.
+ 4. SU2 will print residual updates with each iteration of the flow solver, and the simulation will finish after reaching the specified convergence criteria.
+ 5. Files containing the adjoint results (with "adjoint" in the file name) will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat or .plt). More specifically, these files are:
   - **adjoint.dat** or **adjoint.vtk** - full volume adjoint solution.
   - **surface_adjoint.dat** or **surface_adjoint.vtk** - adjoint solution along the airfoil surface.
   - **surface_adjoint.csv** - comma separated values (.csv) file containing values along the airfoil surface.
