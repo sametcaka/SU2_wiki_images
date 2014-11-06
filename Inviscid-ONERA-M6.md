@@ -35,10 +35,10 @@ These transonic flow conditions will cause the typical "lambda" shock along the 
 
 The computational domain is a large parallelepiped with the wing half-span on one boundary in the x-z plane. The mesh consists of 582,752 tetrahedral elements and 108,396 nodes. Three boundary conditions are employed: Euler wall on the wing surface, the far-field characteristic-based condition on the far-field markers, and a symmetry boundary condition for the marker where the wing half-span is attached. The symmetry condition acts to mirror the flow about the x-z plane, reducing the complexity of the mesh and the computational cost. Images of the entire domain and the triangular elements on the wing surface are shown below.
 
-SU2 > Tutorial 2 - Inviscid ONERA M6 > mesh&bcs.png (mesh&bcs.png)
+![ONERA M6 Mesh](http://su2.stanford.edu/github_wiki/oneram6_mesh_bcs.png)
 Figure (1): Far-field view of the computational mesh with boundary conditions.
 
-SU2 > Tutorial 2 - Inviscid ONERA M6 > wing_mesh.png (wing_mesh.png)
+![ONERA M6 Surface Mesh](http://su2.stanford.edu/github_wiki/oneram6_wing_mesh.png)
 Figure (2): Close-up view of the unstructured mesh on the top surface of the ONERA M6 wing.
 
 ### Configuration File Options
@@ -119,14 +119,14 @@ If SU2 has been built with parallel support, the recommended method for running 
 
 Results are here given for the SU2 solution of inviscid flow over the ONERA M6 wing.
 
-SU2 > Tutorial 2 - Inviscid ONERA M6 > cp.png (cp.png)
+![ONERA M6 Cp](http://su2.stanford.edu/github_wiki/oneram6_cp.png)
 Figure (3): Cp contours on the upper surface of the ONERA M6.
 
-SU2 > Tutorial 2 - Inviscid ONERA M6 > mach.png (mach.png)
+![ONERA M6 Mach](http://su2.stanford.edu/github_wiki/oneram6_mach.png)
 Figure (4): Mach number contours on the upper surface of the ONERA M6 wing. Notice the "lambda" shock pattern typically seen on the upper surface.
 
-SU2 > Tutorial 2 - Inviscid ONERA M6 > coefficients.png (coefficients.png)
+![ONERA M6 Coefficients](http://su2.stanford.edu/github_wiki/oneram6_coefficients.png)
 Figure (5): Convergence of the non-dimensional coefficients (agglomeration rate 1/5.5, and 1/4.3).
 
-SU2 > Tutorial 2 - Inviscid ONERA M6 > convergence.png (convergence.png)
+![ONERA M6 Convergence](http://su2.stanford.edu/github_wiki/oneram6_convergence.png)
 Figure (6): Convergence of the density residual (speed up x21.5, iteration based, log(Res(ρ)) = -6.6).
