@@ -101,10 +101,10 @@ There are three different types of criteria for terminating a simulation in SU2:
 ### Running SU2
 
 The channel simulation for the 256x128 node mesh will execute on a single workstation or laptop, and this case will be run in a serial fashion. To run this test case, follow these steps at a terminal command line:
-1. Move to the directory containing the config file (inv_channel.cfg) and the mesh file (mesh_channel_256x128.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
-2. Run the executable by entering "SU2_CFD inv_channel.cfg" at the command line.
-3. SU2 will print residual updates with each iteration of the flow solver, and the simulation will finish after reaching the specified convergence criteria.
-4. Files containing the results will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat for ASCII). To visualize the flow solution in ParaView update the OUTPUT_FORMAT setting in the configuration file.
+1 Move to the directory containing the config file (inv_channel.cfg) and the mesh file (mesh_channel_256x128.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
+2 Run the executable by entering "SU2_CFD inv_channel.cfg" at the command line.
+3 SU2 will print residual updates with each iteration of the flow solver, and the simulation will finish after reaching the specified convergence criteria.
+4 Files containing the results will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat for ASCII). To visualize the flow solution in ParaView update the OUTPUT_FORMAT setting in the configuration file.
 
 ### Results
 
