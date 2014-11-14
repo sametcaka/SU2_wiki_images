@@ -1,3 +1,5 @@
+![Wedge Mach](http://su2.stanford.edu/github_wiki/wedge_mach.png)
+
 ## Goals
 
 Upon completing this tutorial, the user will be familiar with performing a simulation of supersonic, inviscid flow over a 2-D geometry. The specific geometry chosen for the tutorial is a simple wedge. Consequently, the following capabilities of SU2 will be showcased in this tutorial:
@@ -32,7 +34,7 @@ This problem will solve for the flow over the wedge with these conditions:
 
 The wedge mesh is a structured mesh (75x50) of rectangular elements with a total of 3,750 nodes. The lower wall of the geometry is solid and has a 10o wedge starting at x = 0.5. Figure (1) shows the mesh with the boundary markers and flow conditions highlighted.
 
-SU2 > Tutorial 9 - Inviscid Supersonic Wedge > mesh&bcs.png (mesh&bcs.png)
+![Wedge Mach](http://su2.stanford.edu/github_wiki/wedge_mesh_bcs.png)
 Figure (1): The computational mesh with boundary conditions highlighted.
 
 For this test case, the inlet and upper markers will be set to the far-field boundary condition, while the outlet marker will be set to the outlet condition. In supersonic flow, all characteristics point into the domain at the entrance (inlet & upper), so all flow quantities can be specified (no information travels upstream). This justifies the use of the far-field condition at these boundaries. At the exit, however, all characteristics are outgoing, meaning that no information about the exit conditions is required. Therefore, the outlet marker is set to the outlet boundary condition which, in supersonic flow, simply extrapolates the flow variables from the interior domain to the exit. In short, any back pressure can be supplied to the MARKER_OUTLET boundary condition in the configuration file, because it is ignored for this specific supersonic case.
@@ -98,8 +100,8 @@ The wedge simulation is small and will execute quickly on a single workstation o
 
 The following images show some SU2 results for the supersonic wedge problem.
 
-SU2 > Tutorial 9 - Inviscid Supersonic Wedge > wedge_mach.png (wedge_mach.png)
+![Wedge Mach](http://su2.stanford.edu/github_wiki/wedge_mach.png)
 Figure (2): Mach contours showing the oblique shock for supersonic flow over a wedge.
 
-SU2 > Tutorial 9 - Inviscid Supersonic Wedge > wedge_pressure.png (wedge_pressure.png)
+![Wedge Pressure](http://su2.stanford.edu/github_wiki/wedge_pressure.png)
 Figure (3): Pressure contours (N/m2) for supersonic flow over a wedge.
