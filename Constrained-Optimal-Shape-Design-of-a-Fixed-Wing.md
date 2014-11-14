@@ -1,4 +1,4 @@
-![Opt. ONERA Orig](http://su2.stanford.edu/github_wiki/opt_onera_orignal.jpg)
+![Opt. ONERA Orig](http://su2.stanford.edu/github_wiki/opt_onera_original.jpg)
 
 ## Goals
 
