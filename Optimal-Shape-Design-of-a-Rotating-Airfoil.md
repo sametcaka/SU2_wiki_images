@@ -1,3 +1,5 @@
+![Rotating NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/rotating_pressure.png)
+
 ## Goals
 
 Upon completing this tutorial, the user will be familiar with performing an optimal shape design of a 2D geometry. The initial geometry chosen for the tutorial is a NACA 0012 airfoil that is rotating at transonic speed in inviscid fluid. This tutorial is mean to be an introduction for using the components of SU2 for shape design. Consequently, the following SU2 tools will be showcased in this tutorial:
@@ -22,14 +24,14 @@ This example uses a 2D airfoil geometry (initially the NACA 0012) which is rotat
 
 This numerical experiment for the rotating airfoil was set up such that transonic shocks would appear on the upper and lower surfaces causing drag. The goal of the design process is to minimize the coefficient of drag (Cd) by changing the shape of the airfoil with a constraint on the thickness of the airfoil. In other words, we would like to eliminate the shocks along the airfoil surface. The details of the rotating airfoil experiment are given in Figure (1).
 
-SU2 > Tutorial 7 - Optimal Shape Design of a Rotating Airfoil > experiment.png (experiment.png)
+![Rotating NACA 0012 Experiment](http://su2.stanford.edu/github_wiki/rotating_experiment.png)
 Figure (1): Details for the rotating airfoil numerical experiment.
 
 ### Mesh Description
 
 The mesh from the Quick Start Tutorial is used again here as the initial geometry. It consists of a far-field boundary and an Euler wall along the airfoil surface. The specific airfoil is the NACA 0012, and more information on this airfoil can be found in the Quick Start Tutorial. The mesh can be seen in Figure (2).
 
-SU2 > Tutorial 7 - Optimal Shape Design of a Rotating Airfoil > mesh.png (mesh.png)
+![Rotating NACA 0012 Mesh](http://su2.stanford.edu/github_wiki/rotating_mesh.png)
 Figure (2): Far-field and zoom view of the initial computational mesh.
 
 ### Configuration File Options
@@ -93,20 +95,20 @@ To run this design case, follow these steps at a terminal command line:
 
 ### Results
 
-SU2 > Tutorial 7 - Optimal Shape Design of a Rotating Airfoil > mach.png (mach.png)
+![Rotating NACA 0012 Mach](http://su2.stanford.edu/github_wiki/rotating_mach.png)
 Figure (3): Mach number contours for the airfoil rotating in still air.
 
-SU2 > Tutorial 7 - Optimal Shape Design of a Rotating Airfoil > psi_density.png (psi_density.png)
+![Rotating NACA 0012 Adjoint](http://su2.stanford.edu/github_wiki/rotating_psi_density.png)
 Figure (4): Adjoint density contours on the initial design.
 
-SU2 > About > pressure.png (pressure.png)
+![Rotating NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/rotating_pressure.png)
 Figure (5): Pressure contours showing transonic shocks on the initial design.
 
-SU2 > Tutorial 7 - Optimal Shape Design of a Rotating Airfoil > final_contour.png
+![Rotating NACA 0012 Final Contour](http://su2.stanford.edu/github_wiki/rotating_final_contour.png)
 Figure (6): Pressure contours around the final airfoil design with MAX_THICKNESS > 0.12. Note that the shocks have essentially been removed during the design process.
 
-SU2 > Tutorial 7 - Optimal Shape Design of a Rotating Airfoil > final_cp.png
+![Rotating NACA 0012 Final Cp](http://su2.stanford.edu/github_wiki/rotating_final_cp.png)
 Figure (7): Cp distribution and profile shape comparison for the initial and final airfoil designs.
 
-SU2 > Tutorial 7 - Optimal Shape Design of a Rotating Airfoil > final_history.png
+![Rotating NACA 0012 Final History](http://su2.stanford.edu/github_wiki/rotating_final_history.png)
 Figure (8): Function evaluation history.
