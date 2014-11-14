@@ -1,3 +1,5 @@
+![Cylinder Mach](http://su2.stanford.edu/github_wiki/cylinder_mach.png)
+
 ## Goals
 
 Upon completing this tutorial, the user will be familiar with performing a simulation of external, laminar flow around a 2D geometry. The specific geometry chosen for the tutorial is a cylinder. Consequently, the following capabilities of SU2 will be showcased:
@@ -35,7 +37,7 @@ This problem will solve the for the external flow over the cylinder with these c
 
 The problem geometry is two-dimensional. The mesh has 26,192 triangular elements. It is fine near the surface of the cylinder to resolve the boundary layer. The exterior boundary is approximately 15 diameters away from the cylinder surface to avoid interaction between the boundary conditions. Far-field boundary conditions are used at the outer boundary. No-slip boundary conditions are placed on the surface of the cylinder. 
 
-SU2 > Tutorial 4 - Laminar Cylinder > Mesh.png (Mesh.png)
+![Cylinder Mesh](http://su2.stanford.edu/github_wiki/cylinder_mesh.png)
 Figure (1): The computational mesh for the 2D cylinder test case. 
 
 The outer boundary in red is the far-field, and the small circle in the center is the cylinder which uses the Navier-Stokes Wall boundary condition.
@@ -72,11 +74,11 @@ The cylinder simulation for the 13,336 node mesh is small and will execute relat
 
 The following results show the flow around the cylinder as calculated by SU2 (note that these were for a slightly higher Mach number of 0.3).
 
-SU2 > Tutorial 4 - Laminar Cylinder > pressure.png (pressure.png)
+![Cylinder Pressure](http://su2.stanford.edu/github_wiki/cylinder_pressure.png)
 Figure (2): Pressure contours around the cylinder.
 
-SU2 > Tutorial 4 - Laminar Cylinder > lam_visc.png (lam_visc.png)
+![Cylinder Viscosity](http://su2.stanford.edu/github_wiki/cylinder_lam_viscosity.png)
 Figure (3): Laminar viscosity contours for this steady, low Reynolds number flow.
 
-SU2 > Tutorial 4 - Laminar Cylinder > mach.png (mach.png)
+![Cylinder Mach](http://su2.stanford.edu/github_wiki/cylinder_mach.png)
 Figure (4): Mach number contours around the cylinder with streamlines. Note the large laminar separation region behind the cylinder at Re = 40.
