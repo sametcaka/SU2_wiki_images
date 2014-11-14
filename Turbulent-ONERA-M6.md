@@ -1,3 +1,5 @@
+![Turb ONERA Pressure](http://su2.stanford.edu/github_wiki/turb_onera_pressure.png)
+
 ## Goals
 
 Upon completing this tutorial, the user will be familiar with performing a simulation of external, viscous flow around a 3D geometry using a turbulence model. The specific geometry chosen for the tutorial is the classic ONERA M6 wing. Consequently, the following capabilities of SU2 will be showcased in this tutorial:
@@ -35,10 +37,10 @@ These transonic flow conditions will cause the typical "lambda" shock along the 
 
 The computational domain is a large C-type mesh with the wing half-span on one boundary in the x-z plane. The mesh consists of 43,008 interior elements and 46,417 nodes. Three boundary conditions are employed: the Navier-Stokes wall condition on the wing surface, the far-field characteristic-based condition on the far-field markers, and a symmetry boundary condition for the marker where the wing half-span is attached. The symmetry condition acts to mirror the flow about the x-z plane, reducing the size of the mesh and the computational cost. Images of the entire domain and the structured, rectangular elements on the wing surface are shown below.
 
-SU2 > Tutorial 6 - Turbulent ONERA M6 > mesh&bcs.png (mesh&bcs.png)
+![Turb ONERA Mesh](http://su2.stanford.edu/github_wiki/turb_onera_mesh_bcs.png)
 Figure (1): Far-field view of the computational mesh.
 
-SU2 > Tutorial 6 - Turbulent ONERA M6 > surface_mesh.png (surface_mesh.png)
+![Turb ONERA Surface Mesh](http://su2.stanford.edu/github_wiki/turb_onera_surface_mesh.png)
 Figure (2): Close-up view of the structured surface mesh on the upper wing surface.
 
 ### Configuration File Options
@@ -118,9 +120,9 @@ If SU2 has been built with parallel support, the recommended method for running 
 
 Results are here given for the SU2 solution of turbulent flow over the ONERA M6 wing.
 
-SU2 > Tutorial 6 - Turbulent ONERA M6 > cp_a.jpg (cp_a.jpg)
-SU2 > Tutorial 6 - Turbulent ONERA M6 > cp_b.jpg (cp_b.jpg)
-SU2 > Tutorial 6 - Turbulent ONERA M6 > cp_c.jpg (cp_c.jpg)
-SU2 > Tutorial 6 - Turbulent ONERA M6 > cp_d.jpg (cp_d.jpg)
+![Turb ONERA Cp A](http://su2.stanford.edu/github_wiki/turb_onera_cp_a.png)
+![Turb ONERA Cp B](http://su2.stanford.edu/github_wiki/turb_onera_cp_b.png)
+![Turb ONERA Cp C](http://su2.stanford.edu/github_wiki/turb_onera_cp_c.png)
+![Turb ONERA Cp D](http://su2.stanford.edu/github_wiki/turb_onera_cp_d.png)
 
 Figure (3): Comparison of Cp profiles of the experimental results of Schmitt and Carpin (red squares) against SU2 computational results (blue line) at different sections along the span of the wing. (a) y/b = 0.2, (b) y/b = 0.65, (c) y/b = 0.8, (d) y/b = 0.95.
