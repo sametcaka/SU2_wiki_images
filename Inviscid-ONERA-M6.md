@@ -26,10 +26,10 @@ This test case is for the ONERA M6 wing in inviscid flow. The ONERA M6 wing was 
 
 ### Problem Setup
 This problem will solve the for the flow past the wing with these conditions:
-Freestream Pressure = 101325.0 N/m2
-Freestream Temperature = 273.15 K
-Freestream Mach number = 0.8395
-Angle of attack (AoA) = 3.06 deg
+- Freestream Pressure = 101325.0 N/m2
+- Freestream Temperature = 273.15 K
+- Freestream Mach number = 0.8395
+- Angle of attack (AoA) = 3.06 deg
 
 These transonic flow conditions will cause the typical "lambda" shock along the upper surface of the lifting wing.
 
