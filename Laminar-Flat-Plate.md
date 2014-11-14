@@ -51,7 +51,7 @@ Figure (1): Figure of the computational mesh with boundary conditions.
 
 Because the flow is subsonic and disturbances caused by the presence of the plate can propagate both upstream and downstream, the characteristic-based, subsonic inlet and outlet boundary conditions are used for the flow entrance plane (red) and the outflow regions along the upper region of the domain and the exit plane at x = 0.3048 m (blue). In any simulation of viscous flow, it is important to capture the behavior of the boundary layer. Doing so requires an appropriate level of grid refinement near the wall. In this mesh, the vertical spacing is such that approximately 30 grid nodes lie within the boundary layer, which is typical for laminar flows of this nature.
 
-Configuration File Options
+### Configuration File Options
 
 Several of the key configuration file options for this simulation are highlighted here. Here, we set the problem definition for a viscous flow:
 ```
@@ -103,7 +103,6 @@ LIMITER_COEFF= 0.3
 For this problem, we are choosing a typical set of numerical methods. However, it is advised that users should experiment with various numerical methods for their own problems. The gradients are calculated via weighted least squares. The 2nd-order Roe upwind method with the Venkatakrishnan limiter is used for computing convective fluxes, and the viscous terms are computed with the corrected average of gradients method (by default). A limiter coefficient of 0.3 is typical, but the user is also advised to experiment with the level of limiting for their particular application (note that a smaller value of the coefficient implies larger limiting of the gradients).
 
 SU2 features multiple ways to assess convergence:
-
 ```
 %
 % Convergence criteria (CAUCHY, RESIDUAL)
