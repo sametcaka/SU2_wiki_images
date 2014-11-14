@@ -9,6 +9,7 @@ Upon completing this tutorial, the user will be familiar with performing a simul
 - Roe 2nd-order numerical scheme in space
 - Euler implicit time integration
 - Inlet, Outlet, and Navier-Stokes Wall boundary conditions
+
 In this tutorial, we perform our first RANS simulation with the Spalart-Allmaras (SA) turbulence model.
 
 ## Resources
