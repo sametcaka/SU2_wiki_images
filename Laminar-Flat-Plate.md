@@ -1,4 +1,4 @@
-![Laminar Flat Plate](http://su2.stanford.edu/github_wiki/.png)
+![Lam Plate Profile](http://su2.stanford.edu/github_wiki/lam_plate_velocity_profile.png)
 
 ## Goals
 
