@@ -1,3 +1,5 @@
+![Opt. ONERA Orig](http://su2.stanford.edu/github_wiki/opt_onera_orignal.jpg)
+
 ## Goals
 
 Upon completing this tutorial, the user will be familiar with performing an optimal shape design of a 3D geometry. The initial geometry chosen for the tutorial is a ONERA M6 fixed wing at transonic speed in inviscid fluid. The following SU2 tools will be showcased in this tutorial:
@@ -49,10 +51,10 @@ The goal of the design process is to minimize the coefficient of drag (Cd) by ch
 
 The mesh consists of a far-field boundary divided in three surfaces (XNORMAL_FACES, ZNORMAL_FACES, YNORMAL_FACES), an Euler wall divided in three surfaces (UPPER_SIDE, LOWER_SIDE, TIP) and a symmetry plane (SYMMETRY_FACE). The specific wing is the ONERA M6, and more information on this simulation can be found in the configuration file. The surface mesh can be seen in Figure (1).
  
-SU2 > Tutorial 8 - Constrained Optimal Shape Design of a Fixed Wing > grid.jpg (grid.jpg)
+![Opt. ONERA Grid](http://su2.stanford.edu/github_wiki/opt_onera_grid.jpg)
 Figure (1): View of the initial surface computational mesh.
 
-SU2 > Tutorial 8 - Constrained Optimal Shape Design of a Fixed Wing > FFD.jpg (FFD.jpg)
+![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/opt_onera_ffd.jpg)
 Figure (2): View of the initial FFD box, control points and the surface mesh.
  
 The mesh file that is provided for this test case already contains the FFD information. However, if you are interested in repeating this process for your own design cases, it is necessary to calculate the position of the control points and the parametric coordinates. To do so, follow these steps at a terminal command line after defining the tags, degrees, and corner points for your FFD box (we'll use the ONERA M6 as an example):
@@ -123,11 +125,11 @@ A continuous adjoint methodology for obtaining surface sensitivities is implemen
 
 The following are representative results for this transonic shape design example with the ONERA M6 geometry as a baseline.
 
-SU2 > Tutorial 8 - Constrained Optimal Shape Design of a Fixed Wing > original.jpg (original.jpg)
+![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/opt_onera_original.jpg)
 Figure (3): Pressure contours showing transonic shocks on the initial design.
 
-SU2 > Tutorial 8 - Constrained Optimal Shape Design of a Fixed Wing > designed.jpg (designed.jpg)
+![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/opt_onera_designed.jpg)
 Figure (4): Pressure contours around the final airfoil design (Reduced shocks).
 
-SU2 > Tutorial 8 - Constrained Optimal Shape Design of a Fixed Wing > history.jpg (history.jpg)
+![Opt. ONERA History](http://su2.stanford.edu/github_wiki/opt_onera_history.jpg)
 Figure (5): Optimization history.
