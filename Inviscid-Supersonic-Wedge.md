@@ -8,6 +8,7 @@ Upon completing this tutorial, the user will be familiar with performing a simul
 - JST numerical scheme in space
 - Euler implicit time integration
 - Far-field, Outlet, and Euler Wall boundary conditions
+
 The intent of this tutorial is to introduce a simple, inviscid flow problem that will allow users to become familiar with using a CGNS mesh. This will require SU2 to be built with CGNS support, and some new options in the configuration file related to CGNS meshes will be discussed.
 
 ## Resources
