@@ -9,6 +9,7 @@ Upon completing this tutorial, the user will be familiar with performing a simul
 - Euler implicit time integration
 - Navier-Stokes Wall, Symmetry, and Far-field boundary conditions
 - Code parallelism (optional)
+
 This tutorial also provides an explanation for properly setting up viscous, 3D flow conditions in SU2.
 
 ## Resources
@@ -31,6 +32,7 @@ This problem will solve the for the flow past the wing with these conditions:
 - Angle of attack (AoA) = 3.06 deg
 - Reynolds number = 11720000.0
 - Reynolds length = 0.64607 m
+
 These transonic flow conditions will cause the typical "lambda" shock along the upper surface of the lifting wing.
 
 ### Mesh Description
