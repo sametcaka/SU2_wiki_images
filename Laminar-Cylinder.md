@@ -77,7 +77,7 @@ The following results show the flow around the cylinder as calculated by SU2 (no
 ![Cylinder Pressure](http://su2.stanford.edu/github_wiki/cylinder_pressure.png)
 Figure (2): Pressure contours around the cylinder.
 
-![Cylinder Viscosity](http://su2.stanford.edu/github_wiki/cylinder_lam_viscosity.png)
+![Cylinder Viscosity](http://su2.stanford.edu/github_wiki/cylinder_lam_visc.png)
 Figure (3): Laminar viscosity contours for this steady, low Reynolds number flow.
 
 ![Cylinder Mach](http://su2.stanford.edu/github_wiki/cylinder_mach.png)
