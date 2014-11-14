@@ -1,3 +1,5 @@
+![Turb Plate Uplus v Yplus](http://su2.stanford.edu/github_wiki/turb_plate_uplus_vs_yplus.png)
+
 ## Goals
 
 Upon completing this tutorial, the user will be familiar with performing a simulation of external, turbulent flow over a flat plate. Consequently, the following capabilities of SU2 will be verified against other codes and validated against theoretical results in this tutorial:
@@ -33,7 +35,7 @@ The length of the flat plate is 2 meters, and it is represented by an adiabatic 
 
 The mesh used for this tutorial, which consists of 13,056 rectangular elements, is shown below.
 
-SU2 > Tutorial 5 - Turbulent Flat Plate > flatplate_turb_mesh.png (flatplate_turb_mesh.png)
+![Turb Plate Mesh](http://su2.stanford.edu/github_wiki/turb_plate_mesh_bcs.png)
 Figure (1): Mesh with boundary conditions (inlet, outlet, symmetry, wall).
 
 ### Configuration File Options
@@ -63,11 +65,11 @@ To run this test case, follow these steps at a terminal command line:
 
 The figures below show results obtained from SU2 and compared to several results from NASA codes. Note that the SU2 results for the skin friction correspond to the coarser mesh (mesh_flatplate_turb_137x97.su2) while the NASA results are based on the finer mesh (mesh_flatplate_turb_545x385.su2). SU2 still matches very closely.
 
-SU2 > Tutorial 5 - Turbulent Flat Plate > nu_tilde.png (nu_tilde.png)
+![Turb Plate Nu Tilde](http://su2.stanford.edu/github_wiki/turb_plate_nu_tilde.png)
 Figure (2): Contour of turbulence variable (nu-hat).
 
-SU2 > Tutorial 5 - Turbulent Flat Plate > skin_friction.png (skin_friction.png)
+![Turb Plate Cf](http://su2.stanford.edu/github_wiki/turb_plate_skin_friction.png)
 Figure (3): Profile for the skin friction coefficient. 
 
-SU2 > Tutorial 5 - Turbulent Flat Plate > uplus_vs_yplus.png (uplus_vs_yplus.png)
+![Turb Plate Uplus v Yplus](http://su2.stanford.edu/github_wiki/turb_plate_uplus_vs_yplus.png)
 Figure (4): Velocity profile comparison against law of the wall.
