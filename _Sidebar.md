@@ -12,7 +12,7 @@
   * [[Execution]]
   * [[Post-processing]]
 * [[User Tutorials]]
-  * [[Inviscid Bump in a Channel]]
+  * [[Bump in a Channel]]
   * [[Inviscid Supersonic Wedge]]
   * [[Inviscid ONERA M6]]
   * [[Laminar Flat Plate]]
