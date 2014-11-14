@@ -1,10 +1,10 @@
 ## Goals
 
 Upon completing this tutorial, the user will be familiar with performing an optimal shape design of a 2D geometry. The initial geometry chosen for the tutorial is a NACA 0012 airfoil that is rotating at transonic speed in inviscid fluid. This tutorial is mean to be an introduction for using the components of SU2 for shape design. Consequently, the following SU2 tools will be showcased in this tutorial:
-- SU2_CFD - performs the direct and the adjoint flow simulations
-- SU2_DOT - projects the adjoint surface sensitivities into the design space to obtain the gradient
-- SU2_DEF - deforms the geometry and mesh with changes in the design variables during the shape optimization process
-- shape_optimization.py - automates the entire shape design process by executing the SU2 tools and optimizer
+- **SU2_CFD** - performs the direct and the adjoint flow simulations
+- **SU2_DOT** - projects the adjoint surface sensitivities into the design space to obtain the gradient
+- **SU2_DEF** - deforms the geometry and mesh with changes in the design variables during the shape optimization process
+- **shape_optimization.py** - automates the entire shape design process by executing the SU2 tools and optimizer
 
 ## Resources
 
