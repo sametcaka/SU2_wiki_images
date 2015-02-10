@@ -9,7 +9,7 @@
   * [[Input Files]]
     * [[Configuration File]]
     * [[Mesh File]]
-    *[[Example FFD Setup with Nesting]]
+    * [[Example FFD Setup with Nesting]]
   * [[Execution]]
   * [[Post-processing]]
 * [[User Tutorials]]
