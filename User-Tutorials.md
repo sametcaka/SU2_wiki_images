@@ -2,7 +2,7 @@ Instead of writing a very detailed user manual, the approach has been taken to t
 
 Now, get to work:
 
-* [[Bump in a Channel]]
+* [[Inviscid Bump in a Channel]]
 * [[Inviscid ONERA M6]]
 * [[Laminar Flat Plate]]
 * [[Laminar Cylinder]]
