@@ -22,6 +22,7 @@
   * [[Turbulent ONERA M6]]
   * [[Optimal Shape Design of a Rotating Airfoil]]
   * [[Constrained Optimal Shape Design of a Fixed Wing]]
+* [[FAQ]]
 * [[Developer Docs]]
   * [[Code Structure]]
   * [[Style Guide]]
