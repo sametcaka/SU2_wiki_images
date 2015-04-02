@@ -23,6 +23,7 @@ The code has not been compiled with parallel support. Refer to the installation 
 * The conservative variables and the residuals refer to the quantities conserved in the flow equations: density, momentum, and energy. [\rho, \rho u, \rho v, \rho w, \rho e]. 
 * The primitive variables refer to density, velocity, pressure, etc.
 * They are referred to as "conservative" and "primitive" to allow different solvers to use the same structure without confusion - rather than vary the name, the length and the values are varied. For example, in the RANS solver additional turbulent terms are needed, and in the incompressible solver fewer primitive variables are required. 
+* Residuals are printed in log10 format, and indicate how close the solver is to satisfying the governing equations. Convergence is usually determined by a desired reduction in the residual - a reduction of "6" would mean the residual is 10^-6 of its initial value. 
 
 ##### Help! I just updated the code from a version that previously worked for me, and now there is an error. What do I do?
 * Easy fix: read the error output. If it says that there is an unrecognized config file option, remove the associated line from the config file. Note that the config options may change between code releases to allow more control, use new features, or simplify the config file. 
