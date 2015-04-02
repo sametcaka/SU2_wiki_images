@@ -1,0 +1,5 @@
+Frequently Asked Questions
+* What are Conservative_1, Conservative_2, etc? What about Residual[0], Residual[1], etc? What about Primitive[0], etc? Why don't you use the flow variables I'm used to?
+ * The conservative variables and the residuals refer to the quantities conserved in the flow equations: density, momentum, and energy. [\rho, \rho u, \rho v, \rho w, \rho e]. 
+ * The primitive variables refer to density, velocity, pressure, etc.
+ * They are referred to as "conservative" and "primitive" to allow different solvers to use the same structure without confusion - rather than vary the name, the length and the values are varied. For example, in the RANS solver additional turbulent terms are needed, and in the incompressible solver fewer primitive variables are required: only pressure and velocity. 
