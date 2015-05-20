@@ -127,4 +127,6 @@ It is important to note that SU2 will not use any specific boundary conditions t
 
 ## Third-Party Mesh Software
 
-We are continuously working to integrate SU2 with industry-standard tools.  We currently have an output plugin for the Pointwise(R) meshing software.  This custom addition allows users of Pointwise version 17.00 and later to directly output their meshes in the native SU2 format.  The plugin is available natively within recent versions of Pointwise (V17.0R2 or later), and the source code for the plugin can also be found in the Mesh_Tools/ folder within the root of the SU2 source directory. CGNS files created by a number of other meshing packages have been successfully tested and used, such as those from ICEM CFD, for instance.
+We are continuously working to integrate SU2 with industry-standard tools.  We currently have an output plugin for the Pointwise(R) meshing software.  This custom addition allows users of Pointwise version 17.00 and later to directly output their meshes in the native SU2 format.  The plugin is available natively within recent versions of Pointwise (V17.0R2 or later), and the source code for the plugin can also be found in the Mesh_Tools/ folder within the root of the SU2 source directory. 
+
+In addition, a number of other packages support direct output to the SU2 format, such as GMSH and CENTAUR. CGNS files created by a number of other meshing packages have been successfully tested and used, such as those from ICEM CFD, for instance.
