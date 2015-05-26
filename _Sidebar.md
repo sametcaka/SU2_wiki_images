@@ -25,5 +25,6 @@
 * [[Developer Docs]]
   * [[Code Structure]]
   * [[Style Guide]]
+  * [[Developing SU2 on GitHub]]
 * [[License]]
 * [[Contact]]
