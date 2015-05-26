@@ -18,7 +18,7 @@ After cloning, you should have a new SU2/ folder in your current working directo
 git log
 ```
 
-\section*{\TitleFont{Typical Workflow with Git}}
+## Typical Workflow with Git
 
 Now that you have a local copy of SU2 from the GitHub repository, you can begin to make changes to the codebase. This section gives an example of the typical workflow for making changes to the code, committing them locally, and then pushing your changes to the remote GitHub repository. The basic steps are as follows:
  
@@ -50,7 +50,7 @@ git pull origin master
 git push origin master 
 ```
 
-\section*{\TitleFont{Branching in Git}}
+## Branching in Git
 
 The ease of code branching is a major feature in Git. Branches are parallel versions of the code that allow for decentralized development of particular features or fixes. In this manner, an individual or team can easily switch between developing different features in the code and merge them into the master version when ready (this can also help avoid conflicts). In fact, while not mentioned above, the master version of the code is simply a branch like any other. To see the branches in your local repository, type
 \begin{verbatim}
