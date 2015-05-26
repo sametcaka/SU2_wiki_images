@@ -117,7 +117,7 @@ git checkout feature_new
 ```
 
 5. Merge the local version of the master branch that you just updated into your local version of `feature\_new' and fix any conflicts if necessary.
-``
+```
 git merge master
 ```
 
