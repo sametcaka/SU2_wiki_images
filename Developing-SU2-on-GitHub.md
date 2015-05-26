@@ -26,18 +26,15 @@ Now that you have a local copy of SU2 from the GitHub repository, you can begin 
 ```
 git add file1.cpp file2.cpp
 ```
-
 2. Check that your changes have been registered and/or the files that you want have been added added
 ```
 git status 
 ```
-
 3. Commit the changes to your local repository (not the
 global repository on GitHub) and leave a short descriptive message about your change. 
 ```
 git commit -am "Added some files."
 ```
-
 4. Merge local and global repositories.
 This command will attempt to merge your version of the code with the global
 version. Near the end of the merge process, git will tell you if everything has
@@ -48,7 +45,6 @@ chevrons like this \texttt{>>>>>>} and \texttt{<<<<<<}. Note that, if you experi
 ```
 git pull origin master
 ```
-
 5. Push the final version of the code to the global repository on GitHub (the remote repository is named `origin' by default). The changes you have made will now be available to all, and they will also be almost immediately reflected on the SU2 page on GitHub.
 ```
 git push origin master 
