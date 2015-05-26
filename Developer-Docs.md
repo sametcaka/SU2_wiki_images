@@ -6,3 +6,4 @@ Check out the pages below:
 
 * [[Code Structure]]
 * [[Style Guide]]
+* [[Developing SU2 on GitHub]]
