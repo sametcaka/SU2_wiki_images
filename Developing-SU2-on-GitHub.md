@@ -1,62 +1,58 @@
 The repository for SU2 is being hosted on here on GitHub. As you are likely aware, GitHub is simply an online project hosting service with a very useful web interface and additional tools to aid code development with Git as its backbone. Git is a version control system (VCS) which is similar to SVN, Mercurial, etc., and it helps organize the development of code over time by tracking changes. 
 
-To get started, you need to create a personal user account on GitHub (free) and follow the basic setup instructions at
-\url{https://help.github.com/articles/set-up-git}. These instructions include how to get Git installed on your local machine. To sync up your local settings with GitHub, change the user.email and user.name variables for your local git configuration with
-\begin{verbatim}git config --global user.email "your_email@domain.com" 
+To get started, you need to create a personal user account on GitHub (free) and follow the [basic setup instructions](https://help.github.com/articles/set-up-git). These instructions include how to get Git installed on your local machine. To sync up your local settings with GitHub, change the user.email and user.name variables for your local git configuration with
+```
+git config --global user.email "your_email@domain.com" 
 git config --global user.name "Your Name"
-\end{verbatim}
+```
 Note that the email address should be the one associated with your GitHub account.
 
-SU2 is an open-source repository that can be found as part of the \emph{su2code} organization on GitHub, and the main page for the project is located here: \url{https://github.com/su2code}. The web interface is useful for viewing the recent commits to the code, changes to the code over time, or creating and viewing branches, for instance. To contribute to SU2, an administrator for the project must add you as a member of the developer team with push and pull privileges. 
+SU2 is an open-source repository that can be found as part of the [**su2code** organization on GitHub](https://github.com/su2code). The web interface is useful for viewing the recent commits to the code, changes to the code over time, documentation and tutorials, or for creating and viewing branches, for instance. To contribute to SU2 directly, an administrator for the project must add you as a member of the developer team with push and pull privileges. However, we encourage all developers to fork the repository and to submit pull requests with their interesting new features that they would like included in the code. We regularly review pull requests as a development team.
 
 Most of the day-to-day development of the code will be done on your local machine at the command line using Git. After setting up Git and gaining access to the SU2 repository, create a local copy of the entire repository on your machine by cloning the version that is hosted on GitHub:
-\begin{verbatim}
+```
 git clone https://github.com/su2code/SU2.git
-\end{verbatim}
+```
 After cloning, you should have a new SU2/ folder in your current working directory. Move into SU2/ to see the project files and to start working with the code through Git. You can see the most recent changes by typing
-\begin{verbatim}
+```
 git log
-\end{verbatim}
+```
 
 \section*{\TitleFont{Typical Workflow with Git}}
 
 Now that you have a local copy of SU2 from the GitHub repository, you can begin to make changes to the codebase. This section gives an example of the typical workflow for making changes to the code, committing them locally, and then pushing your changes to the remote GitHub repository. The basic steps are as follows:
-
-\begin{enumerate}
  
- \item Make changes to the existing files (using your favorite text editor or integrated development environment, IDE) or add local files or folders to be tracked and compared against the global repo files
-\begin{verbatim}
+1. Make changes to the existing files (using your favorite text editor or integrated development environment, IDE) or add local files or folders to be tracked and compared against the global repo files
+```
 git add file1.cpp file2.cpp
-\end{verbatim}
+```
 
-\item Check that your changes have been registered and/or the files that you want have been added added
-\begin{verbatim}
+2. Check that your changes have been registered and/or the files that you want have been added added
+```
 git status 
-\end{verbatim}\hline
+```
 
-\item Commit the changes to your local repository (not the
+3. Commit the changes to your local repository (not the
 global repository on GitHub) and leave a short descriptive message about your change. 
-\begin{verbatim}
+```
 git commit -am "Added some files."
-\end{verbatim}
+```
 
-\item Merge local and global repositories.
- This command will attempt to merge your version of the code with the global
+4. Merge local and global repositories.
+This command will attempt to merge your version of the code with the global
 version. Near the end of the merge process, git will tell you if everything has
 been merged successfully. If there are conflicts, it will tell you the files
 that contain the conflicts. You must then navigate to these files, open them,
 and resolve the issues. The conflicting regions of code are delimited with
-chevrons like this \texttt{>>>>>>>>>>>>>>>} and \texttt{<<<<<<<<<<<<<<}. Note that, if you experience and resolve conflicts, you will need to perform an additional local commit of the resolved files afterwards.
-\begin{verbatim}
+chevrons like this \texttt{>>>>>>} and \texttt{<<<<<<}. Note that, if you experience and resolve conflicts, you will need to perform an additional local commit of the resolved files afterwards.
+```
 git pull origin master
-\end{verbatim}
+```
 
-\item Push the final version of the code to the global repository on GitHub (the remote repository is named `origin' by default). The changes you have made will now be available to all, and they will also be almost immediately reflected on the SU2 page on GitHub.
-\begin{verbatim}
+5. Push the final version of the code to the global repository on GitHub (the remote repository is named `origin' by default). The changes you have made will now be available to all, and they will also be almost immediately reflected on the SU2 page on GitHub.
+```
 git push origin master 
-\end{verbatim}
-
-\end{enumerate}
+```
 
 \section*{\TitleFont{Branching in Git}}
 
