@@ -22,11 +22,11 @@ git log
 
 Now that you have a local copy of SU2 from the GitHub repository, you can begin to make changes to the codebase. This section gives an example of the typical workflow for making changes to the code, committing them locally, and then pushing your changes to the remote GitHub repository. The basic steps are as follows:
  
-1 Make changes to the existing files (using your favorite text editor or integrated development environment, IDE) or add local files or folders to be tracked and compared against the global repo files
+1.  Make changes to the existing files (using your favorite text editor or integrated development environment, IDE) or add local files or folders to be tracked and compared against the global repo files
 ```
 git add file1.cpp file2.cpp
 ```
-2 Check that your changes have been registered and/or the files that you want have been added added
+2.  Check that your changes have been registered and/or the files that you want have been added added
 ```
 git status 
 ```
