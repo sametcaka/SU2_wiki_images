@@ -50,95 +50,87 @@ git push origin master
 ## Branching in Git
 
 The ease of code branching is a major feature in Git. Branches are parallel versions of the code that allow for decentralized development of particular features or fixes. In this manner, an individual or team can easily switch between developing different features in the code and merge them into the master version when ready (this can also help avoid conflicts). In fact, while not mentioned above, the master version of the code is simply a branch like any other. To see the branches in your local repository, type
-\begin{verbatim}
+```
 git branch
-\end{verbatim}
+```
 The branch name with an asterisk is the current working branch. One can add branches locally or globally to the remote repository on GitHub that can be shared by all. Assume that a new branch named `feature\_new' has been created in the remote repository, either through the command line or through the GitHub web interface, and you would like to work on this feature. A typical workflow in this scenario might be:
 
-\begin{enumerate}
-
-\item Clone a fresh copy of SU2 or update your current version with the latest changes on the remote repository.
-\begin{verbatim}
+1. Clone a fresh copy of SU2 or update your current version with the latest changes on the remote repository.
+```
 git pull
-\end{verbatim}
+```
 If you would just like to make your local repository aware of changes in the remote (such as the addition of the `feature\_new' branch), but don't want any changes to local files, you can use
-\begin{verbatim}
+```
 git fetch
-\end{verbatim}
+```
 
-\item Create a local copy of the branch that is linked to the version on the remote repository,
-\begin{verbatim}
+2. Create a local copy of the branch that is linked to the version on the remote repository,
+```
 git checkout -b feature_new origin/feature_new
-\end{verbatim}
+```
 This command creates the local branch and switches your local working copy to the `feature\_new' branch. Note that you can not have any local edits or changes when switching between branches, so you should make a local commit of your changes (as described above), stash them, or revert all local changes in the repository by entering the following command in the root directory of the source distribution (i.e., SU2/),
-\begin{verbatim}
+```
 git checkout -- .
-\end{verbatim}
+```
 
-\item Check that you are now in the `feature\_new' branch with
-\begin{verbatim}
+3. Check that you are now in the `feature\_new' branch with
+```
 git branch
-\end{verbatim}
+```
 You should notice that the local copies of your files have seamlessly switched to their state under the `feature\_new' branch.
 
-\item Make some changes to the code and commit your changes to your local copy of the `feature\_new' branch as usual
-\begin{verbatim}
+4. Make some changes to the code and commit your changes to your local copy of the `feature\_new' branch as usual
+```
 git commit -am "Updates."
-\end{verbatim}
+```
 
-\item Merge local and remote versions of the branch and fix any conflicts if necessary,
-\begin{verbatim}
+5. Merge local and remote versions of the branch and fix any conflicts if necessary,
+```
 git pull origin feature_new
-\end{verbatim}
+```
 
-\item Push the final version of the code to the remote branch on GitHub to make it available to all,
-\begin{verbatim}
+6. Push the final version of the code to the remote branch on GitHub to make it available to all,
+```
 git push origin feature_new 
-\end{verbatim}
-
-\end{enumerate}
+```
 
 It is often the case that you would like to merge your branches back into the master branch after completing work on your new feature or bug fix. When developing features that may take an extended amount of time, it is a good idea to update your branch frequently with the recent changes in the master. This will make it much easier to merge the branches eventually and will help avoid conflicts and headaches when the time comes. Let's assume you are about to work on the `feature\_new' branch again, but would like to update it with the most recent work in the master branch. You could do the following (there are multiple ways to push/pull things between branches):
 
-\begin{enumerate}
-
-\item Move back over into your local copy of the master branch
-\begin{verbatim}
+1. Move back over into your local copy of the master branch
+```
 git checkout master
-\end{verbatim}
+```
 
-\item Check that you are back in the master branch with
-\begin{verbatim}
+2. Check that you are back in the master branch with
+```
 git branch
-\end{verbatim}
+```
 
-\item Pull the latest and greatest from the remote master branch on GitHub. Your local copy of the master branch now has all recent changes that can be shared with other local branches.
-\begin{verbatim}
+3. Pull the latest and greatest from the remote master branch on GitHub. Your local copy of the master branch now has all recent changes that can be shared with other local branches.
+```
 git pull origin master
-\end{verbatim}
+```
 
-\item Switch back over to your local copy of the `feature\_new' branch
-\begin{verbatim}
+4. Switch back over to your local copy of the `feature\_new' branch
+```
 git checkout feature_new
-\end{verbatim}
+```
 
-\item Merge the local version of the master branch that you just updated into your local version of `feature\_new' and fix any conflicts if necessary.
-\begin{verbatim}
+5. Merge the local version of the master branch that you just updated into your local version of `feature\_new' and fix any conflicts if necessary.
+``
 git merge master
-\end{verbatim}
+```
 
-\item Make code changes, merge with the remote `feature\_new' branch, and push to the remote `feature\_new' branch like usual
-\begin{verbatim}
+6. Make code changes, merge with the remote `feature\_new' branch, and push to the remote `feature\_new' branch like usual
+```
 git commit -am "More updates."
 git pull origin feature_new
 git push origin feature_new 
-\end{verbatim}
-
-\end{enumerate}
+```
 
 Note that this process could be more direct by pulling from the remote master straight from within your local copy of the `feature\_new' branch. Again, there are multiple ways of updating and merging that involve pushing and pulling between different branches that may be local or remote.
 
 Lastly, once you are finished developing your new feature and have merged your work from the `feature\_new' branch into the master, you can delete the branch from the remote repository with
-\begin{verbatim}
+```
 git push origin :feature_new
-\end{verbatim}
+```
