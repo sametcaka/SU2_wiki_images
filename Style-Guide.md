@@ -74,7 +74,7 @@ The following naming conventions for variables must be used:
 - Elementary functions that set or get the value of a variable (e.g. Number) must be called as GetNumber(), or GetNumber(). Function names start with a capital letter and have a capital letter for each new word, with no underscores.
 - Variable names are all lowercase, with underscores between words.
 - The name for all the classes must start with the capital "C" letter, followed by the name of the class (capitalizing the first letter), if the name is composed by several words, all the words must be together, e.g.: CPrimalGrid.
-- All the variables that are defined in a class must be commented using /*< \brief \________.*/.
+- All the variables that are defined in a class must be commented using /\*< \brief \________.\*/.
 
 ### Comments
 
