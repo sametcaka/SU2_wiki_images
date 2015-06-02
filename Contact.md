@@ -7,3 +7,9 @@ Users are encouraged to join the SU2 user's email list. This list will be used t
 Users and outside developers of SU2 who have questions not addressed in the User's Guide, Developer's Guide, or FAQs pages, can contact the ADL development team or posting your question in our forum at CFD online: http://www.cfd-online.com/Forums/su2/
 
 Also, if you are an external developer with additional features you would like to share with the community, have feature requests, or general comments on the implementation of the code, your feedback is appreciated.
+
+### SU2 Forum at CFD Online and GitHub
+
+Users and outside developers of SU2 who have questions not addressed in the User's Guide, Developer's Guide, or FAQs pages, please post the question in the CFD online forum.
+
+If you find an error in SU2 or would like to submit a feature request, please use the issue tracker on the SU2 GitHub page at:
