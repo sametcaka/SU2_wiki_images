@@ -82,8 +82,8 @@ If you would just like to make your local repository aware of changes in the rem
     ```
     git checkout -b feature_new origin/feature_new
     ```
-
 This command creates the local branch and switches your local working copy to the `feature\_new' branch. Note that you can not have any local edits or changes when switching between branches, so you should make a local commit of your changes (as described above), stash them, or revert all local changes in the repository by entering the following command in the root directory of the source distribution (i.e., SU2/),
+
     ```
     git checkout -- .
     ```
