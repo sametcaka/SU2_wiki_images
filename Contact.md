@@ -6,7 +6,7 @@ Users are encouraged to join the SU2 user's email list. This list will be used t
 ### Join the SU2 Developer Team
 The SU2 community continues to grow rapidly, and together, we are making a measurable, worldwide impact on CFD. Now it's time to tap into our collective expertise, creativity, and coding skills to take SU2 to the next level.
 
-Developers interested in getting involved should check the [develop page](file:///Users/anilvariyar/Documents/Website_sample/develop.html) for instructions on how to get started!
+Developers interested in getting involved should check the [develop page](http://su2.stanford.edu/develop.html) for instructions on how to get started!
 
 Also, if you are an external developer with additional features you would like to share with the community, have feature requests, or general comments on the implementation of the code, your feedback is appreciated.
 
