@@ -1,8 +1,15 @@
 ## Downloading SU2
 
-SU2 is available for download under the GNU Lesser General Public License (LGPL) v2.1. Please refer to the License page for terms and conditions. Source code tar files are available for download, along with pre-compiled binary executables for selected platforms (Mac/Linux/Windows).
-* The pre-compiled binary executables can be downloaded from http://su2.stanford.edu/download.html.
-* Using a git client you may clone into the repository. On a Linux/Unix/Mac system with the standard git client, this can be done by executing  
+SU2 is available for download under the GNU Lesser General Public License (LGPL) v2.1. Please refer to the License page for terms and conditions. 
+
+### SU2 code and Binaries
+Source code tar files are available for download, along with pre-compiled binary executables for selected platforms (Mac/Linux/Windows).
+
+####Binaries
+The pre-compiled binary executables can be downloaded from http://su2.stanford.edu/download.html.
+
+####From Github
+Using a git client you may clone into the repository. On a Linux/Unix/Mac system with the standard git client, this can be done by executing  
 
 $ git clone https://github.com/su2code/SU2  
 
@@ -13,12 +20,14 @@ $ svn checkout https://github.com/su2code/SU2/trunk
 
 You may also browse the code on [github](https://github.com/su2code) directly. A link on the right hand side provides the option to download the code repository as a ZIP file.
 
-* Test cases (configuration and mesh files) are included in a separate distribution, now available on [GitHub](https://github.com/su2code/TestCases) and can be accessed using  
+### Testcases
+Test cases (configuration and mesh files) are included in a separate distribution, now available on [GitHub](https://github.com/su2code/TestCases) and can be accessed using  
 
 $ git clone https://github.com/su2code/TestCases.git  
 
 The can also be downloaded along with the pre-compiled binary files using the link specified above. 
 If you would like to run our tutorial cases or experiment with some other available cases, be sure to download these additional files.
+
 * Release Notes are available for major and interim releases.
 * The development team looks forward to your feedback. Please join the SU2 community by subscribing to the user's mailing list to receive important updates about the code, and send your feedback directly to the developers through the developer's mailing list. See the [Contact](http://su2.stanford.edu/contact.html) page for details on the mailing lists.
 
