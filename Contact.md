@@ -12,4 +12,4 @@ Also, if you are an external developer with additional features you would like t
 
 Users and outside developers of SU2 who have questions not addressed in the User's Guide, Developer's Guide, or FAQs pages, please post the question in the CFD online forum. [http://www.cfd-online.com/Forums/su2/](http://www.cfd-online.com/Forums/su2/)
 
-If you find an error in SU2 or would like to submit a feature request, please use the issue tracker on the SU2 GitHub page at:
+If you find an error in SU2 or would like to submit a feature request, please use the issue tracker on the SU2 GitHub page at: [https://github.com/su2code/SU2/issues](https://github.com/su2code/SU2/issues)
