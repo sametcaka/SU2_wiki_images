@@ -64,7 +64,7 @@ The ease of code branching is a major feature in Git. Branches are parallel vers
 ```
 git branch
 ```
-The branch name with an asterisk is the current working branch. One can add branches locally or globally to the remote repository on GitHub that can be shared by all. Assume that a new branch named `feature\_new' has been created in the remote repository, either through the command line or through the GitHub web interface, and you would like to work on this feature. A typical workflow in this scenario might be:
+The branch name with an asterisk is the current working branch. One can add branches locally or globally to the remote repository on GitHub that can be shared by all. Assume that a new branch named 'feature\_new' has been created in the remote repository, either through the command line or through the GitHub web interface, and you would like to work on this feature. A typical workflow in this scenario might be:
 
 1. Clone a fresh copy of SU2 or update your current version with the latest changes on the remote repository.
 
@@ -84,21 +84,21 @@ If you would just like to make your local repository aware of changes in the rem
     git checkout -b feature_new origin/feature_new
     ```
 
-This command creates the local branch and switches your local working copy to the `feature\_new' branch. Note that you can not have any local edits or changes when switching between branches, so you should make a local commit of your changes (as described above), stash them, or revert all local changes in the repository by entering the following command in the root directory of the source distribution (i.e., SU2/),
+This command creates the local branch and switches your local working copy to the 'feature\_new' branch. Note that you can not have any local edits or changes when switching between branches, so you should make a local commit of your changes (as described above), stash them, or revert all local changes in the repository by entering the following command in the root directory of the source distribution (i.e., SU2/),
 
     ```
     git checkout -- .
     ```
 
-3. Check that you are now in the `feature\_new' branch with
+3. Check that you are now in the 'feature\_new' branch with
 
     ```
     git branch
     ```
 
-You should notice that the local copies of your files have seamlessly switched to their state under the `feature\_new' branch.
+You should notice that the local copies of your files have seamlessly switched to their state under the 'feature\_new' branch.
 
-4. Make some changes to the code and commit your changes to your local copy of the `feature\_new' branch as usual
+4. Make some changes to the code and commit your changes to your local copy of the 'feature\_new' branch as usual
 
     ```
     git commit -am "Updates."
@@ -116,7 +116,7 @@ You should notice that the local copies of your files have seamlessly switched t
     git push origin feature_new 
     ```
 
-It is often the case that you would like to merge your branches back into the master branch after completing work on your new feature or bug fix. When developing features that may take an extended amount of time, it is a good idea to update your branch frequently with the recent changes in the master. This will make it much easier to merge the branches eventually and will help avoid conflicts and headaches when the time comes. Let's assume you are about to work on the `feature\_new' branch again, but would like to update it with the most recent work in the master branch. You could do the following (there are multiple ways to push/pull things between branches):
+It is often the case that you would like to merge your branches back into the master branch after completing work on your new feature or bug fix. When developing features that may take an extended amount of time, it is a good idea to update your branch frequently with the recent changes in the master. This will make it much easier to merge the branches eventually and will help avoid conflicts and headaches when the time comes. Let's assume you are about to work on the 'feature\_new' branch again, but would like to update it with the most recent work in the master branch. You could do the following (there are multiple ways to push/pull things between branches):
 
 1. Move back over into your local copy of the master branch
 
