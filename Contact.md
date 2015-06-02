@@ -3,8 +3,10 @@ Users are encouraged to join the SU2 user's email list. This list will be used t
 
 [Join the List!](https://mailman.stanford.edu/mailman/listinfo/su2code-users)
 
-### SU2 Developer's Mailing List
-Users and outside developers of SU2 who have questions not addressed in the User's Guide, Developer's Guide, or FAQs pages, can contact the ADL development team or posting your question in our forum at CFD online: http://www.cfd-online.com/Forums/su2/
+### Join the SU2 Developer Team
+The SU2 community continues to grow rapidly, and together, we are making a measurable, worldwide impact on CFD. Now it's time to tap into our collective expertise, creativity, and coding skills to take SU2 to the next level.
+
+Developers interested in getting involved should check the [develop page](file:///Users/anilvariyar/Documents/Website_sample/develop.html) for instructions on how to get started!
 
 Also, if you are an external developer with additional features you would like to share with the community, have feature requests, or general comments on the implementation of the code, your feedback is appreciated.
 
