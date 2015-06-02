@@ -2,7 +2,7 @@
 
 SU2 is available for download under the GNU Lesser General Public License (LGPL) v2.1. Please refer to the License page for terms and conditions. Source code tar files are available for download, along with pre-compiled binary executables for selected platforms (Mac/Linux/Windows).
 * The pre-compiled binary executables can be downloaded from http://su2.stanford.edu/download.html.
-* Using a git client you may clone into the repository. On a Linux/Unix/Mac system with the standard git client, this can be done by executing -- 
+* Using a git client you may clone into the repository. On a Linux/Unix/Mac system with the standard git client, this can be done by executing
 $ git clone https://github.com/su2code/SU2
 or
 $ git clone https://github.com/su2code/SU2_EDU
@@ -17,7 +17,7 @@ $ git clone https://github.com/su2code/TestCases.git
 The can also be downloaded along with the pre-compiled binary files using the link specified above. 
 If you would like to run our tutorial cases or experiment with some other available cases, be sure to download these additional files.
 * Release Notes are available for major and interim releases.
-* The development team looks forward to your feedback. Please join the SU2 community by subscribing to the user's mailing list to receive important updates about the code, and send your feedback directly to the developers through the developer's mailing list. See the Contact page for details on the mailing lists.
+* The development team looks forward to your feedback. Please join the SU2 community by subscribing to the user's mailing list to receive important updates about the code, and send your feedback directly to the developers through the developer's mailing list. See the [Contact](http://su2.stanford.edu/contact.html) page for details on the mailing lists.
 
 ## Registering
 
