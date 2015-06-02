@@ -72,7 +72,8 @@ The branch name with an asterisk is the current working branch. One can add bran
     git pull
     ```
 
-If you would just like to make your local repository aware of changes in the remote (such as the addition of the `feature\_new' branch), but don't want any changes to local files, you can use
+If you would just like to make your local repository aware of changes in the remote (such as the addition of the 'feature\_new' branch), but don't want any changes to local files, you can use
+
     ```
     git fetch
     ```
@@ -82,6 +83,7 @@ If you would just like to make your local repository aware of changes in the rem
     ```
     git checkout -b feature_new origin/feature_new
     ```
+
 This command creates the local branch and switches your local working copy to the `feature\_new' branch. Note that you can not have any local edits or changes when switching between branches, so you should make a local commit of your changes (as described above), stash them, or revert all local changes in the repository by entering the following command in the root directory of the source distribution (i.e., SU2/),
 
     ```
