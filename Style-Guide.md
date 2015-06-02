@@ -85,7 +85,7 @@ The documentation, and comments must be Doxygen friendly, here I include some ba
 - In general the actual name of the variable should be descriptive enough to give a good idea of what the variable is used for.
 - In your implementation you should have comments in tricky, non-obvious, interesting, or important parts of your code.
 - Pay attention to punctuation, spelling, and grammar; it is easier to read well-written comments than badly written ones.
-- Short, and long comments must be in inside of /*--- (your comment here) ---*/, and they must be located just before the line to be commented.
+- Short, and long comments must be in inside of /\*--- (your comment here) ---\*/, and they must be located just before the line to be commented.
 - Math comments are welcome and should be in the Latex language.
 
 ### Debugger tools
