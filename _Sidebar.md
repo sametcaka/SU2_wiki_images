@@ -4,6 +4,7 @@
   * [[Software Components]]
   * [[Download]]
   * [[Installation]]
+    * [[Simple Build]]
     * [[Build from Source]]
     * [[Windows Installation]]
   * [[Input Files]]
