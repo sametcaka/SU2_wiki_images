@@ -5,6 +5,7 @@ This guide does not give the details of the implementation and structure of the 
 * [[Software Components]]
 * [[Download]]
 * [[Installation]]
+  * [[Simple build]]
   * [[Build from Source]]
   * [[Windows Installation]]
 * [[Input Files]]
