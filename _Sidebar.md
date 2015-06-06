@@ -7,6 +7,7 @@
     * [[Simple Build]]
     * [[Build from Source]]
     * [[Windows Installation]]
+    * [[Cygwin Build for Windows]]
   * [[Input Files]]
     * [[Configuration File]]
     * [[Mesh File]]
