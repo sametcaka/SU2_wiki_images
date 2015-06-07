@@ -2,7 +2,7 @@ Once downloaded and installed, SU2 will be ready to run simulations and design p
 
 ## C++ Modules
 
-As described in the [[Software Components]] page, there are a number of C++ modules that are the core of the SU2 suite. After compilation, each can be executed at the command line using a Unix-based terminal (or appropriate emulator, such as Cygwin). The executables for these modules can be found in the $SU2_HOME/<MODULE_NAME>/bin directories and in the $SU2_HOME/SU2Py directory.  The configuration file specifies the problem and solver parameters for all SU2 modules and must be included at runtime.
+As described in the [[Software Components]] page, there are a number of C++ modules that are the core of the SU2 suite. After compilation, each can be executed at the command line using a Unix-based terminal (or appropriate emulator, such as Cygwin). The executables for these modules can be found in the $SU2_HOME/<MODULE_NAME>/bin directories and in the $SU2_HOME/SU2_PY directory.  The configuration file specifies the problem and solver parameters for all SU2 modules and must be included at runtime.
 
 The syntax for running each C++ module individually in serial is:
 
@@ -12,7 +12,7 @@ where SU2_MODULE can be any of the C++ modules on the [[Software Components]] an
 
 `$ ./SU2_CFD default.cfg`
 
-where the executable, SU2_CFD, and the configuration file, config.cfg, are located in the current working directory.  Please see the Installation page for how you can set up environment variables to run the modules from any directory. Additionally, SU2 is a fully-parallel suite, and assuming that you have compiled with MPI support, each of the modules can be executed in parallel. For example, to run the CFD solver on 8 cores, you might enter:
+where the executable, SU2_CFD, and the configuration file, default.cfg, are located in the current working directory.  Please see the Installation page for how you can set up environment variables to run the modules from any directory. Additionally, SU2 is a fully-parallel suite, and assuming that you have compiled with MPI support, each of the modules can be executed in parallel. For example, to run the CFD solver on 8 cores, you might enter:
 
 `$ mpirun -n 8 SU2_CFD default.cfg`
 
@@ -37,8 +37,8 @@ Usage: `$ python parallel_computation.py [options]`
 Options:
 * -h, --help show this help message and exit
 * -f FILE, --file=FILE read config from FILE
-* -p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
-* -d DIVIDE, --divide=DIVIDE DIVIDE the numerical grid using SU2_DDC
+* -n PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
+* -c COMPUTE, --compute=COMPUTE COMPUTE direct and adjoint problem
 
 ### Continuous Adjoint Gradient Calculation (continuous_adjoint.py)
 
@@ -49,7 +49,7 @@ Usage: `$ python continuous_adjoint.py [options]`
 Options:
 * -h, --help show this help message and exit
 * -f FILE, --file=FILE read config from FILE
-* -p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
+* -n PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
 * -c COMPUTE, --compute=COMPUTE direct and adjoint problem (False only runs SU2_GPC)
 * -s STEP, --step=STEP finite difference STEP
 
@@ -62,9 +62,9 @@ Usage: `$ python finite_differences.py [options]`
 Options:
 * -h, --help show this help message and exit
 * -f FILE, --file=FILE read config from FILE
-* -p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
+* -n PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
 * -s STEP, --step=STEP finite difference STEP
-* -q QUIET, --quiet=QUIET, if True, output to log files 
+* -q QUIET, --quiet=QUIET, if True, output QUIET to log files 
 
 ### Shape Optimization Script (shape_optimization.py)
 
@@ -75,10 +75,7 @@ Usage: `$ python shape_optimization.py [options]`
 Options:
 * -h, --help show this help message and exit
 * -f FILE, --file=FILE read config from FILE
-* -n NAME, --name=NAME try to restart from project file NAME
-* -p PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
+* -r NAME, --name=NAME try to restart from project file NAME
+* -n PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
 * -g GRADIENT, --gradient=GRADIENT Method for computing the GRADIENT (ADJOINT, FINDIFF, NONE)
 * -q QUIET, --quiet=QUIET True/False Quiet all SU2 output (optimizer output only)
-* -c CYCLE, --cycle=CYCLE number of mesh adaptation CYCLEs
-* -i ITER, --its=ITER number of ITERations
-* -s STEP, --step=STEP finite difference STEP
