@@ -18,7 +18,7 @@ After cloning, you should have a new SU2/ folder in your current working directo
 git log
 ```
 
-## Typical Workflow with Git (
+## Typical Workflow with Git
 
 Now that you have a local copy of SU2 from the GitHub repository, you can begin to make changes to the codebase. This section gives an example of the typical workflow for making changes to the code, committing them locally, and then pushing your changes to the remote GitHub repository. 
 
