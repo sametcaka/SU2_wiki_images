@@ -36,7 +36,13 @@ Now that changes will be on top of the development branch, code changes can be m
     ```
     git checkout -b fixquadvol
     ```
-Additionally, create a branch with the same name on the SU2 github repository
+Additionally, create a branch with the same name on the SU2 github repository. First, make sure the current SU2 branch is set to develop
+
+Image here
+
+then create a new branch with the appropriate name.
+
+Image here
 
  
 1. Make changes to the existing files (using your favorite text editor or integrated development environment, IDE) or add local files or folders to be tracked and compared against the global repo files.
@@ -58,128 +64,19 @@ Additionally, create a branch with the same name on the SU2 github repository
 
 If a 2-D quadrilateral element is sufficiently skewed, the volume approximation is not computed properly. This modifies the volume computation to use the base and height of the quadrilateral instead of the base and hypotenuse. This fixes cases where the volume was incorrectly computed to be less than zero.
 
-Fixes issue -1."
+Fixes issue 10."
     ```
 
-4. Merge local and global repositories.
-This command will attempt to merge your version of the code with the global
-version. Near the end of the merge process, git will tell you if everything has
-been merged successfully. If there are conflicts, it will tell you the files
-that contain the conflicts. You must then navigate to these files, open them,
-and resolve the issues. The conflicting regions of code are delimited with
-chevrons like this `>>>>>>` and `<<<<<<`. Note that, if you experience and resolve conflicts, you will need to perform an additional local commit of the resolved files afterwards.
+4. Push the code to the online version of the branch
 
     ```
-    git pull origin develop
+    git push origin fixquadvol 
     ```
 
-5. Push the final version of the code to the global repository on GitHub (the remote repository is named `origin' by default). The changes you have made will now be available to all, and they will also be almost immediately reflected on the SU2 page on GitHub.
+5. This will automatically register on github, and you can use the online API to make a pull request
 
-    ```
-    git push origin master 
-    ```
+Image here
 
-## Branching in Git
+Image here
 
-The ease of code branching is a major feature in Git. Branches are parallel versions of the code that allow for decentralized development of particular features or fixes. In this manner, an individual or team can easily switch between developing different features in the code and merge them into the master version when ready (this can also help avoid conflicts). In fact, while not mentioned above, the master version of the code is simply a branch like any other. To see the branches in your local repository, type
-```
-git branch
-```
-The branch name with an asterisk is the current working branch. One can add branches locally or globally to the remote repository on GitHub that can be shared by all. Assume that a new branch named 'feature\_new' has been created in the remote repository, either through the command line or through the GitHub web interface, and you would like to work on this feature. A typical workflow in this scenario might be:
-
-1. Clone a fresh copy of SU2 or update your current version with the latest changes on the remote repository.
-
-    ```
-    git pull
-    ```
-
-    If you would just like to make your local repository aware of changes in the remote (such as the addition of the 'feature\_new' branch), but don't want any changes to local files, you can use
-
-    ```
-    git fetch
-    ```
-
-2. Create a local copy of the branch that is linked to the version on the remote repository,
-
-    ```
-    git checkout -b feature_new origin/feature_new
-    ```
-
-    This command creates the local branch and switches your local working copy to the 'feature\_new' branch. Note that you can not have any local edits or changes when switching between branches, so you should make a local commit of your changes (as described above), stash them, or revert all local changes in the repository by entering the following command in the root directory of the source distribution (i.e., SU2/),
-
-    ```
-    git checkout -- .
-    ```
-
-3. Check that you are now in the 'feature\_new' branch with
-
-    ```
-    git branch
-    ```
-
-    You should notice that the local copies of your files have seamlessly switched to their state under the 'feature\_new' branch.
-
-4. Make some changes to the code and commit your changes to your local copy of the 'feature\_new' branch as usual
-
-    ```
-    git commit -am "Updates."
-    ```
-
-5. Merge local and remote versions of the branch and fix any conflicts if necessary,
-
-    ```
-    git pull origin feature_new
-    ```
-
-6. Push the final version of the code to the remote branch on GitHub to make it available to all,
-
-    ```
-    git push origin feature_new 
-    ```
-
-It is often the case that you would like to merge your branches back into the master branch after completing work on your new feature or bug fix. When developing features that may take an extended amount of time, it is a good idea to update your branch frequently with the recent changes in the master. This will make it much easier to merge the branches eventually and will help avoid conflicts and headaches when the time comes. Let's assume you are about to work on the 'feature\_new' branch again, but would like to update it with the most recent work in the master branch. You could do the following (there are multiple ways to push/pull things between branches):
-
-1. Move back over into your local copy of the master branch
-
-    ```
-    git checkout master
-    ```
-
-2. Check that you are back in the master branch with
-
-    ```
-    git branch
-    ```
-
-3. Pull the latest and greatest from the remote master branch on GitHub. Your local copy of the master branch now has all recent changes that can be shared with other local branches.
-
-    ```
-    git pull origin master
-    ```
-
-4. Switch back over to your local copy of the `feature\_new' branch
-
-    ```
-    git checkout feature_new
-    ```
-
-5. Merge the local version of the master branch that you just updated into your local version of `feature\_new' and fix any conflicts if necessary.
-
-    ```
-    git merge master
-    ```
-
-6. Make code changes, merge with the remote `feature\_new' branch, and push to the remote `feature\_new' branch like usual
-
-    ```
-    git commit -am "More updates."
-    git pull origin feature_new
-    git push origin feature_new 
-    ```
-
-Note that this process could be more direct by pulling from the remote master straight from within your local copy of the `feature\_new' branch. Again, there are multiple ways of updating and merging that involve pushing and pulling between different branches that may be local or remote.
-
-Lastly, once you are finished developing your new feature and have merged your work from the `feature\_new' branch into the master, you can delete the branch from the remote repository with
-```
-git push origin :feature_new
-```
+6. Now your code is available for code review!
