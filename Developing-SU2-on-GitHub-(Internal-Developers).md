@@ -18,9 +18,26 @@ After cloning, you should have a new SU2/ folder in your current working directo
 git log
 ```
 
-## Typical Workflow with Git
+## Typical Workflow with Git (
 
-Now that you have a local copy of SU2 from the GitHub repository, you can begin to make changes to the codebase. This section gives an example of the typical workflow for making changes to the code, committing them locally, and then pushing your changes to the remote GitHub repository. The basic steps are as follows:
+Now that you have a local copy of SU2 from the GitHub repository, you can begin to make changes to the codebase. This section gives an example of the typical workflow for making changes to the code, committing them locally, and then pushing your changes to the remote GitHub repository. 
+
+Please read the "Code Reviews" section of the wiki before making changes to familiarize yourself with the requirements for a good code change.
+
+In the SU2 repository, the master branch represents the latest stable major or minor release (3.0, 3.2.9, etc.), it should only be modified during version releases. Work on the code takes place on the develop branch. When a repository is cloned, all of the branches are as well, and so no additional work is necessary to acquire the development branch. However, you must tell git to switch to the development branch, which can be done with the "checkout" command
+
+    ``` 
+    git checkout develop
+    ```
+
+Now that changes will be on top of the development branch, code changes can be made. This next section describes the steps for creating a pull request. 
+
+1. Create a new branch for making your changes.
+    ```
+    git checkout -b fixquadvol
+    ```
+Additionally, create a branch with the same name on the SU2 github repository
+
  
 1. Make changes to the existing files (using your favorite text editor or integrated development environment, IDE) or add local files or folders to be tracked and compared against the global repo files.
 
@@ -34,10 +51,14 @@ Now that you have a local copy of SU2 from the GitHub repository, you can begin 
     git status 
     ```
 
-3. Commit the changes to your local repository (not the global repository on GitHub) and leave a short descriptive message about your change.
+3. Commit the changes to your local repository (not the global repository on GitHub) and create a descriptive message about your change. Commit messages are the easiest tool for examining past code changes, so it is important that they serve as documentation. A good commit message will consist of a short descriptive message on the first line, followed by a longer descriptive message. If the PR addresses any issues, they should be identified in the commit message. A good (fake) commit message is below.
 
     ```
-    git commit -am "Added some files."
+    git commit -m "Fix computation of the volume for skewed quadrilateral elements.
+
+If a 2-D quadrilateral element is sufficiently skewed, the volume approximation is not computed properly. This modifies the volume computation to use the base and height of the quadrilateral instead of the base and hypotenuse. This fixes cases where the volume was incorrectly computed to be less than zero.
+
+Fixes issue -1."
     ```
 
 4. Merge local and global repositories.
@@ -49,7 +70,7 @@ and resolve the issues. The conflicting regions of code are delimited with
 chevrons like this `>>>>>>` and `<<<<<<`. Note that, if you experience and resolve conflicts, you will need to perform an additional local commit of the resolved files afterwards.
 
     ```
-    git pull origin master
+    git pull origin develop
     ```
 
 5. Push the final version of the code to the global repository on GitHub (the remote repository is named `origin' by default). The changes you have made will now be available to all, and they will also be almost immediately reflected on the SU2 page on GitHub.
