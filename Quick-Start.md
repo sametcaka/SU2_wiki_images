@@ -15,7 +15,7 @@ Upon completing this simple tutorial, the user will be familiar with performing 
 
 ## Resources
 
-After obtaining a copy of the SU2_CFD flow solver and the TestCases directory, two other files are needed as input to the code: a configuration file describing the options for the particular problem, and the corresponding computational mesh file. (If you haven't already, you may wish to download the full set of meshes for the tutorials that can be found in the TestCases repository on GitHub). The configuration file is available in TestCases/euler/naca0012/ as obtained from the github distribution. The mesh file is available in TestCases/euler/naca0012/ but obtained from the zip from the registration page. These files are also available directly in the root directory of the SU2 source repository in the QuickStart/ directory.
+The files necessary to run this tutorial are included in the SU2/QuickStart/ directory. For the other tutorials, the files will be found in the TestCases/ directory. Two files are needed as input to the code: a configuration file describing the options for the particular problem, and the corresponding computational mesh file. The files can also be found in the TestCases repository under TestCases/euler/naca0012. The mesh file is available in TestCases/euler/naca0012/ but obtained from the zip from the registration page. 
 
 ## Tutorial
 
