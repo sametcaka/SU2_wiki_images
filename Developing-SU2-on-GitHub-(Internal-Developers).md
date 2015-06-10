@@ -75,8 +75,8 @@ Fixes issue 10."
 
 5. This will automatically register on github, and you can use the online API to make a pull request
 
-Image here
+![Submit Request 1](http://su2.stanford.edu/github_wiki/pr_submit_request_1.png)
 
-Image here
+![Submit Request 2](http://su2.stanford.edu/github_wiki/pr_submit_request_2.png)
 
 6. Now your code is available for code review!
