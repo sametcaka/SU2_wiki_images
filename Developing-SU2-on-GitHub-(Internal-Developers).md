@@ -38,7 +38,7 @@ Now that changes will be on top of the development branch, code changes can be m
     ```
 Additionally, create a branch with the same name on the SU2 github repository. First, make sure the current SU2 branch is set to develop
 
-Image here
+![Develop Branch](http://su2.stanford.edu/github_wiki/pr_develop_branch.png)
 
 then create a new branch with the appropriate name.
 
