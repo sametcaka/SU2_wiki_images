@@ -42,7 +42,7 @@ Additionally, create a branch with the same name on the SU2 github repository. F
 
 then create a new branch with the appropriate name.
 
-Image here
+![Create Branch](http://su2.stanford.edu/github_wiki/pr_create_branch.png)
 
  
 1. Make changes to the existing files (using your favorite text editor or integrated development environment, IDE) or add local files or folders to be tracked and compared against the global repo files.
