@@ -25,7 +25,10 @@ These three options enable parallel support and specify the MPI implementation t
 
 ### CGNS Support
 
-Support for the open, widely-used CGNS data standard has been including within SU2 to make it easy to get your own meshes into the solver. Many third-party mesh packages support export to the binary CGNS format. Moreover, the size of the mesh file (particularly for large test cases) can be significantly reduced. Users should obtain and follow the instructions supplied for building the CGNS library (Version 3.1.4 recommended currently) from the [official CGNS site](http://cgns.github.io). Details on compiling with and using the CGNS library for mesh input can be found on the documentation page concerning meshes.
+Support for the open, widely-used CGNS data standard has been including within SU2 to make it easy to get your own meshes into the solver. Many third-party mesh packages support export to the binary CGNS format. Moreover, the size of the mesh file (particularly for large test cases) can be significantly reduced. Users should obtain and follow the instructions supplied for building the CGNS library (Version 3.1.4 recommended currently) from the [official CGNS site](http://cgns.github.io). After compiling and installing the CGNS library on your machine, one must inform the configure process of the locations of the library file and header file(s) so that the CGNS library can be linked to the SU2 build. The following two configure options accomplish this:
+```
+--with-CGNS-lib=/path/to/CGNS/lib --with-CGNS-include=/path/to/CGNS/header
+```
 
 ### Putting It All Together
 Execute the following commands in a terminal after extracting the source code: 
