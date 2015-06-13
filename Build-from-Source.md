@@ -25,7 +25,7 @@ in your configure options, which requests a build of the parallel version of the
 
 Before building, SU2 must run the configuration script that will scan your system for the necessary prerequisites and generate the appropriate makefiles. The simplest version of SU2 can be configured by running configure with no arguments, or 
 ```
-cd /path/to/SU2/
+$ cd /path/to/SU2/
 $ ./configure
 ```
 This will configure serial (non-MPI) versions of all SU2 modules without external library support and a moderate level of compiler optimization. The configure tool will attempt to find a C++ compiler on your system and set some default flags if none are specified. It is strongly recommended, however, that the environment variables used by configure be set before configuring (especially CXX and CXXFLAGS). Numerous flags are available to activate or deactivate optional features. These include CGNS support, compiler flags for optimization and fine tuning, and the selection of specific programs to build or ignore (usually only required by developers). A complete list of optional features and relevant environment variables is shown by running 
@@ -34,7 +34,7 @@ $ ./configure --help
 ```
 For example, to configure SU2 for parallel calculations (i.e., with ParMETIS and MPI) along with CGNS and TecIO support and a high level of compiler optimization, the configure command might look like this (replace with specific paths on your system):
 ```
-./configure --prefix=/path/to/install/SU2 --enable-mpi --with-cc=/path/to/mpicc 
+$ ./configure --prefix=/path/to/install/SU2 --enable-mpi --with-cc=/path/to/mpicc 
 --with-cxx=/path/to/mpicxx CXXFLAGS="-O3" --with-CGNS-lib=/path/to/CGNS/lib 
 --with-CGNS-include=/path/to/CGNS/header
 ```
@@ -48,7 +48,7 @@ $ make
 ```
 This compiles the code using the makefiles that were automatically generated from the results of the configure process. You can also use the "-j N" option of the make command in order to compile SU2 in parallel using N cores, i.e., run 
 ```
-make -j 8
+$ make -j 8
 ```
 to compile using 8 cores. This can greatly reduce the compilation time if building on a multi-core laptop, workstation, or cluster head node. If no errors are encountered, you are ready to install. 
 
@@ -56,7 +56,7 @@ to compile using 8 cores. This can greatly reduce the compilation time if buildi
 
 After compiling, you are ready to install SU2. To install, enter the command 
 ```
-make install
+$ make install
 ```
 This will copy the programs and Python scripts comprising the SU2 suite to the folder that you selected with the `--prefix` option during configuration (/usr/local/bin by default if `--prefix` was not defined). As noted above, you will need write access to the destination folder to install. 
 
@@ -89,6 +89,6 @@ That's it: you're now ready to run SU2! Check out the Quick Start and additional
 
 ### Notes for Mac OS X Users
 
-In order to prepare your Mac for compiling/running/developing SU2, you will need to download Xcode from the App Store. After obtaining Xcode, you should also install the Developer Tools package from inside of the Xcode distribution. This contains tools like make and the LLVM compiler, and after installing the dev tools, they will be available from within the native Terminal app. A prebuilt version of the GNU compilers for Mac OS X can be found here. Environment variables, such as SU2_RUN and SU2_HOME, on Mac OS X can be set within ~/.bash_profile (this file may not exist by default, so you can create it yourself if necessary). Lastly, note also that project files for developing the SU2 modules in Xcode are provided inside the SU2_IDE/Xcode/ directory of the SU2 source distribution. 
+In order to prepare your Mac for compiling/running/developing SU2, you will need to download Xcode from the App Store. After obtaining Xcode, you should also install the Developer Tools package from inside of the Xcode distribution. This contains tools like make and the LLVM compiler, and after installing the dev tools, they will be available from within the native Terminal app. A prebuilt version of the GNU compilers for Mac OS X can be found here. Environment variables, such as SU2_RUN and SU2_HOME, on Mac OS X can be set within ~/.bash_profile (this file may not exist by default, so you can create it yourself if necessary). Lastly, note also that project files for developing the SU2 modules in Xcode are provided inside the SU2/SU2_IDE/Xcode/ directory of the SU2 source distribution. 
 
 To have the TecIO library (the source ships with SU2) automatically built and linked on Mac, include the following configure options --enable-tecio and CPPFLAGS='-I/opt/X11/include' to make sure that it can find the correct X11 dependencies.  For platforms other than Mac OS X, the configure script must also be able to find the X11 library headers for the TecIO library to be built: if --enable-tecio is used in the configure step and the output states that TecIO will not be built, it is likely that the configure program was unable to locate the X11 header files.
