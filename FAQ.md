@@ -4,8 +4,12 @@ If the answer to your question is not here, try the [forum](http://cfd-online.co
 
 
 ##### I am new to CFD and I don't know where to start. Can you help me?
-The best place to start for a new user after installing the code is the Quick Start tutorial. 
+The best place to start for a new user after installing the code is the [[Quick Start]] tutorial. 
 
+##### Where is the documentation?
+The most easy-to-use documentation is the github wiki, and you just found it! Try starting with the [[Quick Start]].
+For more detail on what configuration options are available and their syntax, see the file config_template_basic.cfg in the SU2 root directory: https://github.com/su2code/SU2/blob/master/config_template_basic.cfg
+Further documentation is available in the su2code/Documentation repository.
 
 ##### When I run in parallel, the code prints multiples of the same line, for example:
 > Iter    Time(s)     Res[Rho]     Res[RhoE]   CLift(Total)   CDrag(Total)
