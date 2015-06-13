@@ -25,7 +25,7 @@ These three options enable parallel support and specify the MPI implementation t
 
 ### CGNS Support
 
-Support for the open, widely-used CGNS data standard has been including within SU2 to make it easy to get your own meshes into the solver. Many third-party mesh packages support export to the binary CGNS format. Moreover, the size of the mesh file (particularly for large test cases) can be significantly reduced. Users should obtain and follow the instructions supplied for building the CGNS library (Version 3.1.4 recommended currently) from the ![CGNS](http://cgns.github.io) official CGNS site. Details on compiling with and using the CGNS library for mesh input can be found on the documentation page concerning meshes.
+Support for the open, widely-used CGNS data standard has been including within SU2 to make it easy to get your own meshes into the solver. Many third-party mesh packages support export to the binary CGNS format. Moreover, the size of the mesh file (particularly for large test cases) can be significantly reduced. Users should obtain and follow the instructions supplied for building the CGNS library (Version 3.1.4 recommended currently) from the [official CGNS site](http://cgns.github.io). Details on compiling with and using the CGNS library for mesh input can be found on the documentation page concerning meshes.
 
 ### Putting It All Together
 Execute the following commands in a terminal after extracting the source code: 
