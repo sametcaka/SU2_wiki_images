@@ -34,9 +34,7 @@ $ ./configure --help
 ```
 For example, to configure SU2 for parallel calculations (i.e., with ParMETIS and MPI) along with CGNS and TecIO support and a high level of compiler optimization, the configure command might look like this (replace with specific paths on your system):
 ```
-$ ./configure --prefix=/path/to/install/SU2 --enable-mpi --with-cc=/path/to/mpicc 
---with-cxx=/path/to/mpicxx CXXFLAGS="-O3" --with-CGNS-lib=/path/to/CGNS/lib 
---with-CGNS-include=/path/to/CGNS/header
+$ ./configure --prefix=/path/to/install/SU2 --enable-mpi --with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx CXXFLAGS="-O3" --with-CGNS-lib=/path/to/CGNS/lib --with-CGNS-include=/path/to/CGNS/header
 ```
 When defining the installation path via the --prefix option, note that you will need write access to the destination folder when installing after compiling (see below). You can switch to a privileged user (or sudo) before installing if necessary. You do not need to rerun the configuration step unless you modify the options, i.e. you would like to change compilers, dependencies, etc. Updating the source code and rebuilding does not require reconfiguring: simply rerun the make and make install commands.
 
