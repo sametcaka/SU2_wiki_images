@@ -7,7 +7,7 @@ $ ./configure --prefix=/path/to/install/SU2 CXXFLAGS="-O3" --enable-mpi --with-c
 $ make -j 8 install
 ```
 
-Let's break this down and discuss the configure process in more detail.
+Let's break this down and discuss the configure process and options in more detail.
 
 ### Compiler Flags
 You can submit flags to your compiler for building SU2 using the `CXXFLAGS` variable. The most common choices are to impose a level of compiler optimization (e.g., `-O3` for aggressive optimization) or perhaps a debug flag with `-g`. For example, a high level of compiler optimization can be set by adding 
@@ -31,17 +31,12 @@ Support for the open, widely-used CGNS data standard has been including within S
 ```
 
 ### Putting It All Together
-Execute the following commands in a terminal after extracting the source code: 
+Now that you have your dependencies and configure options all lined up, let's return to the big picture. You can perform an advanced build by executing the commands from above, which are repeated here for simplicity:
 ```
-$ cd /path/to/your/SU2/
-$ ./configure --prefix=/path/to/install/SU2
-$ make
-$ make install
+$ cd /path/to/SU2
+$ ./configure --prefix=/path/to/install/SU2 CXXFLAGS="-O3" --enable-mpi --with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx --with-CGNS-lib=/path/to/CGNS/lib --with-CGNS-include=/path/to/CGNS/header
+$ make -j 8 install
 ```
-The `--prefix` option defines the location that the executables will be installed (in a folder named bin/ within your chosen install location from --prefix). If the `--prefix` option is not specified, the code will be installed in `/usr/local/bin`, which may require admin access. You can also use the "-j N" option of the make command in order to compile SU2 in parallel using N cores, i.e., run
-```
-make -j 8 install
-```
-to compile using 8 cores. This can greatly reduce the compilation time if building on a multicore laptop, workstation, or cluster head node. 
+The `--prefix` option defines the location that the executables will be installed (in a folder named bin/ within your chosen install location from --prefix). If the `--prefix` option is not specified, the code will be installed in `/usr/local/bin`, which may require admin access. Note that we are also using the "-j N" option of the make command in order to compile SU2 in parallel using N cores. This can greatly reduce the compilation time if building on a multicore laptop, workstation, or cluster head node. While not required, here we are combining the `make` and `install` commands into one.
 
 Make sure to note the **SU2_RUN** and **SU2_HOME** environment variables displayed at the conclusion of configure. It is recommended that you add the **SU2_RUN** and **SU2_HOME** variables to your ~/.bashrc file and update your PATH variable to include the install location ($SU2_RUN, specified by `--prefix`).
