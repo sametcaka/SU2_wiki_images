@@ -1,10 +1,6 @@
 ## Source Install Requirements
 
-### Notes for Mac OS X Users
-
-In order to prepare your Mac for compiling/running/developing SU2, you will need to download Xcode from the App Store. After obtaining Xcode, you should also install the Developer Tools package from inside of the Xcode distribution. This contains tools like make and the LLVM compiler, and after installing the dev tools, they will be available from within the native Terminal app. A prebuilt version of the GNU compilers for Mac OS X can be found here. Environment variables, such as SU2_RUN and SU2_HOME, on Mac OS X can be set within ~/.bash_profile (this file may not exist by default, so you can create it yourself if necessary). Lastly, note also that project files for developing the SU2 modules in Xcode are provided inside the SU2_IDE/Xcode/ directory of the SU2 source distribution. 
-
-To have the TecIO library (the source ships with SU2) automatically built and linked on Mac, include the following configure options --enable-tecio and CPPFLAGS='-I/opt/X11/include' to make sure that it can find the correct X11 dependencies.  For platforms other than Mac OS X, the configure script must also be able to find the X11 library headers for the TecIO library to be built: if --enable-tecio is used in the configure step and the output states that TecIO will not be built, it is likely that the configure program was unable to locate the X11 header files.
+This section provides details on the various tools and requirements when building the SU2 suite from the source code.
 
 ### GNU Autoconf / Automake Tools
 
@@ -74,3 +70,9 @@ export PYTHONPATH=$PYTHONPATH:$SU2_RUN
 ```
 
 That's it: you're now ready to run SU2! Check out the Quick Start and additional tutorials.
+
+### Notes for Mac OS X Users
+
+In order to prepare your Mac for compiling/running/developing SU2, you will need to download Xcode from the App Store. After obtaining Xcode, you should also install the Developer Tools package from inside of the Xcode distribution. This contains tools like make and the LLVM compiler, and after installing the dev tools, they will be available from within the native Terminal app. A prebuilt version of the GNU compilers for Mac OS X can be found here. Environment variables, such as SU2_RUN and SU2_HOME, on Mac OS X can be set within ~/.bash_profile (this file may not exist by default, so you can create it yourself if necessary). Lastly, note also that project files for developing the SU2 modules in Xcode are provided inside the SU2_IDE/Xcode/ directory of the SU2 source distribution. 
+
+To have the TecIO library (the source ships with SU2) automatically built and linked on Mac, include the following configure options --enable-tecio and CPPFLAGS='-I/opt/X11/include' to make sure that it can find the correct X11 dependencies.  For platforms other than Mac OS X, the configure script must also be able to find the X11 library headers for the TecIO library to be built: if --enable-tecio is used in the configure step and the output states that TecIO will not be built, it is likely that the configure program was unable to locate the X11 header files.
