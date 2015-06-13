@@ -1,6 +1,6 @@
 ## Source Install Requirements
 
-This section provides details on the various tools and requirements when building the SU2 suite from the source code.
+This section provides details on the various tools and requirements when building the SU2 suite from the source code on Linux/Mac OS X systems.
 
 ### GNU Autoconf / Automake Tools
 
@@ -23,10 +23,15 @@ in your configure options, which requests a build of the parallel version of the
 
 ## Configuration 
 
-Before building, SU2 must run the configuration script that will scan your system for the necessary prerequisites and generate the appropriate makefiles. The simplest version of SU2 can be configured by running configure with no arguments, or ./configure.
-
-This will configure serial (non-MPI) versions of all SU2 modules without external library support and a moderate level of compiler optimization. The configure tool will attempt to find a C++ compiler on your system and set some default flags if none are specified. It is strongly recommended, however, that the environment variables used by configure be set before configuring (especially CXX and CXXFLAGS). Numerous flags are available to activate or deactivate optional features. These include CGNS support, compiler flags for optimization and fine tuning, and the selection of specific programs to build or ignore (usually only required by developers). A complete list of optional features and relevant environment variables is shown by running ./configure --help. 
-
+Before building, SU2 must run the configuration script that will scan your system for the necessary prerequisites and generate the appropriate makefiles. The simplest version of SU2 can be configured by running configure with no arguments, or 
+```
+cd /path/to/SU2/
+$ ./configure
+```
+This will configure serial (non-MPI) versions of all SU2 modules without external library support and a moderate level of compiler optimization. The configure tool will attempt to find a C++ compiler on your system and set some default flags if none are specified. It is strongly recommended, however, that the environment variables used by configure be set before configuring (especially CXX and CXXFLAGS). Numerous flags are available to activate or deactivate optional features. These include CGNS support, compiler flags for optimization and fine tuning, and the selection of specific programs to build or ignore (usually only required by developers). A complete list of optional features and relevant environment variables is shown by running 
+```
+$ ./configure --help
+```
 For example, to configure SU2 for parallel calculations (i.e., with ParMETIS and MPI) along with CGNS and TecIO support and a high level of compiler optimization, the configure command might look like this (replace with specific paths on your system):
 ```
 ./configure --prefix=/path/to/install/SU2 --enable-mpi --with-cc=/path/to/mpicc 
@@ -37,34 +42,45 @@ When defining the installation path via the --prefix option, note that you will 
 
 ## Compiling
 
-After configuring, compile SU2 by calling `make`. This compiles the code using the makefiles that were automatically generated from the results of the configure process. You can also use the "-j N" option of the make command in order to compile SU2 in parallel using N cores, i.e., run `make -j 8` to compile using 8 cores. This can greatly reduce the compilation time if building on a multicore laptop, workstation, or cluster head node. If no errors are encountered, you are ready to install. 
+After configuring, compile SU2 by calling
+```
+$ make
+```
+This compiles the code using the makefiles that were automatically generated from the results of the configure process. You can also use the "-j N" option of the make command in order to compile SU2 in parallel using N cores, i.e., run 
+```
+make -j 8
+```
+to compile using 8 cores. This can greatly reduce the compilation time if building on a multi-core laptop, workstation, or cluster head node. If no errors are encountered, you are ready to install. 
 
 ## Installing
 
-After compiling, you are ready to install SU2. To install, enter the command `make install`. This will copy the programs and Python scripts comprising the SU2 suite to the folder that you selected with the --prefix option during configuration (/usr/local/bin if --prefix was not defined). As noted above, you will need write access to the destination folder to install. 
+After compiling, you are ready to install SU2. To install, enter the command 
+```
+make install
+```
+This will copy the programs and Python scripts comprising the SU2 suite to the folder that you selected with the `--prefix` option during configuration (/usr/local/bin by default if `--prefix` was not defined). As noted above, you will need write access to the destination folder to install. 
 
 ## Cleaning
 
-To clean the SU2 source tree (remove all intermediate object files), enter the command make clean in the root directory of the SU2 source distribution. This is recommended before rebuilding if you modify the configuration and / or update the source code.
+To clean the SU2 source tree (remove all intermediate object files), enter the command 
+```
+make clean
+```
+in the root directory of the SU2 source distribution. This is recommended before rebuilding if you modify the configuration and / or update the source code.
 
 ## Environment Variables
 
-After installing the code (but before running it), define the **SU2_HOME** and **SU2_RUN** environment variables, and update your PATH with SU2_RUN. For the basic installation, these values will be displayed at the conclusion of ./configure from the steps above. These environment variables are useful for running SU2 from different working directories, and they are needed for some of the Python framework.
+After installing the code (but before running it), define the **SU2_HOME** and **SU2_RUN** environment variables, and update your PATH with SU2_RUN. For the basic installation, these values will be displayed at the conclusion of `./configure` from the steps above. These environment variables are useful for running SU2 from different working directories, and they are needed for some of the Python framework.
 
-$SU2_RUN should point to the folder where all binaries and python scripts were installed (by default, in a folder named bin/ within your chosen install location from --prefix).
-
-$SU2_HOME should point to the root directory of your SU2 source distribution. 
+`$SU2_RUN` should point to the folder where all binaries and python scripts were installed (by default, in a folder named `bin/` within your chosen install location from `--prefix`). `$SU2_HOME` should point to the root directory of your SU2 source distribution. 
 
 For example, add these lines to your ~/.bashrc (linux) or ~/.bash_profile (macosx) file:
-
 ```
-export SU2_RUN="your_prefix/bin"
-export SU2_HOME="your_SU2"
+export SU2_RUN="your/prefix/bin"
+export SU2_HOME="/path/to/SU2"
 export PATH=$PATH:$SU2_RUN
 ```
-
 If you plan to use the Python scripts for parallel calculations or design and optimization tasks, you may also want to include $SU2_RUN in your Python path:
-
 ```
 export PYTHONPATH=$PYTHONPATH:$SU2_RUN
 ```
