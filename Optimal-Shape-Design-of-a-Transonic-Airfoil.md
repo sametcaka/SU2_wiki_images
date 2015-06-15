@@ -22,7 +22,7 @@ The following tutorial will walk you through the steps required when performing 
 
 This example uses a 2D airfoil geometry (initially the NACA 0012) in transonic inviscid flow. See the [[Quick Start]] for more information on the baseline geometry.
 
-![Optimization Diagram](http://su2.stanford.edu/github_wiki/optimization_diagram.pdf)
+![Optimization Diagram](http://su2.stanford.edu/github_wiki/optimization_diagram.png)
 
 ### Problem Setup
 
