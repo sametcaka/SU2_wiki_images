@@ -22,6 +22,8 @@ The following tutorial will walk you through the steps required when performing 
 
 This example uses a 2D airfoil geometry (initially the NACA 0012) in transonic inviscid flow. See the [[Quick Start]] for more information on the baseline geometry.
 
+![Optimization Diagram](http://su2.stanford.edu/github_wiki/optimization_diagram.pdf)
+
 ### Problem Setup
 
 The flow conditions of this numerical experiment are such that transonic shocks appear on the upper and lower surfaces, which causes drag. The goal of the design process is to minimize the coefficient of drag (Cd) by changing the shape of the airfoil. In other words, we would like to eliminate the shocks along the airfoil surface. This problem will solve the Euler and adjoint Euler (drag objective) equations on the NACA0012 airfoil at an angle of attack of 1.25 degrees using air with the following freestream conditions:
@@ -34,10 +36,10 @@ While more advanced design problems can be selected, such as those containing fl
 
 ### Mesh Description
 
-The mesh from the Quick Start Tutorial is used again here. It consists of a far-field boundary and an Euler wall along the airfoil surface. The mesh can be seen in Figure (1).
+The mesh from the Quick Start Tutorial is used again here. It consists of a far-field boundary and an Euler wall along the airfoil surface. The mesh can be seen in Figure (2).
 
 ![NACA 0012 Mesh](http://su2.stanford.edu/github_wiki/rotating_mesh.png)
-Figure (1): Far-field and zoom view of the initial computational mesh.
+Figure (2): Far-field and zoom view of the initial computational mesh.
 
 ### Configuration File Options
 
