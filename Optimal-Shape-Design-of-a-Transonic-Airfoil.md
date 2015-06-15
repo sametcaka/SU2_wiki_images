@@ -43,28 +43,32 @@ Figure (2): Far-field and zoom view of the initial computational mesh.
 
 Several of the key configuration file options for this simulation are highlighted here. SU2 features a number of ways to compute flows on dynamic grids, including moving wall boundary conditions, calculations in a rotating frame, or unsteady flows on dynamic meshes. Specifying a simulation in a rotating frame (non-inertial) can be accomplished with the following options:
 ```
-% ----------------------- DYNAMIC MESH DEFINITION -----------------------------%
+% ---------------- ADJOINT-FLOW NUMERICAL METHOD DEFINITION -------------------%
+% Adjoint problem boundary condition (DRAG, LIFT, SIDEFORCE, MOMENT_X,
+%                                     MOMENT_Y, MOMENT_Z, EFFICIENCY,
+%                                     EQUIVALENT_AREA, NEARFIELD_PRESSURE,
+%                                     FORCE_X, FORCE_Y, FORCE_Z, THRUST,
+%                                     TORQUE, FREE_SURFACE)
+OBJECTIVE_FUNCTION= DRAG
 %
-% Dynamic mesh simulation (NO, YES)
-GRID_MOVEMENT= YES
+% Convective numerical method (JST, LAX-FRIEDRICH, ROE-1ST_ORDER,
+%                              ROE-2ND_ORDER)
+CONV_NUM_METHOD_ADJFLOW= JST
 %
-% Type of dynamic mesh (NONE, RIGID_MOTION, DEFORMING, ROTATING_FRAME,
-%                       MOVING_WALL)
-GRID_MOVEMENT_KIND= ROTATING_FRAME
+% Slope limiter (VENKATAKRISHNAN, SHARP_EDGES)
+SLOPE_LIMITER_ADJFLOW= VENKATAKRISHNAN
 %
-% Motion mach number (non-dimensional). Used for intitializing a viscous flow
-% with the Reynolds number and for computing force coeffs. with dynamic meshes.
-MACH_MOTION= 0.7958
+% 1st, 2nd, and 4th order artificial dissipation coefficients
+AD_COEFF_ADJFLOW= ( 0.15, 0.0, 0.02 )
 %
-% Coordinates of the motion origin
-MOTION_ORIGIN_X= 0.5
-MOTION_ORIGIN_Y= -32.0
-MOTION_ORIGIN_Z= 0.0
+% Time discretization (RUNGE-KUTTA_EXPLICIT, EULER_IMPLICIT)
+TIME_DISCRE_ADJFLOW= EULER_IMPLICIT
 %
-% Angular velocity vector (rad/s) about the motion origin
-ROTATION_RATE_X = 0.0
-ROTATION_RATE_Y = 0.0
-ROTATION_RATE_Z = 8.25
+% Reduction factor of the CFL coefficient in the adjoint problem
+CFL_REDUCTION_ADJFLOW= 0.8
+%
+% Limit value for the adjoint variable
+LIMIT_ADJFLOW= 1E6
 ```
 In SU2, the governing equations (Euler, Navier-Stokes, and RANS) can be solved within a rotating reference frame which offers an efficient, steady solution method for flows around rotating bodies in axisymmetric flow. A simulation can be executed in a rotating frame by choosing the ROTATING_FRAME option for GRID_MOVEMENT_KIND. Two additional pieces of data must be supplied: the location of the rotation center (x,y,z) in the coordinate system of the computational mesh, and the angular velocity (rotation rate around the x-axis, rotation rate around the y-axis, rotation rate around the z-axis). 
 
