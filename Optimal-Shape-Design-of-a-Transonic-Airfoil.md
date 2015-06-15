@@ -1,4 +1,4 @@
-![NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/naca0012_pressure.png)
+![Optimization Diagram](http://su2.stanford.edu/github_wiki/optimization_diagram.png)
 
 ## Goals
 
@@ -21,8 +21,6 @@ The following tutorial will walk you through the steps required when performing 
 ### Background
 
 This example uses a 2D airfoil geometry (initially the NACA 0012) in transonic inviscid flow. See the [[Quick Start]] for more information on the baseline geometry.
-
-![Optimization Diagram](http://su2.stanford.edu/github_wiki/optimization_diagram.png)
 
 ### Problem Setup
 
