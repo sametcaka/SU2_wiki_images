@@ -22,7 +22,7 @@
   * [[Laminar Cylinder]]
   * [[Turbulent Flat Plate]]
   * [[Turbulent ONERA M6]]
-  * [[Optimal Shape Design of a Rotating Airfoil]]
+  * [[Optimal Shape Design of a Transonic Airfoil]]
   * [[Constrained Optimal Shape Design of a Fixed Wing]]
 * [[Developer Docs]]
   * [[Code Structure]]
