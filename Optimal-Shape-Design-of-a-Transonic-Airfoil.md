@@ -73,16 +73,19 @@ For the rotating airfoil problem, the airfoil has a chord of 1 meter and the ori
 Optimal shape design specification:
 ```
 % --------------------- OPTIMAL SHAPE DESIGN DEFINITION -----------------------%
-% Optimization objective function with optional scaling factor
+%
+% Optimization objective function with scaling factor
 % ex= Objective * Scale
 OPT_OBJECTIVE= DRAG * 0.001
 %
 % Optimization constraint functions with scaling factors, separated by semicolons
 % ex= (Objective = Value ) * Scale, use '>','<','='
-OPT_CONSTRAINT= ( MAX_THICKNESS > 0.12 ) * 0.001
+OPT_CONSTRAINT= NONE
 %
-% List of design variables (Design variables are separated by semicolons)
-DEFINITION_DV= ( 1, 1.0 | airfoil | 0, 0.961538461538 ); ( 1, 1.0 | airfoil | 0, 0.923076923077 ); ( 1, 1.0 | airfoil | 0, 0.884615384615 ); ( 1, 1.0 | airfoil | 0, 0.846153846154 ); ( 1, 1.0 | airfoil | 0, 0.807692307692 ); ( 1, 1.0 | airfoil | 0, 0.769230769231 ); ( 1, 1.0 | airfoil | 0, 0.730769230769 ); ( 1, 1.0 | airfoil | 0, 0.692307692308 ); ( 1, 1.0 | airfoil | 0, 0.653846153846 ); ( 1, 1.0 | airfoil | 0, 0.615384615385 ); ( 1, 1.0 | airfoil | 0, 0.576923076923 ); ( 1, 1.0 | airfoil | 0, 0.538461538462 ); ( 1, 1.0 | airfoil | 0, 0.5 ); ( 1, 1.0 | airfoil | 0, 0.461538461538 ); ( 1, 1.0 | airfoil | 0, 0.423076923077 ); ( 1, 1.0 | airfoil | 0, 0.384615384615 ); ( 1, 1.0 | airfoil | 0, 0.346153846154 ); ( 1, 1.0 | airfoil | 0, 0.307692307692 ); ( 1, 1.0 | airfoil | 0, 0.269230769231 ); ( 1, 1.0 | airfoil | 0, 0.230769230769 ); ( 1, 1.0 | airfoil | 0, 0.192307692308 ); ( 1, 1.0 | airfoil | 0, 0.153846153846 ); ( 1, 1.0 | airfoil | 0, 0.115384615385 ); ( 1, 1.0 | airfoil | 0, 0.0769230769231 ); ( 1, 1.0 | airfoil | 0, 0.0384615384615 ); ( 1, 1.0 | airfoil | 1, 0.0384615384615 ); ( 1, 1.0 | airfoil | 1, 0.0769230769231 ); ( 1, 1.0 | airfoil | 1, 0.115384615385 ); ( 1, 1.0 | airfoil | 1, 0.153846153846 ); ( 1, 1.0 | airfoil | 1, 0.192307692308 ); ( 1, 1.0 | airfoil | 1, 0.230769230769 ); ( 1, 1.0 | airfoil | 1, 0.269230769231 ); ( 1, 1.0 | airfoil | 1, 0.307692307692 ); ( 1, 1.0 | airfoil | 1, 0.346153846154 ); ( 1, 1.0 | airfoil | 1, 0.384615384615 ); ( 1, 1.0 | airfoil | 1, 0.423076923077 ); ( 1, 1.0 | airfoil | 1, 0.461538461538 ); ( 1, 1.0 | airfoil | 1, 0.5 ); ( 1, 1.0 | airfoil | 1, 0.538461538462 ); ( 1, 1.0 | airfoil | 1, 0.576923076923 ); ( 1, 1.0 | airfoil | 1, 0.615384615385 ); ( 1, 1.0 | airfoil | 1, 0.653846153846 ); ( 1, 1.0 | airfoil | 1, 0.692307692308 ); ( 1, 1.0 | airfoil | 1, 0.730769230769 ); ( 1, 1.0 | airfoil | 1, 0.769230769231 ); ( 1, 1.0 | airfoil | 1, 0.807692307692 ); ( 1, 1.0 | airfoil | 1, 0.846153846154 ); ( 1, 1.0 | airfoil | 1, 0.884615384615 ); ( 1, 1.0 | airfoil | 1, 0.923076923077 ); ( 1, 1.0 | airfoil | 1, 0.961538461538 )
+% Maximum number of optimizer iterations
+OPT_ITERATIONS= 100
+%
+% Requested accuracyOPT_ACCURACY= 1E-6%% Lower and upper bound for each design variableBOUND_DV= 0.1%% Optimization design variables, separated by semicolonsDEFINITION_DV= ( 1, 1.0 | airfoil | 0, 0.05 ); ( 1, 1.0 | airfoil | 0, 0.10 ); ( 1, 1.0 | airfoil | 0, 0.15 ); ( 1, 1.0 | airfoil | 0, 0.20 ); ( 1, 1.0 | airfoil | 0, 0.25 ); ( 1, 1.0 | airfoil | 0, 0.30 ); ( 1, 1.0 | airfoil | 0, 0.35 ); ( 1, 1.0 | airfoil | 0, 0.40 ); ( 1, 1.0 | airfoil | 0, 0.45 ); ( 1, 1.0 | airfoil | 0, 0.50 ); ( 1, 1.0 | airfoil | 0, 0.55 ); ( 1, 1.0 | airfoil | 0, 0.60 ); ( 1, 1.0 | airfoil | 0, 0.65 ); ( 1, 1.0 | airfoil | 0, 0.70 ); ( 1, 1.0 | airfoil | 0, 0.75 ); ( 1, 1.0 | airfoil | 0, 0.80 ); ( 1, 1.0 | airfoil | 0, 0.85 ); ( 1, 1.0 | airfoil | 0, 0.90 ); ( 1, 1.0 | airfoil | 0, 0.95 ); ( 1, 1.0 | airfoil | 1, 0.05 ); ( 1, 1.0 | airfoil | 1, 0.10 ); ( 1, 1.0 | airfoil | 1, 0.15 ); ( 1, 1.0 | airfoil | 1, 0.20 ); ( 1, 1.0 | airfoil | 1, 0.25 ); ( 1, 1.0 | airfoil | 1, 0.30 ); ( 1, 1.0 | airfoil | 1, 0.35 ); ( 1, 1.0 | airfoil | 1, 0.40 ); ( 1, 1.0 | airfoil | 1, 0.45 ); ( 1, 1.0 | airfoil | 1, 0.50 ); ( 1, 1.0 | airfoil | 1, 0.55 ); ( 1, 1.0 | airfoil | 1, 0.60 ); ( 1, 1.0 | airfoil | 1, 0.65 ); ( 1, 1.0 | airfoil | 1, 0.70 ); ( 1, 1.0 | airfoil | 1, 0.75 ); ( 1, 1.0 | airfoil | 1, 0.80 ); ( 1, 1.0 | airfoil | 1, 0.85 ); ( 1, 1.0 | airfoil | 1, 0.90 ); ( 1, 1.0 | airfoil | 1, 0.95 )
 ```
 Here, we define the objective function for the optimization as drag without any constraints. The scale value of 0.01 is chosen to aid the optimizer in taking a physically appropriate first step (i.e., not too large that the subsequent calculations go unstable due to a non-physical deformation). We are imposing a constraint on the maximum thickness, but it is also possible, for instance, to add a lift constraint.
 
