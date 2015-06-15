@@ -1,8 +1,8 @@
-![Rotating NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/rotating_pressure.png)
+![NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/naca0012_pressure.png)
 
 ## Goals
 
-Upon completing this tutorial, the user will be familiar with performing an optimal shape design of a 2D geometry. The initial geometry chosen for the tutorial is a NACA 0012 airfoil that is rotating at transonic speed in inviscid fluid. This tutorial is mean to be an introduction for using the components of SU2 for shape design. Consequently, the following SU2 tools will be showcased in this tutorial:
+For this tutorial, we return to the classic NACA 0012 test case that was the subject of the [[Quick Start Tutorial]] and perform aerodynamic design. Upon completing this tutorial, the user will be familiar with performing an optimal shape design of a 2D geometry. The initial geometry chosen for the tutorial is the NACA 0012 airfoil in transonic, inviscid flow. This tutorial is mean to be an introduction for using the components of SU2 for shape design in the context of a simple, unconstrained optimization problem. Consequently, the following SU2 tools will be showcased in this tutorial:
 - **SU2_CFD** - performs the direct and the adjoint flow simulations
 - **SU2_DOT** - projects the adjoint surface sensitivities into the design space to obtain the gradient
 - **SU2_DEF** - deforms the geometry and mesh with changes in the design variables during the shape optimization process
@@ -10,11 +10,11 @@ Upon completing this tutorial, the user will be familiar with performing an opti
 
 ## Resources
 
-The resources for this tutorial can be found in the TestCases/optimization_euler/rotating_naca0012 directory. You will need the configuration file (rotating_NACA0012.cfg) and the mesh file (mesh_NACA0012_rot.su2).
+The resources for this tutorial can be found in the TestCases/optimization_euler/steady_naca0012/ directory. You will need the configuration file (inv_NACA0012_basic.cfg) and the mesh file (mesh_NACA0012_inv.su2).
 
 ## Tutorial
 
-The following tutorial will walk you through the steps required when performing shape design for the rotating airfoil using SU2. It is assumed that you have already obtained and compiled SU2_CFD, SU2_DOT, and SU2_DEF. The design loop is driven by the shape_optimization.py script, and thus Python along with the NumPy and SciPy Python modules are required for this tutorial. If you have yet to complete these requirements, please see the Download and Installation pages.
+The following tutorial will walk you through the steps required when performing shape design for the transonic airfoil using SU2. It is assumed that you have already obtained and compiled SU2_CFD, SU2_DOT, and SU2_DEF. The design loop is driven by the shape_optimization.py script, and thus Python along with the NumPy and SciPy Python modules are required for this tutorial. If you have yet to complete these requirements, please see the [[Download]] and [[Installation]] pages.
 
 ### Background
 
