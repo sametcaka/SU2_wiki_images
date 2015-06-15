@@ -25,6 +25,7 @@
   * [[Optimal Shape Design of a Transonic Airfoil]]
   * [[Constrained Optimal Shape Design of a Fixed Wing]]
 * [[Developer Docs]]
+  * [[Gitting Started]]
   * [[Code Structure]]
   * [[Style Guide]]
   * [[Developing SU2 on GitHub (Internal Developers)]]
