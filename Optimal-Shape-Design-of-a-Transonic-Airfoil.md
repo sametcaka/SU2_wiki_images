@@ -2,7 +2,7 @@
 
 ## Goals
 
-For this tutorial, we return to the classic NACA 0012 test case that was the subject of the [[Quick Start Tutorial]] and perform aerodynamic design. Upon completing this tutorial, the user will be familiar with performing an optimal shape design of a 2D geometry. The initial geometry chosen for the tutorial is the NACA 0012 airfoil in transonic, inviscid flow. This tutorial is mean to be an introduction for using the components of SU2 for shape design in the context of a simple, unconstrained optimization problem. Consequently, the following SU2 tools will be showcased in this tutorial:
+For this tutorial, we return to the classic NACA 0012 test case that was the subject of the [[Quick Start]] and perform aerodynamic design. Upon completing this tutorial, the user will be familiar with performing an optimal shape design of a 2D geometry. The initial geometry chosen for the tutorial is the NACA 0012 airfoil in transonic, inviscid flow. This tutorial is mean to be an introduction for using the components of SU2 for shape design in the context of a simple, unconstrained optimization problem. Consequently, the following SU2 tools will be showcased in this tutorial:
 - **SU2_CFD** - performs the direct and the adjoint flow simulations
 - **SU2_DOT** - projects the adjoint surface sensitivities into the design space to obtain the gradient
 - **SU2_DEF** - deforms the geometry and mesh with changes in the design variables during the shape optimization process
@@ -10,22 +10,22 @@ For this tutorial, we return to the classic NACA 0012 test case that was the sub
 
 ## Resources
 
-The resources for this tutorial can be found in the TestCases/optimization_euler/steady_naca0012/ directory. You will need the configuration file (inv_NACA0012_basic.cfg) and the mesh file (mesh_NACA0012_inv.su2).
+The resources for this tutorial can be found in the TestCases/optimization_euler/steady_naca0012/ directory. You will need the configuration file (inv_NACA0012_basic.cfg) and the mesh file (mesh_NACA0012_inv.su2). Restart files for the flow and adjoint problems are also available in this directory, which can be used as an initial state for reducing the cost of the design process.
 
 ## Tutorial
 
-The following tutorial will walk you through the steps required when performing shape design for the transonic airfoil using SU2. It is assumed that you have already obtained and compiled SU2_CFD, SU2_DOT, and SU2_DEF. The design loop is driven by the shape_optimization.py script, and thus Python along with the NumPy and SciPy Python modules are required for this tutorial. If you have yet to complete these requirements, please see the [[Download]] and [[Installation]] pages.
+The following tutorial will walk you through the steps required when performing shape design for the transonic airfoil using SU2. It is assumed that you have already obtained and compiled SU2_CFD, SU2_DOT, and SU2_DEF. The design loop is driven by the shape_optimization.py script, and thus Python along with the NumPy and SciPy Python modules are required for this tutorial. If you have yet to complete these requirements, please see the [[Download]] and [[Installation]] pages. It may also be helpful to review the [[Quick Start]] tutorial to refamiliarize yourself with this problem.
 
 ### Background
 
-This example uses a 2D airfoil geometry (initially the NACA 0012) which is rotating counter-clockwise in still air.
+This example uses a 2D airfoil geometry (initially the NACA 0012) in transonic inviscid flow. See the [[Quick Start]] for more information on the baseline geometry.
 
 ### Problem Setup
 
-This numerical experiment for the rotating airfoil was set up such that transonic shocks would appear on the upper and lower surfaces causing drag. The goal of the design process is to minimize the coefficient of drag (Cd) by changing the shape of the airfoil with a constraint on the thickness of the airfoil. In other words, we would like to eliminate the shocks along the airfoil surface. The details of the rotating airfoil experiment are given in Figure (1).
-
-![Rotating NACA 0012 Experiment](http://su2.stanford.edu/github_wiki/rotating_experiment.png)
+The flow conditions of this numerical experiment are such that transonic shocks appear on the upper and lower surfaces, which causes drag. The goal of the design process is to minimize the coefficient of drag (Cd) by changing the shape of the airfoil. In other words, we would like to eliminate the shocks along the airfoil surface. The flow conditions are given below:
 Figure (1): Details for the rotating airfoil numerical experiment.
+
+While more advanced design problems can be selected, such as those containing flow and/or geoemtric constraints, we will consider a simple unconstrained drag minimization problem here.
 
 ### Mesh Description
 
