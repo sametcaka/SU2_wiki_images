@@ -8,6 +8,8 @@ For this tutorial, we return to the classic NACA 0012 test case that was the sub
 - **SU2_DEF** - deforms the geometry and mesh with changes in the design variables during the shape optimization process
 - **shape_optimization.py** - automates the entire shape design process by executing the SU2 tools and optimizer
 
+We will walk through the shape design process and highlight several options related to the continuous adjoint in SU2 and the configuration options for shape design.
+
 ## Resources
 
 The resources for this tutorial can be found in the TestCases/optimization_euler/steady_naca0012/ directory. You will need the configuration file (inv_NACA0012_basic.cfg) and the mesh file (mesh_NACA0012_inv.su2). Restart files for the flow and adjoint problems are also available in this directory, which can be used as an initial state for reducing the cost of the design process.
@@ -22,17 +24,20 @@ This example uses a 2D airfoil geometry (initially the NACA 0012) in transonic i
 
 ### Problem Setup
 
-The flow conditions of this numerical experiment are such that transonic shocks appear on the upper and lower surfaces, which causes drag. The goal of the design process is to minimize the coefficient of drag (Cd) by changing the shape of the airfoil. In other words, we would like to eliminate the shocks along the airfoil surface. The flow conditions are given below:
-Figure (1): Details for the rotating airfoil numerical experiment.
+The flow conditions of this numerical experiment are such that transonic shocks appear on the upper and lower surfaces, which causes drag. The goal of the design process is to minimize the coefficient of drag (Cd) by changing the shape of the airfoil. In other words, we would like to eliminate the shocks along the airfoil surface. This problem will solve the Euler and adjoint Euler (drag objective) equations on the NACA0012 airfoil at an angle of attack of 1.25 degrees using air with the following freestream conditions:
+
+- Pressure = 101325 Nm-2
+- Temperature = 273.15 K
+- Mach number = 0.8
 
 While more advanced design problems can be selected, such as those containing flow and/or geoemtric constraints, we will consider a simple unconstrained drag minimization problem here.
 
 ### Mesh Description
 
-The mesh from the Quick Start Tutorial is used again here as the initial geometry. It consists of a far-field boundary and an Euler wall along the airfoil surface. The specific airfoil is the NACA 0012, and more information on this airfoil can be found in the Quick Start Tutorial. The mesh can be seen in Figure (2).
+The mesh from the Quick Start Tutorial is used again here. It consists of a far-field boundary and an Euler wall along the airfoil surface. The mesh can be seen in Figure (1).
 
-![Rotating NACA 0012 Mesh](http://su2.stanford.edu/github_wiki/rotating_mesh.png)
-Figure (2): Far-field and zoom view of the initial computational mesh.
+![NACA 0012 Mesh](http://su2.stanford.edu/github_wiki/rotating_mesh.png)
+Figure (1): Far-field and zoom view of the initial computational mesh.
 
 ### Configuration File Options
 
