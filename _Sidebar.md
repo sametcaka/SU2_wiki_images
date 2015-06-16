@@ -6,6 +6,7 @@
   * [[Installation]]
     * [[Build from Source]]
         * [[Simple Build]]
+        * [[Parallel Build]]
         * [[Advanced Build]]
     * [[Windows Installation]]
     * [[Cygwin Build for Windows]]
