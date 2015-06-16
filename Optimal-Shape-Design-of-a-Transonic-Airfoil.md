@@ -114,8 +114,12 @@ The DEFINITION_DV is the list of design variables. For the airfoil problem, we w
 The continuous adjoint methodology for obtaining surface sensitivities is implemented for several equation sets within SU2. After solving the direct flow problem, the adjoint problem is also solved which offers an efficient approach for calculating the gradient of an objective function with respect to a large set of design variables. This leads directly to a gradient-based optimization framework. With each design iteration, the direct and adjoint solutions are used to compute the objective function and gradient, and the optimizer drives the shape changes with this information in order to minimize the objective. Two other SU2 tools are used to compute the gradient from the adjoint solution (SU2_DOT) and deform the computational mesh (SU2_DEF) during the process.
 
 To run this design case, follow these steps at a terminal command line:
- 1. Move to the directory containing the config file (rot_NACA0012.cfg) and the mesh file (mesh_NACA0012_rot.su2). Assuming that SU2 tools were compiled, installed, and that their install location was added to your path, the shape_optimization.py script, SU2_CFD, SU2_DOT, and SU2_DEF should all be available.
- 2. Execute the shape optimization script by entering "python shape_optimization.py -f rot_NACA0012.cfg" at the command line. Again, note that Python, NumPy, and SciPy are all required to run the script.
+1. Move to the directory containing the config file (inv_NACA0012_basic.cfg) and the mesh file (mesh_NACA0012_inv.su2). Assuming that SU2 tools were compiled, installed, and that their install location was added to your path, the shape_optimization.py script, SU2_CFD, SU2_DOT, and SU2_DEF should all be available.
+2. Execute the shape optimization script by entering
+    ```
+    python shape_optimization.py -f inv_NACA0012_basic.cfg 
+    ```
+at the command line. Again, note that Python, NumPy, and SciPy are all required to run the script.
  3. The python script will drive the optimization process by executing flow solutions, adjoint solutions, gradient projection, and mesh deformation in order to drive the design toward an optimum. The optimization process will cease when certain tolerances set within the SciPy optimizer are met.
  4. Solution files containing the flow and surface data will be written for each flow solution and adjoint solution and can be found in the DESIGNS directory that is created. The flow solutions are in the DESIGNS/DSN_*/DIRECT/ directories. The file named history_project.plt (or history_project.csv for ParaView) will contain the functional values of interest resulting from each evaluation during the optimization.
 
