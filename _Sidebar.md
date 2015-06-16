@@ -7,7 +7,7 @@
     * [[Build from Source]]
         * [[Simple Build]]
         * [[Parallel Build]]
-        * [[Advanced Build]]
+        * [[Parallel and CGNS Build]]
     * [[Windows Installation]]
     * [[Cygwin Build for Windows]]
   * [[Input Files]]
