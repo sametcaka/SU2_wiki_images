@@ -3,7 +3,8 @@ SU2 uses the GNU automake tools to configure and build the software from source 
 To illustrate an advanced build, let's assume that you would like to build SU2 for running parallel calculations. In short, you will need to make sure some extra software is available and then execute a set of commands like the following:
 ```
 $ cd /path/to/SU2
-$ ./configure --prefix=/path/to/install/SU2 CXXFLAGS="-O3" --enable-mpi --with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx
+$ ./configure --prefix=/path/to/install/SU2 CXXFLAGS="-O3" --enable-mpi 
+--with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx
 $ make -j 8 install
 ```
 
