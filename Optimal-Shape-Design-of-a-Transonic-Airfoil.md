@@ -22,28 +22,33 @@ The following tutorial will walk you through the steps required when performing 
 
 This example uses a 2D airfoil geometry (initially the NACA 0012) in transonic inviscid flow. See the [[Quick Start]] for more information on the baseline geometry. 
 
-The general process for performing gradient-based shape optimization with SU2 is given in the flow chart at the top of the page. We start with a baseline geometry and grid as input to our design cycle, along with a chosen objective function (J) and set of design variables (x). For this tutorial, we will use the NACA 0012 and the unstructured mesh from the [[Quick Start]] as our inputs with drag as our chosen objective and a set of Hicks-Henne bump functions to parameterize the shape. From there, everything needed for automatic shape design is provided for you in the SU2 framework! By launching the shape_optimization.py script (described below), a gradient-based optimizer will orchestrate the design cycle consisting of the flow solver, adjoint solver, and geometry/mesh deformation tools available in SU2. This iterative design loop will proceed until a minimum is found or until reaching a maximum number of optimizer iterations. Many useful output files will be available to you at the conclusion.
+The general process for performing gradient-based shape optimization with SU2 is given in the flow chart at the top of the page. We start with a baseline geometry and grid as input to our design cycle, along with a chosen objective function (J) and set of design variables (x). For this tutorial, we will use the NACA 0012 and the unstructured mesh from the [[Quick Start]] as our inputs with drag as our chosen objective and a set of Hicks-Henne bump functions to parameterize the shape. 
+
+From there, everything needed for automatic shape design is provided for you in the SU2 framework! By launching the shape_optimization.py script (described below), a gradient-based optimizer will orchestrate the design cycle consisting of the flow solver, adjoint solver, and geometry/mesh deformation tools available in SU2. This iterative design loop will proceed until a minimum is found or until reaching a maximum number of optimizer iterations. Many useful output files will be available to you at the conclusion.
 
 ### Problem Setup
 
 The flow conditions of this numerical experiment are such that transonic shocks appear on the upper and lower surfaces, which causes drag. The goal of the design process is to minimize the coefficient of drag (Cd) by changing the shape of the airfoil. In other words, we would like to eliminate the shocks along the airfoil surface. This problem will solve the Euler and adjoint Euler (drag objective) equations on the NACA0012 airfoil at an angle of attack of 1.25 degrees using air with the following freestream conditions:
 
-- Pressure = 101325 Nm-2
+- Pressure = 101325 Pa
 - Temperature = 273.15 K
 - Mach number = 0.8
 
-While more advanced design problems can be selected, such as those containing flow and/or geoemtric constraints, we will consider a simple unconstrained drag minimization problem here.
+While more advanced design problems can be selected, such as those containing flow and/or geoemtric constraints, we will consider a simple unconstrained drag minimization problem here to get started.
 
 ### Mesh Description
 
-The mesh from the Quick Start Tutorial is used again here. It consists of a far-field boundary and an Euler wall along the airfoil surface. The mesh can be seen in Figure (2).
+The mesh consists of a far-field boundary and an Euler wall (flow tangency) along the airfoil surface. The mesh can be seen in Figure (2).
 
 ![NACA 0012 Mesh](http://su2.stanford.edu/github_wiki/rotating_mesh.png)
 Figure (2): Far-field and zoom view of the initial computational mesh.
 
 ### Configuration File Options
 
-Several of the key configuration file options for this simulation are highlighted here. SU2 features a number of ways to compute flows on dynamic grids, including moving wall boundary conditions, calculations in a rotating frame, or unsteady flows on dynamic meshes. Specifying a simulation in a rotating frame (non-inertial) can be accomplished with the following options:
+Several of the key configuration file options for this simulation are highlighted here. First, we note that we are choosing a drag objective with the first config option below. A number of objective functions are implemented in SU2, and we recommend that you check the config_template.cfg file in the root directory for a list of those that are available.
+
+Next, we will discuss the common parameters needed for running an adjoint simulation. The continuous adjoint implementation in SU2 enables one to leverage many of the numerical methods found in the flow solver (often called the 'primal' or 'direct' solution). The continuous adjoint PDE is solved on the same numerical grid with very similar time integration techniques (implicit integration here). This allows for a very efficient adjoint approach with minimal overhead in terms of memory and compute.
+
 ```
 % ---------------- ADJOINT-FLOW NUMERICAL METHOD DEFINITION -------------------%
 % Adjoint problem boundary condition (DRAG, LIFT, SIDEFORCE, MOMENT_X,
@@ -72,9 +77,7 @@ CFL_REDUCTION_ADJFLOW= 0.8
 % Limit value for the adjoint variable
 LIMIT_ADJFLOW= 1E6
 ```
-In SU2, the governing equations (Euler, Navier-Stokes, and RANS) can be solved within a rotating reference frame which offers an efficient, steady solution method for flows around rotating bodies in axisymmetric flow. A simulation can be executed in a rotating frame by choosing the ROTATING_FRAME option for GRID_MOVEMENT_KIND. Two additional pieces of data must be supplied: the location of the rotation center (x,y,z) in the coordinate system of the computational mesh, and the angular velocity (rotation rate around the x-axis, rotation rate around the y-axis, rotation rate around the z-axis). 
-
-For the rotating airfoil problem, the airfoil has a chord of 1 meter and the origin of the coordinate system (0,0,0) is at the leading edge of the airfoil. We set the rotation center to be 32 chord lengths below the center of the airfoil. The angular velocity is in the z-direction (out of the page) and has the units of radians per second. Lastly, since the Mach number is 0.0 for this problem, we will use the value given in MACH_MOTION to compute the non-dimensional force coefficients.
+For this inviscid case, we have selected a modified version of the JST scheme for spatial integration. This 2nd-order, centered scheme affords us control over the level of dissipation applied to the problem. In particular, we control the higher-order dissipation (added everywhere in the solution) by modifying the 3rd entry in the AD_COEFF_ADJFLOW option. If you are having trouble converging your adjoint calculation, we often recommend adjusting the level of dissipation, along with reducing the CFL condition with the CFL_REDUCTION_ADJFLOW option, or even imposing a hard limit on the value of the adjoint density variable using the LIMIT_ADJFLOW option. While increasing the dissipation or limiting the adjoint variables can sometimes help to stabilize a solution, **note that overly increasing the dissipation or imposing limits that are too strict can result in decreased accuracy**. One should fully investigate the effect of these parameters, and ideally, a gradient accuracy/verification study should be performed (one can always compare against finite differencing).
 
 Optimal shape design specification:
 ```
