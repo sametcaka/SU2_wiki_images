@@ -18,7 +18,7 @@ The resources for this tutorial can be found in the TestCases/euler/oneram6/ dir
 
 ## Tutorial
 
-The following tutorial will walk you through the steps required when solving for the flow around the ONERA M6 using SU2. The tutorial will also address procedures for both serial and parallel computations. It is assumed that you have already obtained and compiled the SU2_CFD code for a serial computation or both the SU2_CFD and SU2_PRT codes for a parallel computation. If you have yet to complete these requirements, please see the [Download] and [Installation] pages.
+The following tutorial will walk you through the steps required when solving for the flow around the ONERA M6 using SU2. The tutorial will also address procedures for both serial and parallel computations. It is assumed that you have already obtained and compiled the SU2_CFD code for a serial computation or both the SU2_CFD and SU2_SOL codes for a parallel computation. If you have yet to complete these requirements, please see the [[Download]] and [[Installation]] pages.
 
 ### Background
 
