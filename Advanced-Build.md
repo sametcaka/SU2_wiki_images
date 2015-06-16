@@ -3,7 +3,9 @@ SU2 uses the GNU automake tools to configure and build the software from source 
 To illustrate an advanced build, let's assume that you would like to build SU2 for running parallel calculations and that you will need CGNS support for mesh input. In short, you will need to make sure some extra software is available and then execute a set of commands like the following:
 ```
 $ cd /path/to/SU2
-$ ./configure --prefix=/path/to/install/SU2 CXXFLAGS="-O3" --enable-mpi --with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx --with-CGNS-lib=/path/to/CGNS/lib --with-CGNS-include=/path/to/CGNS/header
+$ ./configure --prefix=/path/to/install/SU2 CXXFLAGS="-O3" --enable-mpi 
+--with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx 
+--with-CGNS-lib=/path/to/CGNS/lib --with-CGNS-include=/path/to/CGNS/header
 $ make -j 8 install
 ```
 
@@ -34,7 +36,9 @@ Support for the open, widely-used CGNS data standard has been including within S
 Now that you have your dependencies and configure options all lined up, let's return to the big picture. You can perform an advanced build by executing the commands from above, which are repeated here for simplicity:
 ```
 $ cd /path/to/SU2
-$ ./configure --prefix=/path/to/install/SU2 CXXFLAGS="-O3" --enable-mpi --with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx --with-CGNS-lib=/path/to/CGNS/lib --with-CGNS-include=/path/to/CGNS/header
+$ ./configure --prefix=/path/to/install/SU2 CXXFLAGS="-O3" --enable-mpi 
+--with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx 
+--with-CGNS-lib=/path/to/CGNS/lib --with-CGNS-include=/path/to/CGNS/header
 $ make -j 8 install
 ```
 The `--prefix` option defines the location that the executables will be installed (in a folder named bin/ within your chosen install location from --prefix). If the `--prefix` option is not specified, the code will be installed in `/usr/local/bin`, which may require admin access. Note that we are also using the "-j N" option of the make command in order to compile SU2 in parallel using N cores. This can greatly reduce the compilation time if building on a multicore laptop, workstation, or cluster head node. While not required, here we are combining the `make` and `install` commands into one.
