@@ -20,7 +20,9 @@ The following tutorial will walk you through the steps required when performing 
 
 ### Background
 
-This example uses a 2D airfoil geometry (initially the NACA 0012) in transonic inviscid flow. See the [[Quick Start]] for more information on the baseline geometry.
+This example uses a 2D airfoil geometry (initially the NACA 0012) in transonic inviscid flow. See the [[Quick Start]] for more information on the baseline geometry. 
+
+The general process for performing gradient-based shape optimization with SU2 is given in the flow chart at the top of the page. We start with a baseline geometry and grid as input to our design cycle, along with a chosen objective function (J) and set of design variables (x). For this tutorial, we will use the NACA 0012 and the unstructured mesh from the [[Quick Start]] as our inputs with drag as our chosen objective and a set of Hicks-Henne bump functions to parameterize the shape. From there, everything needed for automatic shape design is provided for you in the SU2 framework! By launching the shape_optimization.py script (described below), a gradient-based optimizer will orchestrate the design cycle consisting of the flow solver, adjoint solver, and geometry/mesh deformation tools available in SU2. This iterative design loop will proceed until a minimum is found or until reaching a maximum number of optimizer iterations. Many useful output files will be available to you at the conclusion.
 
 ### Problem Setup
 
