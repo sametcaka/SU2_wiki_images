@@ -4,8 +4,8 @@ To illustrate an advanced build, let's assume that you would like to build SU2 f
 ```
 $ cd /path/to/SU2
 $ ./configure --prefix=/path/to/install/SU2 CXXFLAGS="-O3" --enable-mpi 
---with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx --with-CGNS-lib=/path/to/CGNS/lib 
---with-CGNS-include=/path/to/CGNS/header
+--with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx 
+--with-CGNS-lib=/path/to/CGNS/lib --with-CGNS-include=/path/to/CGNS/header
 $ make -j 8 install
 ```
 
