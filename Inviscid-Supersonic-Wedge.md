@@ -5,11 +5,11 @@
 Upon completing this tutorial, the user will be familiar with performing a simulation of supersonic, inviscid flow over a 2-D geometry. The specific geometry chosen for the tutorial is a simple wedge. Consequently, the following capabilities of SU2 will be showcased in this tutorial:
 - Steady, 2-D Euler equations 
 - Multigrid
-- JST numerical scheme in space
+- HLLC numerical scheme in space
 - Euler implicit time integration
-- Far-field, Outlet, and Euler Wall boundary conditions
+- Supersonic Inlet, Outlet, and Euler Wall boundary conditions
 
-The intent of this tutorial is to introduce a simple, inviscid flow problem that will allow users to become familiar with using a CGNS mesh. This will require SU2 to be built with CGNS support, and some new options in the configuration file related to CGNS meshes will be discussed.
+The intent of this tutorial is to introduce a simple, inviscid flow problem that will allow users to become familiar with using a CGNS mesh. This will require SU2 to be built with CGNS support, and some new options in the configuration file related to CGNS meshes and their conversion will be discussed.
 
 ## Resources
 
@@ -17,17 +17,17 @@ The resources for this tutorial can be found in the TestCases/euler/wedge/ direc
 
 ## Tutorial
 
-The following tutorial will walk you through the steps required when solving for the flow using SU2. It is assumed you have already obtained and compiled SU2_CFD with CGNS support. If you have yet to complete these requirements, please see the Download and Installation pages.
+The following tutorial will walk you through the steps required when solving for the flow using SU2. It is assumed you have already obtained and compiled SU2_CFD with CGNS support. If you have yet to complete these requirements, please see the [[Download]] and [[Installation]] pages.
 
 ### Background
 
-This example uses a 2-D geometry which features a wedge along the solid lower wall. In supersonic flow, this wedge will create an oblique shock, and its properties can be predicted from the oblique-shock relations for a perfect gas (can be found in almost any text on compressible fluids). This is a very common test case for CFD codes due to its simplicity along with the ability to verify the code against the oblique-shock relations.
+This example uses a 2-D geometry which features a wedge along the solid lower wall. In supersonic flow, this wedge will create an oblique shock, and its properties can be predicted from the oblique-shock relations for a perfect gas (see your favorite compressible fluids textbook for more information). This is a very common test case for CFD codes due to its simplicity along with the ability to verify the code against the oblique-shock relations.
 
 ### Problem Setup
 
 This problem will solve for the flow over the wedge with these conditions:
-- Freestream Pressure = 101325.0 N/m2
-- Freestream Temperature = 273.15 K
+- Freestream Pressure = 100000 Pa
+- Freestream Temperature = 300 K
 - Freestream Mach number = 2.0
 - Angle of attack (AoA) = 0.0 deg
 
