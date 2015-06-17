@@ -135,7 +135,7 @@ Figure (3): Cp contours on the upper surface of the ONERA M6.
 Figure (4): Mach number contours on the upper surface of the ONERA M6 wing. Notice the "lambda" shock pattern typically seen on the upper surface.
 
 ![ONERA M6 Coefficients](http://su2.stanford.edu/github_wiki/oneram6_coefficients.png)
-Figure (5): Convergence of the non-dimensional coefficients (agglomeration rate 1/5.5, and 1/4.3).
+Figure (5): Convergence of the non-dimensional coefficients.
 
 ![ONERA M6 Convergence](http://su2.stanford.edu/github_wiki/oneram6_convergence.png)
-Figure (6): Convergence of the density residual (speed up x21.5, iteration based, log(Res(ρ)) = -6.6).
+Figure (6): Convergence of the density residual (speed up x20, iteration based).
