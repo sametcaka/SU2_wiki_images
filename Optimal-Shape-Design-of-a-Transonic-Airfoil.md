@@ -77,9 +77,11 @@ CFL_REDUCTION_ADJFLOW= 0.8
 % Limit value for the adjoint variable
 LIMIT_ADJFLOW= 1E6
 ```
-For this inviscid case, we have selected a modified version of the JST scheme for spatial integration. This 2nd-order, centered scheme affords us control over the level of dissipation applied to the problem. In particular, we control the higher-order dissipation (added everywhere in the solution) by modifying the 3rd entry in the AD_COEFF_ADJFLOW option. If you are having trouble converging your adjoint calculation, we often recommend adjusting the level of dissipation, along with reducing the CFL condition with the CFL_REDUCTION_ADJFLOW option, or even imposing a hard limit on the value of the adjoint density variable using the LIMIT_ADJFLOW option. While increasing the dissipation or limiting the adjoint variables can sometimes help to stabilize a solution, **note that overly increasing the dissipation or imposing limits that are too strict can result in decreased accuracy**. One should fully investigate the effect of these parameters, and ideally, a gradient accuracy/verification study should be performed (one can always compare against finite differencing).
+For this inviscid case, we have selected a modified version of the JST scheme for spatial integration. This 2nd-order, centered scheme affords us control over the level of dissipation applied to the problem. In particular, we control the higher-order dissipation (added everywhere in the solution) by modifying the 3rd entry in the AD_COEFF_ADJFLOW option. 
 
-Now for the options that specific the optimal shape design problem:
+If you are having trouble converging your adjoint calculation, we often recommend adjusting the level of dissipation, along with reducing the CFL condition with the CFL_REDUCTION_ADJFLOW option, or even imposing a hard limit on the value of the adjoint density variable using the LIMIT_ADJFLOW option. While increasing the dissipation or limiting the adjoint variables can sometimes help to stabilize a solution, **note that overly increasing the dissipation or imposing limits that are too strict can result in decreased accuracy**. One should fully investigate the effect of these parameters, and ideally, a gradient accuracy/verification study should be performed (one can always compare against finite differencing).
+
+Now, we present the options that specify the optimal shape design problem:
 ```
 % --------------------- OPTIMAL SHAPE DESIGN DEFINITION -----------------------%
 %
@@ -107,11 +109,21 @@ Here, we define the objective function for the optimization as drag without any 
 
 The SLSQP optimizer from the SciPy package for Python is the default optimizer called by the shape_optimization.py script. In addition to the hooks to the objective and gradient functions, this optimizer accepts options for the maximum number of optimizer iterations (OPT_ITERATIONS), requested accuracy (OPT_ACCURACY), and design variable bounds (BOUND_DV, plus or minus this value). During the optimization process, the SLSQP optimizer will call the flow and adjoint problems as necessary to take the next step in the design space. However, note that the optimizer will often make multiple function calls per major optimizer iteration in order to compute the next step size.
 
-The DEFINITION_DV is the list of design variables. For the airfoil problem, we want to minimize the drag by changing the surface profile shape. To do so, we define a set of Hicks-Henne bump functions. Each design variable is separated by a semicolon, although **note that there is no final semicolon at the end of the list**. The first value in the parentheses is the variable type, which is 1 for a Hicks-Henne bump function. The second value is the scale of the variable (typically left as 1.0). The name between the vertical bars is the marker tag where the variable deformations will be applied. Only the airfoil surface will be deformed in this problem. The final two values in the parentheses specify whether the bump function is applied to the upper (1) or lower (0) side and the x-location of the bump between 0 and 1 (we assume a chord of 1.0 for the Hicks-Henne bumps), respectively. Note that there are many other types of design variables available in SU2, and each has their own specific input format. 3D design variables based on the free-form deformation approach (FFD) will be discussed in the next tutorial.
+The DEFINITION_DV is the list of design variables. For the airfoil problem, we want to minimize the drag by changing the surface profile shape. To do so, we define a set of Hicks-Henne bump functions. Each design variable is separated by a semicolon, although **note that there is no final semicolon at the end of the list**. 
+
+The first value in the parentheses is the variable type, which is 1 for a Hicks-Henne bump function. The second value is the scale of the variable (typically left as 1.0). The name between the vertical bars is the marker tag where the variable deformations will be applied. Only the airfoil surface will be deformed in this problem. The final two values in the parentheses specify whether the bump function is applied to the upper (1) or lower (0) side and the x-location of the bump between 0 and 1 (we assume a chord of 1.0 for the Hicks-Henne bumps), respectively. 
+
+Note that there are many other types of design variables available in SU2, and each has their own specific input format. 3D design variables based on the free-form deformation approach (FFD) will be discussed in the next tutorial.
+
+![NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/naca0012_pressure_opt.png)
+Figure (3): Pressure contours for the baseline NACA 0012 airfoil.
 
 ### Running SU2
 
 The continuous adjoint methodology for obtaining surface sensitivities is implemented for several equation sets within SU2. After solving the direct flow problem, the adjoint problem is also solved which offers an efficient approach for calculating the gradient of an objective function with respect to a large set of design variables. This leads directly to a gradient-based optimization framework. With each design iteration, the direct and adjoint solutions are used to compute the objective function and gradient, and the optimizer drives the shape changes with this information in order to minimize the objective. Two other SU2 tools are used to compute the gradient from the adjoint solution (SU2_DOT) and deform the computational mesh (SU2_DEF) during the process.
+
+![NACA 0012 Adjoint](http://su2.stanford.edu/github_wiki/naca0012_psi_density.png)
+Figure (4): Adjoint density contours on the baseline NACA 0012 airfoil.
 
 To run this design case, follow these steps at a terminal command line:
 1. Move to the directory containing the config file (inv_NACA0012_basic.cfg) and the mesh file (mesh_NACA0012_inv.su2). Assuming that SU2 tools were compiled, installed, and that their install location was added to your path, the shape_optimization.py script, SU2_CFD, SU2_DOT, and SU2_DEF should all be available.
@@ -119,13 +131,7 @@ To run this design case, follow these steps at a terminal command line:
 3. The python script will drive the optimization process by executing flow solutions, adjoint solutions, gradient projection, and mesh deformation in order to drive the design toward an optimum. The optimization process will cease when certain tolerances set within the SciPy optimizer are met.
 4. Solution files containing the flow and surface data will be written for each flow solution and adjoint solution and can be found in the DESIGNS directory that is created. The flow solutions are in the DESIGNS/DSN_*/DIRECT/ directories. The file named history_project.dat (or history_project.csv for ParaView) will contain the functional values of interest resulting from each evaluation during the optimization.
 
-### Results
-
-![NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/naca0012_pressure_opt.png)
-Figure (3): Pressure contours for the baseline NACA 0012 airfoil.
-
-![NACA 0012 Adjoint](http://su2.stanford.edu/github_wiki/naca0012_psi_density.png)
-Figure (4): Adjoint density contours on the baseline NACA 0012 airfoil.
+### Results for the optimal shape design problem:
 
 ![NACA 0012 Final Contour](http://su2.stanford.edu/github_wiki/naca0012_final_contour.png)
 Figure (5): Pressure contours around the final airfoil design. Note the nearly shock-free final design.
