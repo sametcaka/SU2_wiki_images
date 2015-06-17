@@ -13,6 +13,7 @@
   * [[Input Files]]
     * [[Configuration File]]
     * [[Mesh File]]
+    * [[Restart File]]
   * [[Execution]]
   * [[Post-processing]]
 * [[User Tutorials]]
