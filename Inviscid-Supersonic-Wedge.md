@@ -33,12 +33,12 @@ This problem will solve for the flow over the wedge with these conditions:
 
 ### Mesh Description
 
-The wedge mesh is a structured mesh (75x50) of rectangular elements with a total of 3,750 nodes. The lower wall of the geometry is solid and has a 10o wedge starting at x = 0.5. Figure (1) shows the mesh with the boundary markers and flow conditions highlighted.
+The wedge mesh is a structured mesh (75x50) of rectangular elements with a total of 3,750 nodes. The lower wall of the geometry is solid and has a 10 degree wedge starting at x = 0.5. Figure (1) shows the mesh with the boundary markers and flow conditions highlighted.
 
 ![Wedge Mach](http://su2.stanford.edu/github_wiki/wedge_mesh_bcs.png)
 Figure (1): The computational mesh with boundary conditions highlighted.
 
-For this test case, the inlet and upper markers will be set to the far-field boundary condition, while the outlet marker will be set to the outlet condition. In supersonic flow, all characteristics point into the domain at the entrance (inlet & upper), so all flow quantities can be specified (no information travels upstream). This justifies the use of the far-field condition at these boundaries. At the exit, however, all characteristics are outgoing, meaning that no information about the exit conditions is required. Therefore, the outlet marker is set to the outlet boundary condition which, in supersonic flow, simply extrapolates the flow variables from the interior domain to the exit. In short, any back pressure can be supplied to the MARKER_OUTLET boundary condition in the configuration file, because it is ignored for this specific supersonic case.
+For this test case, the inlet marker will be set to supersonic inlet boundary condition, while the outlet marker will be set to the outlet condition. In supersonic flow, all characteristics point into the domain at the entrance (inlet marker), so all flow quantities can be specified (no information travels upstream). At the exit, however, all characteristics are outgoing, meaning that no information about the exit conditions is required. Therefore, the outlet marker is set to the outlet boundary condition which, in supersonic flow, simply extrapolates the flow variables from the interior domain to the exit. In practice, a low back pressure is supplied to the MARKER_OUTLET boundary condition in the configuration file, but the propagation of information in this supersonic flow make it unnecessary information.
 
 ### Configuration File Options
 
