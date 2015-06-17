@@ -85,9 +85,43 @@ Two dimensional problem.
 ```
 SU2 prints out information on the CGNS mesh including the filename, the number of points, and the number of elements. Another useful piece of information is the listing of the sections within the mesh. These descriptions give the type of elements for the section as well as any name given to it. For instance, when the inlet boundary information is read, SU2 prints "Loading section inlet of element type Line" to the console. This information can be used to verify that your mesh is being read correctly, or even to help you remember, or learn for the first time, the names for each of the boundary markers.
 
-A converter for creating .su2 meshes from CGNS meshes is built directly into SU2_DEF, along with many other facilities for manipulating and deforming grids (e.g., scaling, translating, rotating). First, we set several options that are used by SU2_DEF in order to convert the mesh. We will take advantage of the "scaling" capability while setting the scale values all to 1.0. This will result in a 1-to-1 conversion of the mesh from the CGNS format to the SU2 native format:
+A converter for creating .su2 meshes from CGNS meshes is built directly into SU2_DEF, along with many other facilities for manipulating and deforming grids (e.g., scaling, translating, rotating). First, we set several options that are used by SU2_DEF in order to convert the mesh. We will take advantage of the SCALE capability (DV_KIND) while setting the scale factor 1.0 in the DV_VALUE option. All four of the boundary markers must be included in DV_MARKER to complete the scaling procedure. This will result in a 1-to-1 conversion of the mesh from the CGNS format to the SU2 native format:
 ```
-
+% ----------------------- DESIGN VARIABLE PARAMETERS --------------------------%
+%
+% Kind of deformation (TRANSLATION, ROTATION, SCALE,
+%                      FFD_SETTING,
+%                      FFD_CONTROL_POINT, FFD_CAMBER, FFD_THICKNESS
+%                      FFD_DIHEDRAL_ANGLE, FFD_TWIST_ANGLE, FFD_ROTATION,
+%                      FFD_CONTROL_POINT_2D, FFD_CAMBER_2D, FFD_THICKNESS_2D,
+%                      HICKS_HENNE, PARABOLIC, NACA_4DIGITS, AIRFOIL)
+DV_KIND= SCALE
+%
+% Marker of the surface in which we are going apply the shape deformation
+DV_MARKER= ( upper, lower, inlet, outlet )
+%
+% Parameters of the shape deformation
+% - TRANSLATION ( x_Disp, y_Disp, z_Disp )
+% - ROTATION ( x_Orig, y_Orig, z_Orig, x_End, y_End, z_End )
+% - SCALE ( 1.0 )
+% - FFD_SETTING ( 1.0 )
+% - FFD_CONTROL_POINT ( FFD_BoxTag, i_Ind, j_Ind, k_Ind, x_Disp, y_Disp, z_Disp )
+% - FFD_CAMBER ( FFD_BoxTag, i_Ind, j_Ind )
+% - FFD_THICKNESS ( FFD_BoxTag, i_Ind, j_Ind )
+% - FFD_DIHEDRAL_ANGLE ( FFD_BoxTag, x_Orig, y_Orig, z_Orig, x_End, y_End, z_End )
+% - FFD_TWIST_ANGLE ( FFD_BoxTag, x_Orig, y_Orig, z_Orig, x_End, y_End, z_End )
+% - FFD_ROTATION ( FFD_BoxTag, x_Orig, y_Orig, z_Orig, x_End, y_End, z_End )
+% - FFD_CONTROL_POINT_2D ( FFD_BoxTag, i_Ind, j_Ind, x_Disp, y_Disp )
+% - FFD_CAMBER_2D ( FFD_BoxTag, i_Ind )
+% - FFD_THICKNESS_2D ( FFD_BoxTag, i_Ind )
+% - HICKS_HENNE ( Lower Surface (0)/Upper Surface (1)/Only one Surface (2), x_Loc )
+% - PARABOLIC ( Center, Thickness )
+% - NACA_4DIGITS ( 1st digit, 2nd digit, 3rd and 4th digit )
+% - AIRFOIL ( 1.0 )
+DV_PARAM= ( 1.0 )
+%
+% Value of the shape deformation
+DV_VALUE= 1.0
 ```
 Provide a name for the converted mesh to be written (set to "mesh_out.su2" by default)
 ```
@@ -104,7 +138,7 @@ You will now have a new mesh in the current working directory named "mesh_out.su
 
 The wedge simulation is small and will execute quickly on a single workstation or laptop, and this case will be run in a serial fashion. To run this test case, follow these steps at a terminal command line:
  1. Move to the directory containing the config file (inv_wedge_HLLC.cfg) and the mesh file (mesh_wedge_inv.cgns or mesh_wedge_inv.su2). Make sure that the SU2 tools were compiled (with CGNS support if necessary), installed, and that their install location was added to your path.
- 2. Run the executable by entering "SU2_CFD inv_wedge_HLLC.cfg" at the command line.
+ 2. Run the executable by entering `$ SU2_CFD inv_wedge_HLLC.cfg' at the command line.
  3. SU2 will print residual updates with each iteration of the flow solver, and the simulation will finish after reaching the specified convergence criteria.
  4. Files containing the results will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat). The output format is specified in the config file.
 
