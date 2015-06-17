@@ -121,7 +121,7 @@ To run this design case, follow these steps at a terminal command line:
 
 ### Results
 
-![NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/naca0012_pressure.png)
+![NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/naca0012_pressure_opt.png)
 Figure (3): Pressure contours for the baseline NACA 0012 airfoil.
 
 ![NACA 0012 Adjoint](http://su2.stanford.edu/github_wiki/naca0012_psi_density.png)
