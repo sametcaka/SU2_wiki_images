@@ -2,7 +2,6 @@
 ##### I have a question that isn't answered here. Where can I get more help?
 If the answer to your question is not here, try the [forum](http://cfd-online.com/Forums/su2/).
 
-
 ##### I am new to CFD and I don't know where to start. Can you help me?
 The best place to start for a new user after installing the code is the [[Quick Start]] tutorial. 
 
@@ -25,6 +24,9 @@ Further documentation is available in the su2code/Documentation repository.
 > 0   0.190073    -3.585391     -2.989014       0.114015       0.100685
 
 The code has not been compiled with parallel support. Refer to the installation instructions. 
+
+##### Where are my solution files?
+When running in serial (or a parallel version on one MPI rank), SU2_CFD will write solution files for Tecplot or ParaView upon exit. In parallel, only restart files will be written by SU2_CFD in order to save I/O overhead during the calculation. Solution files can then be generated at the end of the calculation by using the SU2_SOL module along with the restart file. Users can also use the parallel_computation.py script to automate this process.
 
 
 ##### What are Conservative_1, Conservative_2, etc? What about Residual[0], Residual[1], etc? What about Primitive[0], etc? Why don't you use the flow variables I'm used to?
