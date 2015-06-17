@@ -64,7 +64,7 @@ FREESTREAM_PRESSURE= 101325.0
 FREESTREAM_TEMPERATURE= 288.15
 ```
 
-For an inviscid problem such as this, the flow conditions are completely defined by an input Mach number, flow direction, freestream pressure, and freestream temperature. The input Mach number is transonic at 0.8395. The freestream temperature and pressure have been set to standard sea level values for air at 101325.0 N/m2 and 273.15 K, respectively. The flow field will be initialized to these freestream values everywhere in the domain.
+For an inviscid problem such as this, the flow conditions are completely defined by an input Mach number, flow direction, freestream pressure, and freestream temperature. The input Mach number is transonic at 0.8395. The freestream temperature and pressure have been set to standard sea level values for air at 101325.0 N/m2 and 288.15 K, respectively. The flow field will be initialized to these freestream values everywhere in the domain.
 
 Lastly, it is very important to note the definition of the freestream flow direction in 3D. The default freestream direction (AoA = 0.0 degrees and SIDESLIP_ANGLE = 0.0 degrees) is along the positive x-axis without any components in the y- or z-directions. Referring to Figure (1), we see that AoA = 3.06 degrees will result in a non-zero freestream velocity in the positive z-direction. While zero for this problem, setting the SIDESLIP_ANGLE to a non-zero value would result in a non-zero velocity component in the y-direction. In 2D, the flow is in the x-y plane. While the default freestream direction is still along the positive x-axis, a non-zero AoA value for 2D problems will result in a non-zero freestream velocity in the y-direction. The SIDESLIP_ANGLE variable is unused in 2D.
 
