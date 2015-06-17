@@ -131,11 +131,11 @@ Instructions for running this test case are given here for both serial and paral
 #### In Serial
 
 The wing mesh should easily fit on a single core machine. To run this test case, follow these steps at a terminal command line:
- 1 . Move to the directory containing the config file (turb_ONERAM6.cfg) and the mesh file (mesh_ONERAM6_turb_hexa_43008.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
- 2 . Run the executable by entering in the command line:
-```
-$ SU2_CFD turb_ONERAM6.cfg
-```
+ 1. Move to the directory containing the config file (turb_ONERAM6.cfg) and the mesh file (mesh_ONERAM6_turb_hexa_43008.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
+ 2. Run the executable by entering in the command line:
+  ```
+  $ SU2_CFD turb_ONERAM6.cfg
+  ```
  3 . SU2 will print residual updates with each iteration of the flow solver, and the simulation will terminate after reaching the specified convergence criteria.
  4 . Files containing the results will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat for ASCII).
 
