@@ -128,7 +128,7 @@ Figure (3): Pressure contours for the baseline NACA 0012 airfoil.
 Figure (4): Adjoint density contours on the baseline NACA 0012 airfoil.
 
 ![NACA 0012 Final Contour](http://su2.stanford.edu/github_wiki/naca0012_final_contour.png)
-Figure (5): Pressure contours around the final airfoil design with MAX_THICKNESS > 0.12. Note that the shocks have essentially been removed during the design process.
+Figure (5): Pressure contours around the final airfoil design. Note the nearly shock-free final design.
 
 ![NACA 0012 Final Cp](http://su2.stanford.edu/github_wiki/naca0012_final_cp.png)
 Figure (6): Cp distribution and profile shape comparison for the initial and final airfoil designs.
