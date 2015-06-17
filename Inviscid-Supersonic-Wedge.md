@@ -83,9 +83,22 @@ Two dimensional problem.
 74 boundary elements in index 3 (Marker = upper).
 3626 quadrilaterals.
 ```
-SU2 prints out information on the CGNS mesh including the filename, the number of points, and the number of elements. Another useful piece of information is the listing of the zone sections within the mesh. These descriptions give the type of elements for the section as well as any name given to it. For instance, when the inlet boundary information is read, SU2 prints "Reading section inlet of element type Line" to the console. This information can be used to verify that your mesh is being read correctly, or even to help you remember, or learn for the first time, the names for each of the boundary markers. Lastly, if conversion to the .su2 format is requested, SU2 will communicate whether the .su2 mesh was successfully written.
+SU2 prints out information on the CGNS mesh including the filename, the number of points, and the number of elements. Another useful piece of information is the listing of the sections within the mesh. These descriptions give the type of elements for the section as well as any name given to it. For instance, when the inlet boundary information is read, SU2 prints "Loading section inlet of element type Line" to the console. This information can be used to verify that your mesh is being read correctly, or even to help you remember, or learn for the first time, the names for each of the boundary markers.
 
-A converter for creating .su2 meshes from CGNS meshes is built directly into SU2_DEF, along with many other facilities for manipulating and deforming grids (e.g., scaling, translating, rotating). To perform a direct conversion from the CGNS format to the native SU2 format, set the CGNS_TO_SU2 flag to YES and provide a name for the converted mesh (for this case, it has been set to "mesh_out.su2"). SU2 will convert the mesh during the pre-processing after reading in the original CGNS mesh and print the new mesh file to the current working directory.
+A converter for creating .su2 meshes from CGNS meshes is built directly into SU2_DEF, along with many other facilities for manipulating and deforming grids (e.g., scaling, translating, rotating). First, we set several options that are used by SU2_DEF in order to convert the mesh. We will take advantage of the "scaling" capability while setting the scale values all to 1.0. This will result in a 1-to-1 conversion of the mesh from the CGNS format to the SU2 native format:
+```
+
+```
+Provide a name for the converted mesh to be written (set to "mesh_out.su2" by default)
+```
+% Mesh output file
+MESH_OUT_FILENAME= mesh_out.su2
+```
+and lastly, run the SU2_DEF module
+```
+$ SU2_DEF inv_Wedge_HLLC.cfg
+```
+You will now have a new mesh in the current working directory named "mesh_out.su2" that is in the SU2 native format.
 
 ### Running SU2
 
