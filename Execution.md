@@ -50,8 +50,8 @@ Options:
 * -h, --help show this help message and exit
 * -f FILE, --file=FILE read config from FILE
 * -n PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
-* -c COMPUTE, --compute=COMPUTE direct and adjoint problem (False only runs SU2_GPC)
-* -s STEP, --step=STEP finite difference STEP
+* -c COMPUTE, --compute=COMPUTE COMPUTE direct and adjoint problem
+* -s STEP, --step=STEP DOT finite difference STEP
 
 ### Finite Difference Gradient Calculation (finite_differences.py)
 
