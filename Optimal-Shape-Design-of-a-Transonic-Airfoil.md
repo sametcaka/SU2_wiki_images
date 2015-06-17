@@ -121,20 +121,17 @@ To run this design case, follow these steps at a terminal command line:
 
 ### Results
 
-![Rotating NACA 0012 Mach](http://su2.stanford.edu/github_wiki/rotating_mach.png)
-Figure (3): Mach number contours for the airfoil rotating in still air.
+![NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/naca0012_pressure.png)
+Figure (3): Pressure contours for the baseline NACA 0012 airfoil.
 
-![Rotating NACA 0012 Adjoint](http://su2.stanford.edu/github_wiki/rotating_psi_density.png)
-Figure (4): Adjoint density contours on the initial design.
+![NACA 0012 Adjoint](http://su2.stanford.edu/github_wiki/naca0012_psi_density.png)
+Figure (4): Adjoint density contours on the baseline NACA 0012 airfoil.
 
-![Rotating NACA 0012 Pressure](http://su2.stanford.edu/github_wiki/rotating_pressure.png)
-Figure (5): Pressure contours showing transonic shocks on the initial design.
+![NACA 0012 Final Contour](http://su2.stanford.edu/github_wiki/naca0012_final_contour.png)
+Figure (5): Pressure contours around the final airfoil design with MAX_THICKNESS > 0.12. Note that the shocks have essentially been removed during the design process.
 
-![Rotating NACA 0012 Final Contour](http://su2.stanford.edu/github_wiki/rotating_final_contour.png)
-Figure (6): Pressure contours around the final airfoil design with MAX_THICKNESS > 0.12. Note that the shocks have essentially been removed during the design process.
+![NACA 0012 Final Cp](http://su2.stanford.edu/github_wiki/naca0012_final_cp.png)
+Figure (6): Cp distribution and profile shape comparison for the initial and final airfoil designs.
 
-![Rotating NACA 0012 Final Cp](http://su2.stanford.edu/github_wiki/rotating_final_cp.png)
-Figure (7): Cp distribution and profile shape comparison for the initial and final airfoil designs.
-
-![Rotating NACA 0012 Final History](http://su2.stanford.edu/github_wiki/rotating_final_history.png)
-Figure (8): Function evaluation history.
+![NACA 0012 Final History](http://su2.stanford.edu/github_wiki/naca0012_final_history.png)
+Figure (7): Function evaluation history during the optimization process.
