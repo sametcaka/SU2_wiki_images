@@ -118,7 +118,7 @@ The wing simulation is relatively large, but should still fit on a single-core m
 
 #### In Parallel
 
-If SU2 has been built with parallel support, the recommended method for running a parallel simulation is through the use of the parallel_computation.py Python script. This automatically handles the domain decomposition with SU2_PRT, execution of SU2_CFD, and the merging of the decomposed files using SU2_SOL. Follow these steps to run the ONERA M6 case in parallel:
+If SU2 has been built with parallel support, the recommended method for running a parallel simulation is through the use of the parallel_computation.py Python script. This automatically handles the execution of SU2_CFD, and the writing of the solution files using SU2_SOL. Follow these steps to run the ONERA M6 case in parallel:
  1. Move to the directory containing the config file (inv_ONERAM6_JST.cfg) and the mesh file (mesh_ONERAM6_inv.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
  2. Run the python script by entering "parallel_computation.py -f inv_ONERAM6.cfg -n NP" at the command line with NP being the number of processors to be used for the simulation. The python script will automatically call SU2_PRT to perform the mesh partitioning, followed by SU2_CFD to perform the simulation in parallel. 
  3. SU2 will print residual updates with each iteration of the flow solver, and the simulation will terminate after reaching the specified convergence criteria.
