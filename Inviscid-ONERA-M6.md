@@ -71,18 +71,22 @@ Lastly, it is very important to note the definition of the freestream flow direc
 
 In order to define reference values (for non-dimen. purposes):
 ```
+% ---------------------- REFERENCE VALUE DEFINITION ---------------------------%
+%
+% Reference origin for moment computation
+REF_ORIGIN_MOMENT_X = 0.25
+REF_ORIGIN_MOMENT_Y = 0.00
+REF_ORIGIN_MOMENT_Z = 0.00
+%
+% Reference length for pitching, rolling, and yawing non-dimensional moment
+REF_LENGTH_MOMENT= 1.0
 %
 % Reference area for force coefficients (0 implies automatic calculation)
 REF_AREA= 0
 %
-% Reference pressure (101325.0 N/m^2 by default)
-REF_PRESSURE= 101325.0
-%
-% Reference temperature (273.15 K by default)
-REF_TEMPERATURE= 273.15
-%
-% Reference density (1.2886 Kg/m^3 (air), 998.2 Kg/m^3 (water))
-REF_DENSITY= 1.2886
+% Flow non-dimensionalization (DIMENSIONAL, FREESTREAM_PRESS_EQ_ONE,
+%                              FREESTREAM_VEL_EQ_MACH, FREESTREAM_VEL_EQ_ONE)
+REF_DIMENSIONALIZATION= DIMENSIONAL
 ```
 
 SU2 accepts arbitrary reference values for flow non-dimensionalization and computing force coefficients. A reference area can be supplied by the user for the calculation of force coefficients (e.g. a trapezoidal wing area) with the REF_AREA variable. If REF_AREA is set equal to zero, as for the ONERA M6, a reference area will be automatically calculated by summing all surface normal components in the positive z-direction on the monitored markers. The values entered for REF_PRESSURE, REF_TEMPERATURE, and REF_DENSITY will be used to non-dimensionalize the flow based on the compressible formulation explained on the non-dimensionalization page. If these three reference values are set equal to 1.0, SU2 will perform a simulation with fully dimensional values.
