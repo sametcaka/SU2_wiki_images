@@ -47,6 +47,7 @@ Figure (2): Close-up view of the unstructured mesh on the top surface of the ONE
 
 Several of the key configuration file options for this simulation are highlighted here. The following describes how to set up 3D flow conditions in SU2:
 ```
+% -------------------- COMPRESSIBLE FREE-STREAM DEFINITION --------------------%
 %
 % Mach number (non-dimensional, based on the free-stream values)
 MACH_NUMBER= 0.8395
