@@ -60,8 +60,8 @@ SIDESLIP_ANGLE= 0.0
 % Free-stream pressure (101325.0 N/m^2 by default, only for Euler equations)
 FREESTREAM_PRESSURE= 101325.0
 %
-% Free-stream temperature (273.15K by default)
-FREESTREAM_TEMPERATURE= 273.15
+% Free-stream temperature (288.15 K by default)
+FREESTREAM_TEMPERATURE= 288.15
 ```
 
 For an inviscid problem such as this, the flow conditions are completely defined by an input Mach number, flow direction, freestream pressure, and freestream temperature. The input Mach number is transonic at 0.8395. The freestream temperature and pressure have been set to standard sea level values for air at 101325.0 N/m2 and 273.15 K, respectively. The flow field will be initialized to these freestream values everywhere in the domain.
