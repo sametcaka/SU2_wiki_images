@@ -93,11 +93,13 @@ SU2 accepts arbitrary reference values for computing the force coefficients. A r
 
 Finally, we discuss some key multigrid options:
 ```
+% -------------------------- MULTIGRID PARAMETERS -----------------------------%
+%
 % Multi-Grid Levels (0 = no multi-grid)
 MGLEVEL= 3
 %
-% Multi-Grid Cycle (0 = V cycle, 1 = W Cycle)
-MGCYCLE= 1
+% Multi-grid cycle (V_CYCLE, W_CYCLE, FULLMG_CYCLE)
+MGCYCLE= W_CYCLE
 ```
 
 SU2 contains an agglomeration multigrid algorithm for convergence acceleration technique where the original mesh is automatically agglomerated into a series of coarser representations, and calculations are performed on all mesh levels with each solver iteration in order to provide a better residual update. The user can set the number of multigrid levels using the MGLEVEL option. If this is set to zero, multigrid will be turned off, and only the original (fine) mesh will be used. An integer number of levels can be chosen. The ONERA M6 test case uses 3 levels of coarser meshes along with the original mesh for a total of 4 mesh levels. The type of cycle (V or W) can also be specified, and in general, while more computationally intensive, a W-cycle provides better convergence rates.
