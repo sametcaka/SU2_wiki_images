@@ -23,14 +23,14 @@ Note that, depending on your flavor of MPI, you may need to use a different laun
 The distribution of SU2 includes several Python scripts that coordinate the use of the C++ modules to perform more advanced analyses and simulations. A working installation of Python is highly recommended, as a number of tasks can be easily automated using provided scripts (e.g., computing a drag polar). These Python scripts can be found in the $SU2_HOME/SU2_PY.
 
 All of the scripts can be executed by calling python and passing the appropriate SU2 python script and options at runtime. The syntax is as follows:
-
-`$ python script_name.py [options]`
-
+```
+$ python script_name.py [options]
+```
 where *script_name.py* is the name of the script to be run, and [options] is a list of options available to each script file.  A brief description of the most commonly used scripts, their execution syntax, and runtime options are included below. Users are encouraged to look at the source code of the python scripts. As with many Python programs, the code is easily readable and gives the specifics of the implementation. They can also be used as templates for writing your own scripts for automating SU2 tasks.
 
 ### Parallel Computation Script (parallel_computation.py)
 
-The parallel computation script, parallel_computation.py, coordinates the steps necessary to run SU2_CFD in parallel. The script first calls SU2_PRT, which, in turn, uses METIS to partition the computational domain into a specified number of sub-problems. The script then calls SU2_CFD in parallel (using MPI) with the indicated number of ranks, sending each partitioned piece of the domain to its correspondingly-ranked MPI process. At the conclusion of the simulation, the parallel_computation.py script generates the solution files from the restart file written during execution by calling the SU2_SOL module. Note that during parallel execution, only restart files are written by SU2_CFD, not solution files, in order to reduce the overhead associated with I/O for large calculations. The SU2_SOL module can be executed at any time (in serial or parallel) to generate solution files in a specified format from a restart file and corresponding mesh.
+The parallel computation script, parallel_computation.py, coordinates the steps necessary to run SU2_CFD in parallel and produce solution output files. The script calls SU2_CFD in parallel (using MPI) with the indicated number of ranks. At the conclusion of the simulation, the parallel_computation.py script generates the solution files from the restart file written during execution by calling the SU2_SOL module. **Note that during parallel execution, only restart files are written by SU2_CFD, not solution files, in order to reduce the overhead associated with I/O for large calculations**. The SU2_SOL module can be executed at any time (in serial or parallel) to generate solution files in a specified format from a restart file and corresponding mesh.
 
 Usage: `$ python parallel_computation.py [options]`
 
