@@ -133,23 +133,23 @@ Instructions for running this test case are given here for both serial and paral
 The wing mesh should easily fit on a single core machine. To run this test case, follow these steps at a terminal command line:
  1. Move to the directory containing the config file (turb_ONERAM6.cfg) and the mesh file (mesh_ONERAM6_turb_hexa_43008.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
  2. Run the executable by entering in the command line:
-  ```
-  $ SU2_CFD turb_ONERAM6.cfg
-  ```
- 3 . SU2 will print residual updates with each iteration of the flow solver, and the simulation will terminate after reaching the specified convergence criteria.
- 4 . Files containing the results will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat for ASCII).
+    ```
+    $ SU2_CFD turb_ONERAM6.cfg
+    ```
+ 3. SU2 will print residual updates with each iteration of the flow solver, and the simulation will terminate after reaching the specified convergence criteria.
+ 4. Files containing the results will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat for ASCII).
 
 #### In Parallel
 
 If SU2 has been built with parallel support, the recommended method for running a parallel simulation is through the use of the parallel_computation.py Python script. This automatically handles the domain decomposition and execution with SU2_CFD, and the merging of the decomposed files using SU2_SOL. Follow these steps to run the ONERA M6 case in parallel:
- 1 . Move to the directory containing the config file (turb_ONERAM6.cfg) and the mesh file (mesh_ONERAM6_turb_hexa_43008.su2). Make sure that the SU2 tools were compiled with parallel support, installed, and that their install location was added to your path.
- 2 . Run the python script by entering in the command line:
-```
-$ parallel_computation.py -n NP -f turb_ONERAM6.cfg
-```
+ 1. Move to the directory containing the config file (turb_ONERAM6.cfg) and the mesh file (mesh_ONERAM6_turb_hexa_43008.su2). Make sure that the SU2 tools were compiled with parallel support, installed, and that their install location was added to your path.
+ 2. Run the python script by entering in the command line:
+    ```
+    $ parallel_computation.py -n NP -f turb_ONERAM6.cfg
+    ```
 NP is the number of processors to be used for the simulation. The python script will automatically call SU2_CFD to perform the simulation in parallel.
- 3 . SU2 will print residual updates with each iteration of the flow solver, and the simulation will terminate after reaching the specified convergence criteria.
- 4 . The python script will automatically call the SU2_SOL executable for merging the decomposed solution files from each processor into a single file. These files containing the results will be written upon exiting SU2. The flow solution can then be visualized in ParaView (.vtk) or Tecplot (.dat for ASCII).
+ 3. SU2 will print residual updates with each iteration of the flow solver, and the simulation will terminate after reaching the specified convergence criteria.
+ 4. The python script will automatically call the SU2_SOL executable for merging the decomposed solution files from each processor into a single file. These files containing the results will be written upon exiting SU2. The flow solution can then be visualized in ParaView (.vtk) or Tecplot (.dat for ASCII).
 
 ### Results
 
