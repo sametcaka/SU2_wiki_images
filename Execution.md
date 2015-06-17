@@ -55,7 +55,7 @@ Options:
 
 ### Finite Difference Gradient Calculation (finite_differences.py)
 
-The finite difference calculation script, finite_difference.py, is used to calculate the gradient of an objective function with respect to specified design variables using a finite difference method. This script calls SU2_CFD repeatedly, perturbing the input design variables and mesh using SU2_DEF, and stores the gradient values.
+The finite difference calculation script is used to calculate the gradient of an objective function with respect to specified design variables using a finite difference method. This script calls SU2_CFD repeatedly, perturbing the input design variables and mesh using SU2_DEF, stores the sensitivity values, and outputs the gradient upon exit.
 
 Usage: `$ python finite_differences.py [options]`
 
@@ -68,7 +68,7 @@ Options:
 
 ### Shape Optimization Script (shape_optimization.py)
 
-The shape optimization script, shape_optimization.py, coordinates and synchronizes the steps necessary to run a shape optimization problem using the design variables and objective function specified in the configuration file. The optimization is handled using SciPy's BFGS or SLSQP optimization algorithms. Objective functions (drag, lift, etc.) are determined by running a direct flow solution in SU2_CFD, and gradients are obtained using the adjoint solution by default. For each iteration in the design process, the mesh is deformed using SU2_DEF, and the sequence is repeated until a local optimum is reached.
+The shape optimization script coordinates and synchronizes the steps necessary to run a shape optimization problem using the design variables and objective function specified in the configuration file. The optimization is handled using SciPy's SLSQP optimization algorithm by default. Objective functions (drag, lift, etc.) are determined by running a direct flow solution in SU2_CFD, and gradients are obtained using the adjoint solution by default (other options can be selected). For each major iteration in the design process, the mesh is deformed using SU2_DEF, and the sequence is repeated until a local optimum is reached.
 
 Usage: `$ python shape_optimization.py [options]`
 
