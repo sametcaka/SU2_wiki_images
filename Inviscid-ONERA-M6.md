@@ -89,7 +89,7 @@ REF_AREA= 0
 REF_DIMENSIONALIZATION= DIMENSIONAL
 ```
 
-SU2 accepts arbitrary reference values for flow non-dimensionalization and computing force coefficients. A reference area can be supplied by the user for the calculation of force coefficients (e.g. a trapezoidal wing area) with the REF_AREA variable. If REF_AREA is set equal to zero, as for the ONERA M6, a reference area will be automatically calculated by summing all surface normal components in the positive z-direction on the monitored markers. The values entered for REF_PRESSURE, REF_TEMPERATURE, and REF_DENSITY will be used to non-dimensionalize the flow based on the compressible formulation explained on the non-dimensionalization page. If these three reference values are set equal to 1.0, SU2 will perform a simulation with fully dimensional values.
+SU2 accepts arbitrary reference values for computing the force coefficients. A reference area can be supplied by the user for the calculation of force coefficients (e.g. a trapezoidal wing area) with the REF_AREA variable. If REF_AREA is set equal to zero, as for the ONERA M6, a reference area will be automatically calculated by summing all surface normal components in the positive z-direction on the monitored markers. In this case SU2 performs a dimensional simulation (REF_DIMENSIONALIZATION= DIMENSIONAL). The non-dimensional options will set: density=1.0, temperature=1.0 and the other variable as specified in the key. For instance FREESTREAM_PRESSURE_EQ_ONE will set density=1.0, temperature=1.0 and pressure=1.0.
 
 Finally, we discuss some key multigrid options:
 ```
