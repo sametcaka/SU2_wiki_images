@@ -15,7 +15,7 @@ Upon completing this simple tutorial, the user will be familiar with performing 
 
 ## Resources
 
-The files necessary to run this tutorial are included in the SU2/QuickStart/ directory. For the other tutorials, the files will be found in the TestCases/ repository. Two files are needed as input to the code: a configuration file describing the options for the particular problem, and the corresponding computational mesh file. The files can also be found in the TestCases repository under TestCases/euler/naca0012. The mesh file is available in TestCases/euler/naca0012/ but obtained from the zip from the registration page. 
+The files necessary to run this tutorial are included in the SU2/QuickStart/ directory. For the other tutorials, the files will be found in the TestCases/ repository. Two files are needed as input to the code: a configuration file describing the options for the particular problem, and the corresponding computational mesh file. The files are in QuickStart/ and can also be found in the TestCases repository under TestCases/euler/naca0012. The mesh file is available in TestCases/euler/naca0012/ but obtained from the zip from the registration page. 
 
 ## Tutorial
 
@@ -63,8 +63,8 @@ SU2 can output solution files in the .vtk (ParaView), .dat (Tecplot ASCII), and 
 ### Running SU2
 
 The first step in this tutorial is to solve the Euler equations:
- 1. Create a directory in which to run the tutorial. Copy the config file (inv_NACA0012.cfg) and the mesh file (mesh_NACA0012_inv.su2) to this directory. Navigate to this directory in a terminal. You may also run this tutorial from within the Quickstart/ directory. 
- 2. Run the executable by entering "SU2_CFD inv_NACA0012.cfg" at the command line.
+ 1. Either navigate to the QuickStart/ directory or create a directory in which to run the tutorial. If you have created a new directory, copy the config file (inv_NACA0012.cfg) and the mesh file (mesh_NACA0012_inv.su2) to this directory. 
+ 2. Run the executable by entering "SU2_CFD inv_NACA0012.cfg" at the command line. If you have not set the $SU2_RUN environment variable you will need to run "../bin/SU2_CFD inv_NACA0012.cfg" a the command line. 
  3. SU2 will print residual updates with each iteration of the flow solver, and the simulation will finish after reaching the specified convergence criteria.
  4. Files containing the flow results (with "flow" in the file name) will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat or .plt). More specifically, these files are:
   - **flow.dat** or **flow.vtk** - full volume flow solution.
