@@ -2,20 +2,20 @@ Once downloaded and installed, SU2 will be ready to run simulations and design p
 
 ## C++ Modules
 
-As described in the [[Software Components]] page, there are a number of C++ modules that are the core of the SU2 suite. After compilation, each can be executed at the command line using a Unix-based terminal (or appropriate emulator, such as Cygwin). The executables for these modules can be found in the $SU2_HOME/<MODULE_NAME>/bin directories and in the $SU2_HOME/SU2_PY directory.  The configuration file specifies the problem and solver parameters for all SU2 modules and must be included at runtime.
+As described in the [[Software Components]] page, there are a number of C++ modules that are the core of the SU2 suite. After compilation, each can be executed at the command line using a Unix-based terminal (or appropriate emulator, such as Cygwin). The executables for these modules can be found in the `$SU2_HOME/<MODULE_NAME>/bin` directories and in the `$SU2_HOME/SU2_PY` directory.  The configuration file specifies the problem and solver parameters for all SU2 modules and must be included at runtime.
 
 The syntax for running each C++ module individually in serial is:
-
-`$ SU2_MODULE your_config_file.cfg`
-
-where SU2_MODULE can be any of the C++ modules on the [[Software Components]] and *your_config_file.cfg* is the name of the configuration file that you have prepared for the problem. An example of a call to SU2_CFD with a configuration file "default.cfg" is included below:
-
-`$ ./SU2_CFD default.cfg`
-
-where the executable, SU2_CFD, and the [[Configuration File]], default.cfg, are located in the current working directory.  Please see the Installation page for how you can set up environment variables to run the modules from any directory. Additionally, SU2 is a fully-parallel suite, and assuming that you have compiled with MPI support, each of the modules can be executed in parallel. For example, to run the CFD solver on 8 cores, you might enter:
-
-`$ mpirun -n 8 SU2_CFD default.cfg`
-
+```
+$ SU2_MODULE your_config_file.cfg
+```
+where `SU2_MODULE` can be any of the C++ modules on the [[Software Components]] and `your_config_file.cfg` is the name of the configuration file that you have prepared for the problem. An example of a call to SU2_CFD with a configuration file "default.cfg" is included below:
+```
+$ ./SU2_CFD default.cfg
+```
+where the executable, SU2_CFD, and the [[Configuration File]], default.cfg, are located in the current working directory.  Please see the [[Installation]] page for how you can set up environment variables to run the modules from any directory. Additionally, SU2 is a fully-parallel suite, and assuming that you have compiled with MPI support, each of the modules can be executed in parallel. For example, to run the CFD solver on 8 cores, you might enter:
+```
+$ mpirun -n 8 SU2_CFD default.cfg
+```
 Note that, depending on your flavor of MPI, you may need to use a different launcher, such as *mpiexec*. Please see the documentation for your particular MPI implementation.
 
 ## Python Scripts
