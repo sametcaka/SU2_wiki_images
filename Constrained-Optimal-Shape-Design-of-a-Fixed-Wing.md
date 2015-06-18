@@ -16,9 +16,23 @@ The resources for this tutorial can be found in the TestCases/optimization_euler
 
 The following tutorial will walk you through the steps required when performing 3D shape design using SU2, and FFD tools. It is assumed that you have already obtained and compiled SU2_CFD, SU2_DOT, and SU2_DEF. The design loop is driven by the shape_optimization.py script, and thus Python along with the NumPy and SciPy Python modules are required for this tutorial. If you have yet to complete these requirements, please see the Download and Installation pages.
 
-### Background
+### Problem Setup
 
-This example uses a 3D fixed-wing geometry (initially the ONERA M6) at transonic speed in air (inviscid calculation). The design variables are defined using the FFD methodology, and at the end of the mesh_ONERAM6_inv_FFD.su2 file, the description of the FFD box is provided:
+The goal of the design process is to minimize the coefficient of drag (Cd) by changing the shape of the wing, and as design variables, we will use the z-coordinate of the FFD control point position. This example uses a 3D fixed-wing geometry (initially the ONERA M6) at transonic speed in air (inviscid calculation). As the shock wave is located on the upper side of the wing, only the control points on the upper side will be used as design variables.
+
+### Mesh Description and FFD Setup 
+
+The mesh consists of a far-field boundary divided in three surfaces (XNORMAL_FACES, ZNORMAL_FACES, YNORMAL_FACES), an Euler wall divided in three surfaces (UPPER_SIDE, LOWER_SIDE, TIP) and a symmetry plane (SYMMETRY_FACE). The specific wing is the ONERA M6, and more information on this simulation can be found in the configuration file. The surface mesh can be seen in Figure (1).
+ 
+![Opt. ONERA Grid](http://su2.stanford.edu/github_wiki/opt_onera_grid.jpg)
+Figure (1): View of the initial surface computational mesh.
+
+![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/opt_onera_ffd.jpg)
+Figure (2): View of the initial FFD box, control points and the surface mesh.
+ 
+The mesh file that is provided for this test case already contains the FFD information. However, if you are interested in repeating this process for your own design cases, it is necessary to calculate the position of the control points and the parametric coordinates. The description below describes how to set up FFD boxes for deformation.
+
+ The design variables are defined using the FFD methodology, and at the end of the mesh_ONERAM6_inv_FFD.su2 file, the description of the FFD box is provided:
 ```
 FFD_NBOX= 1
 FFD_NLEVEL= 1
@@ -43,21 +57,9 @@ FFD_SURFACE_POINTS=0
 ```
 Note that, only the corners of the box and the polynomial degree in each direction are provided. The tag for the FFD box can be specified as a string name. Here, we choose "WING," as we are placing the FFD box around the wing. The provided mesh file is ready for optimization, but in the case that a user is specifying their own FFD box for a problem, the SU2_DEF module should be called after defining the options above (the levels, tag, degrees, and corner points) with the DV_KIND option set to FFD_SETTING in order to compute and write the FFD_CONTROL_POINTS and FFD_SURFACE_POINTS information to the grid file. Note that this mapping for the FFD variables only needs to be computed and stored once in the mesh file before performing design. We will describe this below.
 
-### Problem Setup
 
-The goal of the design process is to minimize the coefficient of drag (Cd) by changing the shape of the wing, and as design variables, we will use the z-coordinate of the FFD control point position. As the shock wave is located on the upper side of the wing, only the control points on the upper side will be used as design variables.
 
-### Mesh Description and Preprocessing 
-
-The mesh consists of a far-field boundary divided in three surfaces (XNORMAL_FACES, ZNORMAL_FACES, YNORMAL_FACES), an Euler wall divided in three surfaces (UPPER_SIDE, LOWER_SIDE, TIP) and a symmetry plane (SYMMETRY_FACE). The specific wing is the ONERA M6, and more information on this simulation can be found in the configuration file. The surface mesh can be seen in Figure (1).
- 
-![Opt. ONERA Grid](http://su2.stanford.edu/github_wiki/opt_onera_grid.jpg)
-Figure (1): View of the initial surface computational mesh.
-
-![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/opt_onera_ffd.jpg)
-Figure (2): View of the initial FFD box, control points and the surface mesh.
- 
-The mesh file that is provided for this test case already contains the FFD information. However, if you are interested in repeating this process for your own design cases, it is necessary to calculate the position of the control points and the parametric coordinates. To do so, follow these steps at a terminal command line after defining the tags, degrees, and corner points for your FFD box (we'll use the ONERA M6 as an example):
+Now that the FFD boxes have been set up, follow these steps at a terminal command line after defining the tags, degrees, and corner points for your FFD box (we'll use the ONERA M6 as an example):
  1. Move to the directory containing the config file (inv_ONERAM6_adv.cfg) and the mesh file (mesh_ONERAM6_inv_FFD.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
  2. Check that DV_KIND= FFD_SETTING in the configuration file. 
  3. Execute SU2_DEF by entering "SU2_DEF inv_ONERAM6.cfg" at the command line.
