@@ -34,27 +34,28 @@ The mesh file that is provided for this test case already contains the FFD infor
 
  The design variables are defined using the FFD methodology, and at the end of the mesh_ONERAM6_inv_FFD.su2 file, the description of the FFD box is provided:
 ```
-FFD_NBOX= 1
-FFD_NLEVEL= 1
-FFD_TAG= WING
-FFD_LEVEL= 0
-FFD_DEGREE_I= 10
-FFD_DEGREE_J= 8
-FFD_DEGREE_K= 1
-FFD_PARENTS= 0
-FFD_CHILDREN= 0
-FFD_CORNER_POINTS= 8
--0.0403 0       -0.04836
-0.8463  0       -0.04836
-1.209   1.2896  -0.04836
-0.6851  1.2896  -0.04836
--0.0403 0       0.04836
-0.8463  0       0.04836
-1.209   1.2896  0.04836
-0.6851  1.2896  0.04836
-FFD_CONTROL_POINTS=0
-FFD_SURFACE_POINTS=0
+% -------------------- FREE-FORM DEFORMATION PARAMETERS -----------------------%
+%
+% Tolerance of the Free-Form Deformation point inversion
+FFD_TOLERANCE= 1E-10
+%
+% Maximum number of iterations in the Free-Form Deformation point inversion
+FFD_ITERATIONS= 500
+%
+% FFD box definition: 3D case (FFD_BoxTag, X1, Y1, Z1, X2, Y2, Z2, X3, Y3, Z3, X4, Y4, Z4,
+%                              X5, Y5, Z5, X6, Y6, Z6, X7, Y7, Z7, X8, Y8, Z8)
+%                     2D case (FFD_BoxTag, X1, Y1, 0.0, X2, Y2, 0.0, X3, Y3, 0.0, X4, Y4, 0.0,
+%                              0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+FFD_DEFINITION= (WING, -0.0403, 0.0, -0.04836, 0.8463, 0.0, -0.04836, 1.209, 1.2896, -0.04836, 0.6851, 1.2896, -0.04836, -0.0403, 0.0, 0.04836, 0.8463, 0.0, 0.04836, 1.209, 1.2896, 0.04836, 0.6851, 1.2896, 0.04836)
+%
+% FFD box degree: 3D case (x_degree, y_degree, z_degree)
+%                 2D case (x_degree, y_degree, 0)
+FFD_DEGREE= (10, 8, 1)
+%
+% Surface continuity at the intersection with the FFD (1ST_DERIVATIVE, 2ND_DERIVATIVE)
+FFD_CONTINUITY= 1ST_DERIVATIVE
 ```
+
 Note that, only the corners of the box and the polynomial degree in each direction are provided. The tag for the FFD box can be specified as a string name. Here, we choose "WING," as we are placing the FFD box around the wing. The provided mesh file is ready for optimization, but in the case that a user is specifying their own FFD box for a problem, the SU2_DEF module should be called after defining the options above (the levels, tag, degrees, and corner points) with the DV_KIND option set to FFD_SETTING in order to compute and write the FFD_CONTROL_POINTS and FFD_SURFACE_POINTS information to the grid file. Note that this mapping for the FFD variables only needs to be computed and stored once in the mesh file before performing design. We will describe this below.
 
 
