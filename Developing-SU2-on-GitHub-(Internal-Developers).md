@@ -25,11 +25,9 @@ Now that you have a local copy of SU2 from the GitHub repository, you can begin 
 Please read the "Code Reviews" section of the wiki before making changes to familiarize yourself with the requirements for a good code change.
 
 In the SU2 repository, the master branch represents the latest stable major or minor release (3.0, 3.2.9, etc.), it should only be modified during version releases. Work on the code takes place on the develop branch. When a repository is cloned, all of the branches are as well, and so no additional work is necessary to acquire the development branch. However, you must tell git to switch to the development branch, which can be done with the "checkout" command
-
     ``` 
     git checkout develop
     ```
-
 Now that changes will be on top of the development branch, code changes can be made. This next section describes the steps for creating a pull request. 
 
 1. Create a new branch for making your changes.
