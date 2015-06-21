@@ -156,7 +156,7 @@ If SU2 has been built with parallel support, the recommended method for running 
 
 ### Results
 
-Results are here given for the SU2 solution of turbulent flow over the ONERA M6 wing.
+Results for the turbulent flow over the ONERA M6 wing are shown below. As part of this tutorial a coarse mesh has been provided, but for comparison the results obtained by using a refined mesh (9,252,922 nodes) as well as experimental results are shown.
 
 ![Turb ONERA Cp A](http://su2.stanford.edu/github_wiki/turb_onera_cp_a.png)
 ![Turb ONERA Cp B](http://su2.stanford.edu/github_wiki/turb_onera_cp_b.png)
