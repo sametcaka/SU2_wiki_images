@@ -85,6 +85,8 @@ Here, we define some of the typical numerical methods chosen for calculating vis
 %
 % Numerical method for spatial gradients (GREEN_GAUSS, WEIGHTED_LEAST_SQUARES)
 NUM_METHOD_GRAD= WEIGHTED_LEAST_SQUARES
+```
+For this problem, we are choosing a typical set of numerical methods. However, it is advised that users should experiment with various numerical methods for their own problems. The gradients are calculated via weighted least squares. 
 %
 % Convective numerical method (JST, LAX-FRIEDRICH, CUSP, ROE, AUSM, HLLC,
 %                              TURKEL_PREC, MSW)
@@ -93,14 +95,8 @@ CONV_NUM_METHOD_FLOW= ROE
 % Spatial numerical order integration (1ST_ORDER, 2ND_ORDER, 2ND_ORDER_LIMITER)
 %
 SPATIAL_ORDER_FLOW= 2ND_ORDER
-%
-% Slope limiter (VENKATAKRISHNAN, MINMOD)
-SLOPE_LIMITER_FLOW= VENKATAKRISHNAN
-%
-% Coefficient for the limiter (smooth regions)
-LIMITER_COEFF= 0.3
 ```
-For this problem, we are choosing a typical set of numerical methods. However, it is advised that users should experiment with various numerical methods for their own problems. The gradients are calculated via weighted least squares. The 2nd-order Roe upwind method with the Venkatakrishnan limiter is used for computing convective fluxes, and the viscous terms are computed with the corrected average of gradients method (by default). A limiter coefficient of 0.3 is typical, but the user is also advised to experiment with the level of limiting for their particular application (note that a smaller value of the coefficient implies larger limiting of the gradients).
+The 2nd-order Roe upwind method is used for computing convective fluxes, and the viscous terms are computed with the corrected average of gradients method (by default).
 
 SU2 features multiple ways to assess convergence:
 ```
