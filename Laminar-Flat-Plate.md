@@ -87,6 +87,7 @@ Here, we define some of the typical numerical methods chosen for calculating vis
 NUM_METHOD_GRAD= WEIGHTED_LEAST_SQUARES
 ```
 For this problem, we are choosing a typical set of numerical methods. However, it is advised that users should experiment with various numerical methods for their own problems. The gradients are calculated via weighted least squares. 
+```
 %
 % Convective numerical method (JST, LAX-FRIEDRICH, CUSP, ROE, AUSM, HLLC,
 %                              TURKEL_PREC, MSW)
