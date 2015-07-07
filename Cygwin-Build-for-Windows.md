@@ -6,7 +6,7 @@ Cygwin is a linux emulator, which allows the user to run linux programs on a Win
 * The Cygwin shell will only be able to access folders that are within the cygwin\ directory; you will need to install and run SU2 inside the cygwin directory.
 
 ### Cygwin packages
-At the package selection step, search for the following terms and select the associated packages to install. This list is a work-in progress, and further packages may be required or desired.
+At the package selection step, search for the following terms and select the associated packages to install. This list is a work-in-progress, and further packages may be required or desired.
 
 #### Basic
 * g++, gcc compiler
