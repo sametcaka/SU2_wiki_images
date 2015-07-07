@@ -10,10 +10,8 @@ At the package selection step, search for the following terms and select the ass
 
 #### Basic
 * g++, gcc compiler
-* python
-** Python has its own sub-heading in the packages.
-* cpp
-** all debug, pre-processor, regular expression packages. 
+* python: install the packages under the python sub-heading
+* cpp: all debug, pre-processor, regular expression packages. 
 
 #### Parallel
 * openmpi
