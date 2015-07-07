@@ -21,4 +21,3 @@ At the package selection step, search for the following terms and select the ass
 
 #### Parallel
 * openmpi
-* metis
