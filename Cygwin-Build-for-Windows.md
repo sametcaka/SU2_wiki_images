@@ -7,9 +7,14 @@ Cygwin is a linux emulator, which allows the user to run linux programs on a Win
 
 ### Cygwin packages
 At the package selection step, search for the following terms and select the associated packages to install. This list is a work-in progress, and further packages may be required or desired.
+
 #### Basic
-* g++
+* g++, gcc compiler
 * python
+** Python has its own sub-heading in the packages.
 * cpp
+** all debug, pre-processor, regular expression packages. 
+
 #### Parallel
 * openmpi
+* metis
