@@ -1,6 +1,6 @@
 ## Source Install Overview
 
-This section provides details on the various tools and requirements when building the SU2 suite from the source code on Linux/Mac OS X systems. Please see the [[Simple Build]] or [[Advanced Build]] pages for concise directions on the install process.
+This section provides details on the various tools and requirements when building the SU2 suite from the source code on Linux/Mac OS X systems. Please see the [[Simple Build]], [[Parallel Build]], or [[Parallel and CGNS Build]]  pages for concise directions on the install process.
 
 ### GNU Autoconf / Automake Tools
 
