@@ -95,4 +95,4 @@ To have the TecIO library (the source ships with SU2) automatically built and li
 ```
 --enable-tecio CPPFLAGS="-I/opt/X11/include"
 ```
- to make sure that it can find the correct X11 dependencies.  For platforms other than Mac OS X, the configure script must also be able to find the X11 library headers for the TecIO library to be built: if --enable-tecio is used in the configure step and the output states that TecIO will not be built, it is likely that the configure program was unable to locate the X11 header files.
+Where the CPPFLAGS are specified to make sure that it can find the correct X11 dependencies.  For platforms other than Mac OS X, the configure script must also be able to find the X11 library headers for the TecIO library to be built. If ```--enable-tecio``` is used in the configure step and the output states that TecIO will not be built, it is likely that the configure program was unable to locate the X11 header files.
