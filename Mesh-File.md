@@ -115,14 +115,6 @@ In order to use a CGNS mesh (assuming the CGNS library has been installed and SU
 MESH_FORMAT= CGNS
 ```
 
-Furthermore, a CGNS mesh can be converted to the .su2 format by setting the "CONVERT_TO_SU2=" flag to "YES" and supplying a new filename for the converted mesh in the "MESH_OUT=" option. These options might appear as follows in the configuration file:
-
-```
-CGNS_TO_SU2= YES
-%
-MESH_OUT= mesh_out.su2
-```
-
 It is important to note that SU2 will not use any specific boundary conditions that are embedded within the CGNS mesh. However, it *will* use the names given to each boundary as the marker tags. These marker tags are used to set the boundary conditions in the configuration file. Therefore, it is recommended that the user give names to each boundary in their mesh generation package before exporting to CGNS. If you do not know the number of markers or their tags within a CGNS file, you can simply attempt a simulation in SU2_CFD (leaving out the boundary information in the configuration file at first), and during the preprocessing stage, SU2 will read and print the names of all boundary markers to the console along with other grid information before throwing an error due to incomplete boundary definitions. The user can then incorporate these marker tags into the configuration file with the appropriate boundary conditions.
 
 ## Third-Party Mesh Software
