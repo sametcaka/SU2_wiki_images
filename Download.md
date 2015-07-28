@@ -37,7 +37,7 @@ When downloading SU2, please take a few seconds to register by filling out the f
 
 ## Development Releases 
 
-The most current version of the software package is available on the Aerospace Design Laboratory's GitHub software repository. Please note that this is the development version of the code that is being actively modified by the development team. To contribute to SU2, you can make a pull request using the GitHub system. 
+The most current version of the software package is available on the SU2code's GitHub software repository under SU2. Please note that this is the development version of the code that is being actively modified by the development team. To contribute to SU2, you can make a pull request using the GitHub system. 
 
 ## Third-Party Downloads
 
