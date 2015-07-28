@@ -105,7 +105,7 @@ The native format is straightforward and readable, and meshes for simple or anal
 
 ### Compiling with CGNS Support
 
-First, obtain and follow the instructions supplied for building the CGNS library (Version 3.1.4 recommended, built without HDF support) on the machine where SU2 will be running. The resulting library will be linked during the build process by specifying certain flags during the ./configure step. To compile with CGNS support, set the paths in the --with-CGNS-lib=/path/to/CGNS/lib and --with-CGNS-include=/path/to/CGNS/header options to the correct locations for your CGNS installation during your ./configure process of SU2. If the library is correctly built and the autotools find your header and library file, the CGNS library will be linked with your SU2 build. See more information on the installation from source page.
+First, obtain and build the CGNS library (Version 3.1.4 recommended, built without HDF support) on the machine where SU2 will be running and follow the instruction provided in [[Parallel and CGNS Build]].
 
 ### Using and Converting CGNS Meshes
 
