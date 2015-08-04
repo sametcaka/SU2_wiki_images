@@ -20,7 +20,7 @@ to the `configure` call.
 ### Parallel Support
 First, to build in parallel, we need to inform the configure process by including the following options:
 ```
---enable-mpi --with-mpicc=/path/to/mpicc --with-mpicxx=/path/to/mpicxx
+--enable-mpi --with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx
 ```
 These three options enable parallel support and specify the MPI implementation that you would like to use for building. Note here that your machine must have an implementation of the MPI standard installed (i.e., `mpicc` and `mpicxx` must be in your path). For example, common MPI flavors used by the development team are Open MPI, MPICH, and Intel MPI. Additionally, mesh partitioning software is needed to decompose the meshes when running in parallel. In order to simplify the build process, the ParMETIS graph partitioning software ships with the SU2 source, and it will be compiled and linked automatically for you when the options above are prescribed.
 
