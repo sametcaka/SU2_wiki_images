@@ -17,7 +17,7 @@ Installing SU2 from source requires a C++ compiler. The GNU compilers (gcc/g++) 
 
 The ParMETIS graph partitioning software and an MPI implementation are required to compile and run SU2 in parallel. The source for ParMETIS is shipped with SU2 and can be found in the externals/ directory. ParMETIS will automatically be built and linked if you set 
 ```
---enable-mpi --with-mpicc=/path/to/mpicc --with-mpicxx=/path/to/mpicxx
+--enable-mpi --with-cc=/path/to/mpicc --with-cxx=/path/to/mpicxx
 ``` 
 in your configure options, which requests a build of the parallel version of the code with the specified MPI implementation on your machine. An implementation of the Message Passing Interface (MPI) standard is required for building the parallel version, and a number of available implementations are linked from the main installation page. In particular, you will need both a C (for ParMETIS) and C++ (for SU2) MPI implementation.
 
