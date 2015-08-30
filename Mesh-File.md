@@ -14,6 +14,8 @@ Consider the following simple, 2-D mesh for a square domain consisting of 8 tria
 
 ![Square Mesh Example](http://su2.stanford.edu/github_wiki/square.png)
 
+**Square Mesh Example: Note that the figure uses Tecplot node and element number (starting at 1).  The node and element numbering for SU2 start at 0.**
+
 The first line of the .su2 mesh declares the dimensionality of the problem. SU2 can handle 2-D or 3-D geometries. As a note, for 2D simulations, it is recommended that a truly 2D mesh is used (no z-coordinates) rather than a quasi-2D mesh (one or more cells deep in the third dimension with symmetry boundary conditions). For the 2D square mesh, the dimension is defined as follows: 
 
 ```
