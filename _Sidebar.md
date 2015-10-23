@@ -29,6 +29,7 @@
 * [[Developer Docs]]
   * [[Gitting Started]]
   * [[Developing SU2 on GitHub (Internal Developers)]]
+  * [[Running Regression Tests]]
   * [[Code Review]]
   * [[Code Structure]]
   * [[Style Guide]]
