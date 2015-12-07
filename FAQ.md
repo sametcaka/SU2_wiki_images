@@ -10,6 +10,9 @@ The most easy-to-use documentation is the github wiki, and you just found it! Tr
 For more detail on what configuration options are available and their syntax, see the file config_template_basic.cfg in the SU2 root directory: https://github.com/su2code/SU2/blob/master/config_template_basic.cfg
 Further documentation is available in the su2code/Documentation repository.
 
+##### My simulation diverges. What should I do?
+Adjust the configuration file options, or improve mesh quality. Refer to the forum, tutorials, and TestCases for more specific examples. The most common option to change is to lower the CFL number, usually to something around 1.0. 
+
 ##### When I run in parallel, the code prints multiples of the same line, for example:
 > Iter    Time(s)     Res[Rho]     Res[RhoE]   CLift(Total)   CDrag(Total)
 
@@ -46,5 +49,3 @@ When running in serial (or a parallel version on one MPI rank), SU2_CFD will wri
 A nonphysical point means the solution has encountered a negative density. If the warnings stop after a few iterations it's ok. If the warnings continue, the solution is likely diverging and you may need to adjust the config file options. 
 
 
-##### My simulation diverges. What should I do?
-Adjust the configuration file options, or improve mesh quality. Refer to the forum, tutorials, and TestCases for more specific examples. 
