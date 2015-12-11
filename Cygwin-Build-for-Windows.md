@@ -19,5 +19,3 @@ At the package selection step, search for the following terms and select the ass
 * python: install the packages under the python sub-heading
 * cpp: all debug, pre-processor, regular expression packages. 
 
-#### Parallel
-* openmpi
