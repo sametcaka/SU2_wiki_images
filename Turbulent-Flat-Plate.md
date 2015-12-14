@@ -14,7 +14,7 @@ In this tutorial, we perform our first RANS simulation with the Spalart-Allmaras
 
 ## Resources
 
-The resources for this tutorial can be found in the TestCases/rans/flatplate directory. You will need the configuration file (turb_SA_flatplate.cfg) and either of the two available mesh files (mesh_flatplate_turb_137x97.su2 or mesh_flatplate_turb_545x385.su2).
+The resources for this tutorial can be found in the TestCases/rans/flatplate directory. You will need the configuration file (turb_SA_flatplate.cfg) and either of the two available mesh files (mesh_flatplate_turb_137x97.su2 or mesh_flatplate_turb_545x385.su2). The configuration file can be found in the SU2 repository whereas the mesh files can be found in the TestCases repository.
 
 Additionally, skin friction and velocity profiles corresponding to this testcase (obtained from the Langley Research Center Turbulence Modeling Resource website shown below) are used for later comparison with SU2 results. These files can be found on the following website: http://turbmodels.larc.nasa.gov/flatplate.html.
 
@@ -24,7 +24,7 @@ The following tutorial will walk you through the steps required when solving for
 
 ### Background
 
-Turbulent flow over a zero pressure gradient flat plate is a common testcase for the verification and validation (V&V) of turbulence models in CFD solvers. The flow is everywhere turbulent, and a boundary layer develops over the surface of the flat plate. The lack of separation bubbles or other more complex flow phenomena allows turbulence models to predict the flow with a high level of accuracy. Due to the choice of a low Mach number of 0.2 for this case, compressibility effects are essentially negligible. 
+Turbulent flow over a zero pressure gradient flat plate is a common test case for the verification and validation of turbulence models in CFD solvers. The flow is everywhere turbulent and a boundary layer develops over the surface of the flat plate. The lack of separation bubbles or other more complex flow phenomena allows turbulence models to predict the flow with a high level of accuracy. Due to the choice of a low Mach number of 0.2 for this case, compressibility effects are essentially negligible. 
 
 For verification, we will be comparing SU2 results against those from the NASA codes FUN3D and CFL3D. For validation purposes we will compare profiles of u+ vs. y+ against theoretical profiles of the viscous sublayer and log law region.  
 
@@ -57,8 +57,8 @@ The governing equations are Navier-Stokes, but by entering "SA" as the option fo
 ### Running SU2
 
 To run this test case, follow these steps at a terminal command line:
- 1. Move to the directory containing the config file (turb_SA_flatplate.cfg) and the mesh file (mesh_flatplate_turb_137x97.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
- 2. Run the executable by entering "SU2_CFD turb_flatplate.cfg" at the command line.
+ 1. Copy the config file (turb_SA_flatplate.cfg) and/or the mesh file (mesh_flatplate_turb_137x97.su2) so that they are in the same directory. Move to the directory containing the config file and the mesh file. Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
+ 2. Run the executable by entering "SU2_CFD turb_SA_flatplate.cfg" at the command line.
  3. SU2 will print residual updates with each iteration of the flow solver, and the simulation will finish upon reaching the specified convergence criteria.
  4. Files containing the results will be written upon exiting SU2. The flow solution can be visualized in ParaView (.vtk) or Tecplot (.dat for ASCII).
 
