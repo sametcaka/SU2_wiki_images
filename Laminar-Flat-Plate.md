@@ -14,7 +14,8 @@ The intent of this tutorial is to introduce a common viscous test case which is 
 
 ## Resources
 
-The resources for this tutorial can be found in the TestCases/navierstokes/flatplate directory. You will need the configuration file (lam_flatplate.cfg) and the mesh file (mesh_flatplate_65x65.su2). The mesh file can be downloaded from the su2code/TestCases repository. 
+The resources for this tutorial can be found in the TestCases/navierstokes/flatplate directory. You will need the configuration file (lam_flatplate.cfg) and the mesh file (mesh_flatplate_65x65.su2). The [mesh file](https://github.com/su2code/TestCases/tree/develop/navierstokes/flatplate) can be downloaded from the su2code/TestCases repository. 
+
 
 ## Tutorial
 
