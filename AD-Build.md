@@ -1,3 +1,5 @@
+It is recommended to read the information at [[Build from Source]] first prior reading this section.
+
 In order to use the [discrete adjoint solver](https://github.com/su2code/SU2/wiki/Software-Components#algorithmic-differentiation-support-and-discrete-adjoint) the compilation requires two additional libraries. [CoDi](https://github.com/SciCompKL/CoDiPack) provides the AD datatype and [AdjointMPI](https://github.com/michel2323/AdjointMPI) provides the infrastructure for the MPI communication when the reverse mode of AD is used. Both libraries are added as submodules in the git repository of SU2. 
 
 ## Configuration with AD support
