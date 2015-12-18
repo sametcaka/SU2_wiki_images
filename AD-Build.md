@@ -10,7 +10,7 @@ Assume that your configuration (see [[Simple Build]], [[Parallel Build]] or [[Pa
 
 To enable the compilation of the binaries with AD support you'll need to change this command to
 
-    export CXXFLAGS="-O3 -Wall" && ./preconfigure.py --enable-mpi --prefix=$SU2_INSTALLPATH --with-cgns-lib=$PATH_TO_CGNSLIB --with-cgns-include=$PATH_TO_CGNSINCLUDE --enable-autodiff
+    export CXXFLAGS="-O3 -Wall" && ./preconfigure.py --enable-autodiff --enable-mpi --prefix=$SU2_INSTALLPATH --with-cgns-lib=$PATH_TO_CGNSLIB --with-cgns-include=$PATH_TO_CGNSINCLUDE 
 
 **Note:** If you have already called `./configure` before in the source directory, a `make distclean` is required before calling `./preconfigure.py`.
 
