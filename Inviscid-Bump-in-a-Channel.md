@@ -25,7 +25,7 @@ This example uses a 2D channel geometry that features a circular bump along the 
 
 ## Problem Setup
 
-This problem will solve the for the flow through the channel with these conditions:
+This tutorial will solve the for the flow through the channel with these conditions:
 - Inlet Stagnation Temperature = 288.6 K
 - Inlet Stagnation Pressure = 102010.0 N/m2
 - Inlet Flow Direction, unit vector (x,y,z) = (1.0, 0.0, 0.0) 
