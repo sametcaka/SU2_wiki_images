@@ -3,7 +3,7 @@ It is recommended to read the information at [[Build from Source]] first prior r
 In order to use the [discrete adjoint solver](https://github.com/su2code/SU2/wiki/Software-Components#algorithmic-differentiation-support-and-discrete-adjoint) the compilation requires two additional libraries. [CoDi](https://github.com/SciCompKL/CoDiPack) provides the AD datatype and [AdjointMPI](https://github.com/michel2323/AdjointMPI) provides the infrastructure for the MPI communication when the reverse mode of AD is used. Both libraries are added as submodules in `externals/` in the git repository of SU2. 
 
 ## Configuration with AD support
-The initialization and compilation of these libraries is handled by the python script `preconfigure.py` inside the main directory. This script accepts the **same arguments** as the usual configure script (except `CXXFLAGS=...`) but in addition it offers the option `--enable-autodiff` to enable AD (reverse mode) for the discrete adjoint solver.
+The initialization and compilation of these libraries as well as the configuration of SU2 is handled by the python script `preconfigure.py` inside the main directory. This script accepts the **same arguments** as the usual configure script (except `CXXFLAGS=...`) but in addition it offers the option `--enable-autodiff` to enable AD (reverse mode) for the discrete adjoint solver.
 
 ### Example 
 Assume that your configuration (see [[Simple Build]], [[Parallel Build]] or [[Parallel and CGNS Build]]) is done using the command
