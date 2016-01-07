@@ -5,7 +5,7 @@
 Welcome to the Quick Start Tutorial for the SU2 software suite. This tutorial is intended to demonstrate some of the key features of the analysis and design tools in an easily accessible format. Completion of this tutorial only requires a few minutes. If you haven't done so already, please visit the Download and Installation pages to obtain the most recent stable release of the software and details for installation. This tutorial requires only the SU2_CFD tool from the SU2 suite.
 
 ## Goals
-Upon completing this simple tutorial, the user will be familiar with performing the flow and adjoint simulation of external, inviscid flow around a 2D geometry and be able to plot the sensitivities along that surface. The specific geometry chosen for the tutorial is the NACA 0012 airfoil. Consequently, the following capabilities of SU2 will be showcased in this tutorial:
+Upon completing this simple tutorial, the user will be familiar with performing the flow and continuous adjoint simulation of external, inviscid flow around a 2D geometry and be able to plot the sensitivities along that surface. The specific geometry chosen for the tutorial is the NACA 0012 airfoil. Consequently, the following capabilities of SU2 will be showcased in this tutorial:
 
 - Steady, 2D, Euler and Continuous Adjoint Euler equations
 - Multigrid
@@ -48,10 +48,10 @@ Aside from the mesh, the only other file required to run the SU2_CFD solver deta
 
 Upon opening the inv_NACA0012.cfg file in a text editor, one of the early options is the MATH_PROBLEM:
 ```
-% Mathematical problem (DIRECT, ADJOINT)
+% Mathematical problem (DIRECT, CONTINUOUS_ADJOINT, DISCRETE_ADJOINT)
 MATH_PROBLEM= DIRECT
 ```
-SU2 is capable of running the direct and adjoint problems for several sets of equations. The direct analysis solves for the flow around the geometry, and quantities of interest such as the lift and drag coefficient on the body will be computed. Solving the adjoint problem leads to an efficient method for obtaining the change in a single objective function (e.g., the drag coefficient) relative to a large number of design variables (surface deformations). The direct and adjoint solutions often couple to provide the objective analysis and gradient information needed by an optimizer when performing aerodynamic shape design. In this tutorial, we will perform DIRECT and ADJOINT solutions for the NACA 0012 airfoil.
+SU2 is capable of running the direct and adjoint problems for several sets of equations. The direct analysis solves for the flow around the geometry, and quantities of interest such as the lift and drag coefficient on the body will be computed. Solving the adjoint problem leads to an efficient method for obtaining the change in a single objective function (e.g., the drag coefficient) relative to a large number of design variables (surface deformations). The direct and adjoint solutions often couple to provide the objective analysis and gradient information needed by an optimizer when performing aerodynamic shape design. In this tutorial, we will perform DIRECT and CONTINUOUS_ADJOINT solutions for the NACA 0012 airfoil.
 
 The user can also set the format for the solution files:
 ```
@@ -74,7 +74,7 @@ The first step in this tutorial is to solve the Euler equations:
   - **history.dat** or **history.csv** - file containing the convergence history information.
 
 Next, we want to run the adjoint solution to get the sensitivity of the objective function (the drag over the airfoil) to conditions within the flow:
- 1. Open the config file and change the parameter MATH_PROBLEM from DIRECT to ADJOINT, and save this file.
+ 1. Open the config file and change the parameter MATH_PROBLEM from DIRECT to CONTINUOUS_ADJOINT, and save this file.
  2. Rename the restart file (restart_flow.dat) to "solution_flow.dat" so that the adjoint code has access to the direct flow solution.
  3. Run the executable again by entering "SU2_CFD inv_NACA0012.cfg" at the command line.
  4. SU2 will print residual updates with each iteration of the flow solver, and the simulation will finish after reaching the specified convergence criteria.
