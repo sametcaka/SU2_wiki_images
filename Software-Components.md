@@ -14,6 +14,13 @@ The key C++ and Python tools in the SU2 software suite are briefly described bel
 
 While they are not C++ modules, two other similar directories included in the source distribution should be mentioned. First, the **SU2_IDE** (Integrated Development Environment) directory contains files associated with various IDEs to aid developers (Eclipse, VisualStudio, Wing, Xcode). Second, the **SU2_PY** directory contains all of the files making up the Python framework, and some of these will be highlighted next.
 
+# Algorithmic Differentiation Support and Discrete Adjoint
+
+SU2 includes integrated support for Algorithmic Differentiation (AD) based on Operator Overloading to compute arbitrary derivatives. One application of this feature is the discrete adjoint solver that is implemented in SU2. In contrast to the continuous adjoint method, special versions of the modules SU2_CFD and SU2_DOT are required to use this solver.
+
+- **SU2_CFD_AD**: Solves the discrete adjoint equations using a consistent linearization of the flow solver with the help of AD. Although it has additionally the same features as SU2_CFD, using it for other solvers will result in a slow-down due to the AD overhead.
+- **SU2_DOT_AD**: The discrete adjoint formulation does not include the influence of the mesh deformation, therefore this module will compute the required partial derivative of the functional with respect to variations in the computational mesh. Instead of SU2_DOT, SU2_DOT_AD uses the volume sensitivities to evaluate the derivative. Finally, the resulting sensitivities on the aerodynamic surface are projected on to the particular design parameterization.
+
 ## Python Scripts
 
 The various software modules of SU2 can be coupled together to perform complex analysis and design tasks using supplied Python scripts. A brief description of the scripts included in the current release of the software is provided below.
@@ -26,10 +33,3 @@ The various software modules of SU2 can be coupled together to perform complex a
  - **discrete_adjoint.py**: Automatically computes the sensitivities of a specified functional with respect to design parameter perturbations (specified in the SU2_CFD configuration file) using the discrete adjoint method. The SU2_CFD_AD and SU2_DOT_AD modules are called to perform the analysis.
  - **finite_differences.py**: Automatically computes the sensitivities of a specified functional with respect to design parameter perturbations using a finite difference method. As with the continuous_adjoint.py script, design variable information is read from the configuration file and SU2_CFD is called repeatedly to calculate the appropriate gradient elements.
  - **shape_optimization.py**: Orchestrates all SU2 modules to perform shape optimization. The choice of objective function, design variables and additional module settings specifying the optimization problem are controlled through options in the configuration file.
-
-## Algorithmic Differentiation Support and Discrete Adjoint
-
-SU2 includes integrated support for Algorithmic Differentiation (AD) based on Operator Overloading to compute arbitrary derivatives. One application of this feature is the discrete adjoint solver that is implemented in SU2. In contrast to the continuous adjoint method, special versions of the modules SU2_CFD and SU2_DOT are required to use this solver.
-
-- **SU2_CFD_AD**: Solves the discrete adjoint equations using a consistent linearization of the flow solver with the help of AD. Although it has additionally the same features as SU2_CFD, using it for other solvers will result in a slow-down due to the AD overhead.
-- **SU2_DOT_AD**: The discrete adjoint formulation does not include the influence of the mesh deformation, therefore this module will compute the required partial derivative of the functional with respect to variations in the computational mesh. Instead of SU2_DOT, SU2_DOT_AD uses the volume sensitivities to evaluate the derivative. Finally, the resulting sensitivities on the aerodynamic surface are projected on to the particular design parameterization.
