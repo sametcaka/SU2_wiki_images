@@ -17,6 +17,7 @@
     * [[Restart File]]
   * [[Execution]]
   * [[Post-processing]]
+  * [[Test Cases]]
 * [[User Tutorials]]
   * [[Inviscid Bump in a Channel]]
   * [[Inviscid Supersonic Wedge]]
