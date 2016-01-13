@@ -55,7 +55,7 @@ SU2 is capable of running the direct and adjoint problems for several sets of eq
 
 The user can also set the format for the solution files:
 ```
-% Output file format (TECPLOT, PARAVIEW, TECPLOT_BINARY)
+% Output file format
 OUTPUT_FORMAT= TECPLOT
 ```
 SU2 can output solution files in the .vtk (ParaView), .dat (Tecplot ASCII), and .plt (Tecplot binary) formats which can be opened in the ParaView and Tecplot visualization software packages, respectively. We have set the file type to TECPLOT in this tutorial by default, but users without access to Tecplot are encouraged to download and use the freely available ParaView package. To output solution files for ParaView, set the OUTPUT_FORMAT option to PARAVIEW. 
