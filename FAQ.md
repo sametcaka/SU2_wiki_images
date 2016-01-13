@@ -49,4 +49,4 @@ When running in serial (or a parallel version on one MPI rank), SU2_CFD will wri
 A nonphysical point means the solution has encountered a negative density. If the warnings stop after a few iterations it's ok. If the warnings continue, the solution is likely diverging and you may need to adjust the config file options. 
 
 ##### Where can I get the suite of test cases for SU2?
-The test cases are located in a separate repository under the SU2 organization. You can download them from here: https://github.com/su2code/TestCases. We recommend copying the meshes into place within the SU2 source directory where the config files reside (under version control).
+The test case config files are found in the SU2 code repo, while the meshes are located in a separate repository under the SU2 organization. We recommend copying the meshes into place within the SU2 source directory where the config files reside (under version control). See this page for directions: https://github.com/su2code/SU2/wiki/Test-Cases/.
