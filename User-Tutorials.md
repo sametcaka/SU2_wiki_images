@@ -2,6 +2,8 @@ Rather than writing a long manual on all available (and constantly evolving) con
 
 The tutorials are numbered roughly in order of their complexity and how experienced with the code the user may need to be, noting that the more advanced tutorials may assume the user has already worked through the earlier ones. Each tutorial attempts to present new features of SU2 and contains explanations for the key configuration file options. More information on the exact learning goals of a tutorial can be seen at the beginning of each.
 
+Don't forget to check out this page on how to get the test cases set up on your local machine: [[Test Cases]].
+
 Now, get to work:
 
 * [[Inviscid Bump in a Channel]]
