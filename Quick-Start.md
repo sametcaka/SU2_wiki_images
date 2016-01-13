@@ -15,7 +15,7 @@ Upon completing this simple tutorial, the user will be familiar with performing 
 
 ## Resources
 
-The files necessary to run this tutorial are included in the SU2/QuickStart/ directory. For the other tutorials, the files will be found in the TestCases/ repository. Two files are needed as input to the code: a configuration file describing the options for the particular problem, and the corresponding computational mesh file. The files are in QuickStart/ and can also be found in the TestCases repository under TestCases/euler/naca0012. The mesh file is available in TestCases/euler/naca0012/ but obtained from the zip from the registration page. 
+The files necessary to run this tutorial are included in the SU2/QuickStart/ directory. For the other tutorials, the files will be found in the TestCases/ repository. Two files are needed as input to the code: a configuration file describing the options for the particular problem, and the corresponding computational mesh file. The files are in QuickStart/ and can also be found in the TestCases repository under TestCases/euler/naca0012.
 
 ## Tutorial
 
@@ -84,6 +84,11 @@ Next, we want to run the adjoint solution to get the sensitivity of the objectiv
   - **surface_adjoint.csv** - comma separated values (.csv) file containing values along the airfoil surface.
   - **restart_adj_cd.dat** - restart file in an internal format for restarting this simulation in SU2. Note that the name of the objective appears in the file name.
   - **history.dat** or **history.csv** - file containing the convergence history information.
+
+Note that as of SU2 v4.1, you can also compute a discrete adjoint for the Euler equations. Assuming that you have built the code with [algorithmic differentiation support](https://github.com/su2code/SU2/wiki/AD-Build), you can run the discrete adjoint with the following steps instead:
+ 1. Open the config file and change the parameter MATH_PROBLEM from DIRECT to DISCRETE_ADJOINT, and save this file.
+ 2. Rename the restart file (restart_flow.dat) to "solution_flow.dat" so that the adjoint code has access to the direct flow solution.
+ 3. Run the executable again by entering "SU2_CFD_AD inv_NACA0012.cfg" at the command line. Note that the SU2_CFD_AD executable will only be available when the source has been compiled with AD support.
 
 ### Results
 
