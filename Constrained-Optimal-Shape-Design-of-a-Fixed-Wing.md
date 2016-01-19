@@ -164,7 +164,10 @@ A continuous adjoint methodology for obtaining surface sensitivities is implemen
 The following are representative results for this transonic shape design example with the ONERA M6 geometry as a baseline.
 
 ![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_pressure_original.png)
-Figure (3): Pressure contours showing transonic shocks on the initial design.
+Figure (3a): Pressure contours showing transonic shocks on the initial design.
+
+![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_sensitivity.png)
+Figure (3b): Surface sensitivity contours for a drag objective on the initial design.
 
 ![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/opt_onera_designed.jpg)
 Figure (4): Pressure contours around the final airfoil design (Reduced shocks).
