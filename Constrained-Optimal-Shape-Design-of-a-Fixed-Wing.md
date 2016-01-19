@@ -1,4 +1,4 @@
-![Opt. ONERA Orig](http://su2.stanford.edu/github_wiki/opt_onera_original.jpg)
+![Opt. ONERA Orig](http://su2.stanford.edu/github_wiki/onera_pressure_original.png)
 
 ## Goals
 
@@ -24,10 +24,10 @@ The goal of the design process is to minimize the coefficient of drag (Cd) by ch
 
 The mesh consists of a far-field boundary divided in three surfaces (XNORMAL_FACES, ZNORMAL_FACES, YNORMAL_FACES), an Euler wall divided in three surfaces (UPPER_SIDE, LOWER_SIDE, TIP) and a symmetry plane (SYMMETRY_FACE). The specific wing is the ONERA M6, and more information on this simulation can be found in the configuration file. The surface mesh can be seen in Figure (1).
  
-![Opt. ONERA Grid](http://su2.stanford.edu/github_wiki/opt_onera_grid.jpg)
+![Opt. ONERA Grid](http://su2.stanford.edu/github_wiki/onera_grid.png)
 Figure (1): View of the initial surface computational mesh.
 
-![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/opt_onera_ffd.jpg)
+![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/onera_ffd.png)
 Figure (2): View of the initial FFD box, control points and the surface mesh.
  
 The mesh file that is provided for this test case already contains the FFD information. However, if you are interested in repeating this process for your own design cases, it is necessary to calculate the position of the control points and the parametric coordinates. The description below describes how to set up FFD boxes for deformation.
@@ -163,7 +163,7 @@ A continuous adjoint methodology for obtaining surface sensitivities is implemen
 
 The following are representative results for this transonic shape design example with the ONERA M6 geometry as a baseline.
 
-![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/opt_onera_original.jpg)
+![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_pressure_original.png)
 Figure (3): Pressure contours showing transonic shocks on the initial design.
 
 ![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/opt_onera_designed.jpg)
