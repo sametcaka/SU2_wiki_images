@@ -167,7 +167,7 @@ The following are representative results for this transonic shape design example
 Figure (3): Pressure contours showing the typical "lambda" shock on the upper surface of the initial geometry.
 
 ![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_pressure_final.png)
-Figure (4): Pressure contours on the surface of the final wing design (Reduced shocks).
+Figure (4): Pressure contours on the surface of the final wing design (reduced shocks).
 
 ![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_ffd_final.png)
 Figure (5): View of the initial (black) and final (blue) FFD control point positions.
