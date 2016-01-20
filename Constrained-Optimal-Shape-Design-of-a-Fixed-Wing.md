@@ -164,10 +164,13 @@ A continuous adjoint methodology for obtaining surface sensitivities is implemen
 The following are representative results for this transonic shape design example with the ONERA M6 geometry as a baseline.
 
 ![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_pressure_original.png)
-Figure (3): Pressure contours showing transonic shocks on the initial design.
+Figure (3): Pressure contours showing the typical "lambda" shock on the upper surface of the initial geometry.
 
-![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/opt_onera_designed.jpg)
-Figure (4): Pressure contours around the final airfoil design (Reduced shocks).
+![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_pressure_final.png)
+Figure (4): Pressure contours on the surface of the final wing design (Reduced shocks).
 
-![Opt. ONERA History](http://su2.stanford.edu/github_wiki/opt_onera_history.jpg)
-Figure (5): Optimization history.
+![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_ffd_final.png)
+Figure (5): View of the initial (black) and final (blue) FFD control point positions.
+
+![Opt. ONERA History](http://su2.stanford.edu/github_wiki/onera_opt_history.png)
+Figure (6): Optimization history. The drag is reduced and the lift constraint is easily met.
