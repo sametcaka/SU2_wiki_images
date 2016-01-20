@@ -3,26 +3,26 @@
 ## Goals
 
 Upon completing this tutorial, the user will be familiar with performing an optimal shape design of a 3D geometry. The initial geometry chosen for the tutorial is a ONERA M6 fixed wing at transonic speed in inviscid fluid. The following SU2 tools will be showcased in this tutorial:
-- **SU2_CFD** - performs the direct and the adjoint flow simulations
-- **SU2_DOT** - projects the adjoint surface sensitivities into the design space to obtain the gradient
-- **SU2_DEF** - deforms the geometry and mesh with changes in the design variables during the shape optimization process
-- **shape_optimization.py** - automates the entire shape design process by executing the SU2 tools and optimizer
+- **SU2_CFD** - performs the direct and the adjoint flow simulations.
+- **SU2_DOT** - projects the adjoint surface sensitivities into the design space to obtain the gradient.
+- **SU2_DEF** - deforms the geometry and mesh with changes in the design variables during the shape optimization process.
+- **shape_optimization.py** - automates the entire shape design process by executing the SU2 tools and optimizer.
 
 ## Resources
 
-The resources for this tutorial can be found in the TestCases/optimization_euler/steady_oneram6 directory. You will need the configuration file (inv_ONERAM6_adv.cfg) and the mesh file (mesh_ONERAM6_inv_FFD.su2), note that the mesh file contains information about the definition of the Free Form Deformation (FFD) used for the definition of 3D design variables.
+The resources for this tutorial can be found in the TestCases/optimization_euler/steady_oneram6/ directory. You will need the configuration file (inv_ONERAM6_adv.cfg) and the mesh file (mesh_ONERAM6_inv_FFD.su2). Note that the mesh file already contains information about the definition of the Free Form Deformation (FFD) used for the definition of 3D design variables, but we will discuss how this is created below.
 
 ## Tutorial
 
-The following tutorial will walk you through the steps required when performing 3D shape design using SU2, and FFD tools. It is assumed that you have already obtained and compiled SU2_CFD, SU2_DOT, and SU2_DEF. The design loop is driven by the shape_optimization.py script, and thus Python along with the NumPy and SciPy Python modules are required for this tutorial. If you have yet to complete these requirements, please see the Download and Installation pages.
+The following tutorial will walk you through the steps required when performing 3D shape design using SU2, including the FFD tools. It is assumed that you have already obtained and compiled SU2_CFD, SU2_DOT, and SU2_DEF. The design loop is driven by the shape_optimization.py script, and thus Python along with the NumPy and SciPy Python modules are required for this tutorial. If you have yet to complete these requirements, please see the Download and Installation pages.
 
 ### Problem Setup
 
-The goal of the design process is to minimize the coefficient of drag (Cd) by changing the shape of the wing, and as design variables, we will use the z-coordinate of the FFD control point position. This example uses a 3D fixed-wing geometry (initially the ONERA M6) at transonic speed in air (inviscid calculation). As the shock wave is located on the upper side of the wing, only the control points on the upper side will be used as design variables.
+The goal of this wing design problem is to minimize the coefficient of drag by changing the shape while imposing lift and wing section thickness constraints. As design variables, we will use a free-form deformation approach. In this approach, a lattice of control points making up a bounding box are placed around the geometry, and the movement of these control points smoothly deforms the surface shape of the geometry inside. We begin with a 3D fixed-wing geometry (initially the ONERA M6) at transonic speed in air (inviscid). 
 
 ### Mesh Description and FFD Setup 
 
-The mesh consists of a far-field boundary divided in three surfaces (XNORMAL_FACES, ZNORMAL_FACES, YNORMAL_FACES), an Euler wall divided in three surfaces (UPPER_SIDE, LOWER_SIDE, TIP) and a symmetry plane (SYMMETRY_FACE). The specific wing is the ONERA M6, and more information on this simulation can be found in the configuration file. The surface mesh can be seen in Figure (1).
+The mesh consists of a far-field boundary divided in three surfaces (XNORMAL_FACES, ZNORMAL_FACES, YNORMAL_FACES), an Euler wall (flow tangency) divided into three surfaces (UPPER_SIDE, LOWER_SIDE, TIP), and a symmetry plane (SYMMETRY_FACE). The flow conditions are the same as for the previous [[Inviscid ONERA M6]] tutorial. The surface mesh can be seen in Figure (1).
  
 ![Opt. ONERA Grid](http://su2.stanford.edu/github_wiki/onera_grid.png)
 Figure (1): View of the initial surface computational mesh.
