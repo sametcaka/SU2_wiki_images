@@ -27,12 +27,12 @@ Figure (1): View of the initial surface computational mesh.
 
 The mesh consists of a far-field boundary divided in three surfaces (XNORMAL_FACES, ZNORMAL_FACES, YNORMAL_FACES), an Euler wall (flow tangency) divided into three surfaces (UPPER_SIDE, LOWER_SIDE, TIP), and a symmetry plane (SYMMETRY_FACE). The baseline mesh is the same as for the previous [[Inviscid ONERA M6]] tutorial. The surface mesh can be seen in Figure (1).
 
+![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/onera_ffd.png)
+Figure (2): View of the initial FFD box around the ONERA M6 wing, including the control points (spheres).
+
 ### Setting up a Free-Form Deformation Box
  
 The mesh file that is provided for this test case already contains the FFD information. However, if you are interested in repeating this process for your own design cases, it is necessary to calculate the position of the control points and the parametric coordinates. The description below describes how to set up FFD boxes for deformation.
-
-![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/onera_ffd.png)
-Figure (2): View of the initial FFD box around the ONERA M6 wing, including the control points (spheres).
 
 The design variables are defined using the FFD methodology. We will customize a set a options that specifically target FFD box creation:
  
