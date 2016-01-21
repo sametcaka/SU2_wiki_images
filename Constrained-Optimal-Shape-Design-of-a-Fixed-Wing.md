@@ -6,6 +6,7 @@ Upon completing this tutorial, the user will be familiar with performing an opti
 - **SU2_CFD** - performs the direct and the adjoint flow simulations.
 - **SU2_DOT** - projects the adjoint surface sensitivities into the design space to obtain the gradient.
 - **SU2_DEF** - deforms the geometry and mesh with changes in the design variables during the shape optimization process.
+- **SU2_GEO** - evaluates the thickness of the specified wing sections and their gradients.
 - **shape_optimization.py** - automates the entire shape design process by executing the SU2 tools and optimizer.
 
 ## Resources
@@ -106,7 +107,29 @@ OPT_BOUND_LOWER= -0.3
 % ex= FFD_CONTROL_POINT ( 7, Scale | Mark. List | FFD_BoxTag, i_Ind, j_Ind, k_Ind, x_Mov, y_Mov, z_Mov )
 DEFINITION_DV= ( 7, 1.0 | UPPER_SIDE, LOWER_SIDE, TIP | WING, 0, 1, 0, 0.0, 0.0, 1.0 ); ( 7, 1.0 | UPPER_SIDE, LOWER_SIDE, TIP | WING, 1, 1, 0, 0.0, 0.0, 1.0 ); ...
 ```
-Here, we define the objective function for the optimization as drag with a lift constraint and thickness constraints along 5 sections of the wing. The DEFINITION_DV is the list of design variables. For this problem, we want to minimize the drag by changing the position of the control points of the control box. To do so, we define the set of FFD control points. Each design variable is separated by a semicolon. The first value in the parentheses is the variable type, which is 7 for control point movement. The second value is the scale of the variable (typically left as 1.0). The name between the vertical bars is the marker tag(s) where the variable deformations will be applied. The final seven values in the parentheses are the particular information about the deformation: identification of the FFD tag, the i, j, and k index of the control point, and the allowed x, y, and z movement direction of the control point. Note that other types of design variables have their own specific input format. 
+
+Here, we define the objective function for the optimization as drag with a lift constraint and thickness constraints along 5 sections of the wing. The DEFINITION_DV is the list of design variables. For this problem, we want to minimize the drag by changing the position of the control points of the control box. To do so, we list the set of FFD control points that we would like to use as variables. Each design variable is separated by a semicolon. The first value in the parentheses is the variable type, which is 7 for an FFD control point movement. The second value is the scale of the variable (typically left as 1.0). The name between the vertical bars is the marker tag(s) where the variable deformations will be applied. The final seven values in the parentheses are the particular information about the deformation: identification of the FFD tag, the i, j, and k index of the control point, and the allowed x, y, and z movement direction of the control point. Note that other types of design variables have their own specific input format. For this example, we have a long list of design variables that are not all listed above. You can quickly generate a list of FFD variables in the necessary format using the **set_ffd_design_var.py** script that is shipped with the other Python utilities with the source code.
+
+Lastly, we need to specify where the wing sections are located for applying the thickness constraints. Currently, a maximum of 5 thickness constraints can be applied during design. The thicknesses and their gradients are computed using the SU2_GEO module, and the necessary options are the following:
+```
+% ----------------------- GEOMETRY EVALUATION PARAMETERS ----------------------%
+%
+% Geometrical evaluation mode (FUNCTION, GRADIENT)
+GEO_MODE= FUNCTION
+%
+% Marker(s) of the surface where geometrical based func. will be evaluated
+GEO_MARKER= ( UPPER_SIDE, LOWER_SIDE, TIP )
+%
+% Number of airfoil sections
+GEO_NUMBER_SECTIONS= 5
+%
+% Orientation of airfoil sections (X_AXIS, Y_AXIS, Z_AXIS)
+GEO_ORIENTATION_SECTIONS= Y_AXIS
+%
+% Location (coordinate) of the airfoil sections (MinValue, MaxValue)
+GEO_LOCATION_SECTIONS= (0.0806, 1.1284)
+```
+As you can see, we need to specify the names of the markers that make up the geometry of interest, the number of sections, a coordinate axis perpendicular to our slicing planes, and the two endpoints (inclusive). The slices will be evenly distributed between the min and max locations. For the present wing case, we will be making cuts at 5 span locations to check the max thickness of those sections.
 
 ### Running SU2
 
