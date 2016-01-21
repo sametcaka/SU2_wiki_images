@@ -59,23 +59,23 @@ FFD_DEGREE= (10, 8, 1)
 FFD_CONTINUITY= 2ND_DERIVATIVE
 ```
 
-As the current implementation requires each FFD box to be a quadrilaterally-faced hexahedron (6 faces, 12 edges, 8 vertices), we can simply specify the the 8 corner points of the box and the polynomial degree we would like to represent along each coordinate direction (x,y,z) in order to create the complete lattice of control points. It is convenient to think of the FFD box as a small structured mesh block with (i,j,k) indices for the control points, and note that the number of control points in each direction is the specified polynomial degree plus one. In the example above, we are creating a box with control point dimensions 11, 9, and 2 in the x-, y-, and z-directions, respectively, for a total of 198 available control points. A view of the box with the control points numbered is in Fig. 3. Note that the numbering here is 1-based, but within SU2, the control points have 0-based indexing. This is critical for specifying the design variables in the config file.
+As the current implementation requires each FFD box to be a quadrilaterally-faced hexahedron (6 faces, 12 edges, 8 vertices), we can simply specify the the 8 corner points of the box and the polynomial degree we would like to represent along each coordinate direction (x,y,z) in order to create the complete lattice of control points. It is convenient to think of the FFD box as a small structured mesh block with (i,j,k) indices for the control points, and note that the number of control points in each direction is the specified polynomial degree plus one. 
+
+In the example above, we are creating a box with control point dimensions 11, 9, and 2 in the x-, y-, and z-directions, respectively, for a total of 198 available control points. In the FFD_DEFINITION option, we give a name to the box ("WING"), and then list out the x, y, and z coordinates of each corner point. The order is important, and you can use the example above to match the convention. The degree is then specified in the FFD_DEGREE option. A view of the box with the control points numbered is in Figure (3). Note that the numbering in the figure is 1-based just for visualization, but within SU2, the control points have 0-based indexing. For example, the (1,1,1) control point in the figure is control point (0,0,0) within SU2. This is critical for specifying the design variables in the config file.
 
 ![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/onera_ffd_points.png)
 Figure (3): View of the control point identifying indices, which increase in value along the positive coordinate directions. Note that the numbering here is 1-based just for visualization, but within SU2, the control points have 0-based indexing.
 
-The tag for the FFD box can be specified as a string name. Here, we choose "WING," as we are placing the FFD box around the wing. The provided mesh file is ready for optimization, but in the case that a user is specifying their own FFD box for a problem, the SU2_DEF module should be called after defining the options above (the levels, tag, degrees, and corner points) with the DV_KIND option set to FFD_SETTING in order to compute and write the FFD_CONTROL_POINTS and FFD_SURFACE_POINTS information to the grid file. If the FFD points are already defined in the .su2 mesh file, then the FFD_SETTING is set to FFD_CONTROL_POINT. Note that this mapping for the FFD variables only needs to be computed and stored once in the mesh file before performing design. We will describe this below.
+The tag for the FFD box can be specified as a string name. Here, we choose "WING," as we are placing the FFD box around the wing. The provided mesh file is ready for optimization, but in the case that a user is specifying their own FFD box for a problem, the SU2_DEF module should be called after defining the options above (the levels, tag, degrees, and corner points) with the DV_KIND option set to FFD_SETTING in order to compute and write the FFD_CONTROL_POINTS and FFD_SURFACE_POINTS information to the grid file. If the FFD points are already defined in the .su2 mesh file, then the FFD_SETTING is set to FFD_CONTROL_POINT. 
 
-The FFD_TOLERANCE and FFD_ITERATIONS options are used internally in the iterative point inversion algorithm during the creation of the box. If you find that your particular case stalls or throws errors during the creation of the box, these parameters can be adjusted to achieve convergence of the algorithm.
-
-
-Now that the FFD boxes have been set up, follow these steps at a terminal command line after defining the tags, degrees, and corner points for your FFD box (we'll use the ONERA M6 as an example):
+Now that the FFD box has been defined using the options, follow these steps at a terminal command line to generate a **new** mesh that contains the FFD box:
  1. Move to the directory containing the config file (inv_ONERAM6_adv.cfg) and the mesh file (mesh_ONERAM6_inv_FFD.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
  2. Check that DV_KIND= FFD_SETTING in the configuration file. 
  3. Execute SU2_DEF by entering "SU2_DEF inv_ONERAM6_adv.cfg" at the command line.
  4. After completing the FFD mapping process, a mesh file named "mesh_out.su2" is now in the directory. Rename that file to "mesh_ONERAM6_inv_FFD.su2". Note that this new mesh file contains all the details of the FFD method.
 
-With this preprocessing, the position of the control points and the parametric coordinates have been calculated. A representative FFD box and the control points can be seen in Figure (2). 
+With this preprocessing, the position of the control points and the parametric coordinates have been calculated. This information is stored in a native format at the bottom of the SU2 mesh file. You will use this new mesh for the design process. If you find that your particular case stalls or throws errors during the creation of the box, the FFD_TOLERANCE and FFD_ITERATIONS parameters can be adjusted to achieve convergence of the algorithm.
+
 
 ### Configuration File Options
 
