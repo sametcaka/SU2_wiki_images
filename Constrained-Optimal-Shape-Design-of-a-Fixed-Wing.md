@@ -71,10 +71,10 @@ Lastly, the FFD capabilities within SU2 also feature a nifty technique to automa
 Now that the FFD box has been defined using the options, follow these steps at a terminal command line to generate a **new** mesh that contains the FFD box:
  1. Move to the directory containing the config file (inv_ONERAM6_adv.cfg) and the mesh file (mesh_ONERAM6_inv_FFD.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
  2. Check that DV_KIND= FFD_SETTING in the configuration file. 
- 3. Execute SU2_DEF by entering "SU2_DEF inv_ONERAM6_adv.cfg" at the command line.
- 4. After completing the FFD mapping process, a mesh file named "mesh_out.su2" is now in the directory. Rename that file to "mesh_ONERAM6_inv_FFD.su2". Note that this new mesh file contains all the details of the FFD method.
+ 3. Execute SU2_DEF by entering "SU2_DEF inv_ONERAM6_adv.cfg" at the command line. This can also be executed in parallel.
+ 4. After completing the FFD mapping process, a mesh file named "mesh_out.su2" (by default) is now in the directory. Rename that file to "mesh_ONERAM6_inv_FFD.su2". Note that this new mesh file contains all the details of the FFD method.
 
-With this preprocessing, the position of the control points and the parametric coordinates have been calculated. This information is stored in a native format at the bottom of the SU2 mesh file. You will use this new mesh for the design process. If you find that your particular case stalls or throws errors during the creation of the box, the FFD_TOLERANCE and FFD_ITERATIONS parameters can be adjusted to achieve convergence of the algorithm.
+With this preprocessing, the position of the control points and the parametric coordinates have been calculated. The preprocessing only needs to be performed once, and afterward, the new (x,y,z) coordinates of the geometry surface due to control point displacements can be quickly evaluated from the mapping. This information is stored in a native format at the bottom of the SU2 mesh file. You will use this new mesh for the design process. If you find that your particular case stalls or throws errors during the creation of the box, the FFD_TOLERANCE and FFD_ITERATIONS parameters can be adjusted to achieve convergence of the algorithm.
 
 
 ### Configuration File Options
