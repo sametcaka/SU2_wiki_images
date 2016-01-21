@@ -31,7 +31,10 @@ The mesh consists of a far-field boundary divided in three surfaces (XNORMAL_FAC
  
 The mesh file that is provided for this test case already contains the FFD information. However, if you are interested in repeating this process for your own design cases, it is necessary to calculate the position of the control points and the parametric coordinates. The description below describes how to set up FFD boxes for deformation.
 
-The design variables are defined using the FFD methodology. To define an FFD box, the config FFD section in the config file needs to be modified as shown below.
+![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/onera_ffd.png)
+Figure (2): View of the initial FFD box around the ONERA M6 wing, including the control points (spheres).
+
+The design variables are defined using the FFD methodology. We will customize a set a options that specifically target FFD box creation:
  
 ```
 % -------------------- FREE-FORM DEFORMATION PARAMETERS -----------------------%
@@ -46,20 +49,25 @@ FFD_ITERATIONS= 500
 %                              X5, Y5, Z5, X6, Y6, Z6, X7, Y7, Z7, X8, Y8, Z8)
 %                     2D case (FFD_BoxTag, X1, Y1, 0.0, X2, Y2, 0.0, X3, Y3, 0.0, X4, Y4, 0.0,
 %                              0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
-FFD_DEFINITION= (WING, -0.0403, 0.0, -0.04836, 0.8463, 0.0, -0.04836, 1.209, 1.2896, -0.04836, 0.6851, 1.2896, -0.04836, -0.0403, 0.0, 0.04836, 0.8463, 0.0, 0.04836, 1.209, 1.2896, 0.04836, 0.6851, 1.2896, 0.04836)
+FFD_DEFINITION= (WING, -0.0403, 0, -0.04836, 0.8463,0, -0.04836, 1.209, 1.2896, -0.04836, 0.6851, 1.2896, -0.04836, -0.0403, 0, 0.04836, 0.8463, 0, 0.04836, 1.209, 1.2896, 0.04836, 0.6851, 1.2896, 0.04836)
 %
 % FFD box degree: 3D case (x_degree, y_degree, z_degree)
 %                 2D case (x_degree, y_degree, 0)
 FFD_DEGREE= (10, 8, 1)
 %
 % Surface continuity at the intersection with the FFD (1ST_DERIVATIVE, 2ND_DERIVATIVE)
-FFD_CONTINUITY= 1ST_DERIVATIVE
+FFD_CONTINUITY= 2ND_DERIVATIVE
 ```
 
-Note that, only the corners of the box and the polynomial degree in each direction are provided. The tag for the FFD box can be specified as a string name. Here, we choose "WING," as we are placing the FFD box around the wing. The provided mesh file is ready for optimization, but in the case that a user is specifying their own FFD box for a problem, the SU2_DEF module should be called after defining the options above (the levels, tag, degrees, and corner points) with the DV_KIND option set to FFD_SETTING in order to compute and write the FFD_CONTROL_POINTS and FFD_SURFACE_POINTS information to the grid file. If the FFD points are already defined in the .su2 mesh file, then the FFD_SETTING is set to FFD_CONTROL_POINT. Note that this mapping for the FFD variables only needs to be computed and stored once in the mesh file before performing design. We will describe this below.
+As the current implementation requires each FFD box to be a quadrilaterally-faced hexahedron (6 faces, 12 edges, 8 vertices), we can simply specify the the 8 corner points of the box and the polynomial degree we would like to represent along each coordinate direction (x,y,z) in order to create the complete lattice of control points. It is convenient to think of the FFD box as a small structured mesh block with (i,j,k) indices for the control points, and note that the number of control points in each direction is the specified polynomial degree plus one. In the example above, we are creating a box with control point dimensions 11, 9, and 2 in the x-, y-, and z-directions, respectively, for a total of 198 available control points. A view of the box with the control points numbered is in Fig. 3. Note that the numbering here is 1-based, but within SU2, the control points have 0-based indexing. This is critical for specifying the design variables in the config file.
 
-![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/onera_ffd.png)
-Figure (2): View of the initial FFD box around the ONERA M6 wing, including the control points (spheres).
+![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/onera_ffd_points.png)
+Figure (3): View of the control point identifying indices, which increase in value along the positive coordinate directions. Note that the numbering here is 1-based just for visualization, but within SU2, the control points have 0-based indexing.
+
+The tag for the FFD box can be specified as a string name. Here, we choose "WING," as we are placing the FFD box around the wing. The provided mesh file is ready for optimization, but in the case that a user is specifying their own FFD box for a problem, the SU2_DEF module should be called after defining the options above (the levels, tag, degrees, and corner points) with the DV_KIND option set to FFD_SETTING in order to compute and write the FFD_CONTROL_POINTS and FFD_SURFACE_POINTS information to the grid file. If the FFD points are already defined in the .su2 mesh file, then the FFD_SETTING is set to FFD_CONTROL_POINT. Note that this mapping for the FFD variables only needs to be computed and stored once in the mesh file before performing design. We will describe this below.
+
+The FFD_TOLERANCE and FFD_ITERATIONS options are used internally in the iterative point inversion algorithm during the creation of the box. If you find that your particular case stalls or throws errors during the creation of the box, these parameters can be adjusted to achieve convergence of the algorithm.
+
 
 Now that the FFD boxes have been set up, follow these steps at a terminal command line after defining the tags, degrees, and corner points for your FFD box (we'll use the ONERA M6 as an example):
  1. Move to the directory containing the config file (inv_ONERAM6_adv.cfg) and the mesh file (mesh_ONERAM6_inv_FFD.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
@@ -164,13 +172,13 @@ A continuous adjoint methodology for obtaining surface sensitivities is implemen
 The following are representative results for this transonic shape design example with the ONERA M6 geometry as a baseline.
 
 ![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_pressure_original.png)
-Figure (3): Pressure contours showing the typical "lambda" shock on the upper surface of the initial geometry.
+Figure (4): Pressure contours showing the typical "lambda" shock on the upper surface of the initial geometry.
 
 ![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_pressure_final.png)
-Figure (4): Pressure contours on the surface of the final wing design (reduced shocks).
+Figure (5): Pressure contours on the surface of the final wing design (reduced shocks).
 
 ![Opt. ONERA Pressure](http://su2.stanford.edu/github_wiki/onera_ffd_final.png)
-Figure (5): View of the initial (black) and final (blue) FFD control point positions.
+Figure (6): View of the initial (black) and final (blue) FFD control point positions.
 
 ![Opt. ONERA History](http://su2.stanford.edu/github_wiki/onera_opt_history.png)
-Figure (6): Optimization history. The drag is reduced and the lift constraint is easily met.
+Figure (7): Optimization history. The drag is reduced and the lift constraint is easily met.
