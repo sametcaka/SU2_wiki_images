@@ -76,75 +76,11 @@ Now that the FFD box has been defined using the options, follow these steps at a
 
 With this preprocessing, the position of the control points and the parametric coordinates have been calculated. The preprocessing only needs to be performed once, and afterward, the new (x,y,z) coordinates of the geometry surface due to control point displacements can be quickly evaluated from the mapping. This information is stored in a native format at the bottom of the SU2 mesh file. You will use this new mesh for the design process. If you find that your particular case stalls or throws errors during the creation of the box, the FFD_TOLERANCE and FFD_ITERATIONS parameters can be adjusted to achieve convergence of the algorithm.
 
+### Defining the Optimization Problem
 
-### Configuration File Options
-
-Several of the key configuration file options for this simulation are highlighted here. We will use a similar flow problem as that feature in the previous ONERA M6 tutorials and so only the design variable parameters are shown here:
+Several of the key configuration file options are highlighted here. Since we are using the same flow problem from the previous tutorials, we will focus on the new design parameter options:
 ```
-% ----------------------- DESIGN VARIABLE PARAMETERS --------------------------%
-%
-% Kind of deformation (FFD_SETTING, FFD_CONTROL_POINT_2D, FFD_CAMBER_2D, FFD_THICKNESS_2D,
-%                      HICKS_HENNE, COSINE_BUMP, PARABOLIC,
-%                      NACA_4DIGITS, DISPLACEMENT, ROTATION, FFD_CONTROL_POINT, 
-%                      FFD_DIHEDRAL_ANGLE, FFD_TWIST_ANGLE, FFD_ROTATION,
-%                      FFD_CAMBER, FFD_THICKNESS, FFD_CONTROL_SURFACE, SURFACE_FILE, AIRFOIL)
-DV_KIND= FFD_SETTING
-%FFD_CONTROL_POINT
-%
-% Marker of the surface in which we are going apply the shape deformation
-DV_MARKER= ( UPPER_SIDE, LOWER_SIDE, TIP )
-%
-% Parameters of the shape deformation 
-% 	- FFD_CONTROL_POINT ( FFD_BoxTag, i_Ind, j_Ind, k_Ind, x_Disp, y_Disp, z_Disp )
-% 	- FFD_DIHEDRAL_ANGLE ( FFD_BoxTag, x_Orig, y_Orig, z_Orig, x_End, y_End, z_End )
-% 	- FFD_TWIST_ANGLE ( FFD_BoxTag, x_Orig, y_Orig, z_Orig, x_End, y_End, z_End )
-% 	- FFD_ROTATION ( FFD_BoxTag, x_Orig, y_Orig, z_Orig, x_End, y_End, z_End )
-% 	- FFD_CAMBER ( FFD_BoxTag, i_Ind, j_Ind )
-% 	- FFD_THICKNESS ( FFD_BoxTag, i_Ind, j_Ind )
-% 	- FFD_VOLUME ( FFD_BoxTag, i_Ind, j_Ind )
-DV_PARAM= ( WING, 1, 0, 0, 0.0, 0.0, 1.0 )
-%
-% New value of the shape deformation
-DV_VALUE= 0.0
-
-% ------------------------ GRID DEFORMATION PARAMETERS ------------------------%
-% Visualize the deformation (NO, YES)
-VISUALIZE_DEFORMATION= NO
-
 % --------------------- OPTIMAL SHAPE DESIGN DEFINITION -----------------------%
-% Available flow based objective functions or constraint functions
-%    DRAG, LIFT, SIDEFORCE, EFFICIENCY,
-%    FORCE_X, FORCE_Y, FORCE_Z,
-%    MOMENT_X, MOMENT_Y, MOMENT_Z,
-%    THRUST, TORQUE, FIGURE_OF_MERIT,
-%    EQUIVALENT_AREA, NEARFIELD_PRESSURE,
-%    FREE_SURFACE
-%
-% Available geometrical based objective functions or constraint functions
-%    MAX_THICKNESS, 1/4_THICKNESS, 1/2_THICKNESS, 3/4_THICKNESS, AREA, AOA, CHORD, 
-%    MAX_THICKNESS_SEC1, MAX_THICKNESS_SEC2, MAX_THICKNESS_SEC3, MAX_THICKNESS_SEC4, MAX_THICKNESS_SEC5, 
-%    1/4_THICKNESS_SEC1, 1/4_THICKNESS_SEC2, 1/4_THICKNESS_SEC3, 1/4_THICKNESS_SEC4, 1/4_THICKNESS_SEC5, 
-%    1/2_THICKNESS_SEC1, 1/2_THICKNESS_SEC2, 1/2_THICKNESS_SEC3, 1/2_THICKNESS_SEC4, 1/2_THICKNESS_SEC5, 
-%    3/4_THICKNESS_SEC1, 3/4_THICKNESS_SEC2, 3/4_THICKNESS_SEC3, 3/4_THICKNESS_SEC4, 3/4_THICKNESS_SEC5, 
-%    AREA_SEC1, AREA_SEC2, AREA_SEC3, AREA_SEC4, AREA_SEC5, 
-%    AOA_SEC1, AOA_SEC2, AOA_SEC3, AOA_SEC4, AOA_SEC5, 
-%    CHORD_SEC1, CHORD_SEC2, CHORD_SEC3, CHORD_SEC4, CHORD_SEC5
-%
-% Available design variables
-%    HICKS_HENNE 	(  1, Scale | Mark. List | Lower(0)/Upper(1) side, x_Loc )
-%    COSINE_BUMP	(  2, Scale | Mark. List | Lower(0)/Upper(1) side, x_Loc, x_Size )
-%    SPHERICAL		(  3, Scale | Mark. List | ControlPoint_Index, Theta_Disp, R_Disp )
-%    NACA_4DIGITS	(  4, Scale | Mark. List |  1st digit, 2nd digit, 3rd and 4th digit )
-%    DISPLACEMENT	(  5, Scale | Mark. List | x_Disp, y_Disp, z_Disp )
-%    ROTATION		(  6, Scale | Mark. List | x_Axis, y_Axis, z_Axis, x_Turn, y_Turn, z_Turn )
-%    FFD_CONTROL_POINT	(  7, Scale | Mark. List | FFD_BoxTag, i_Ind, j_Ind, k_Ind, x_Mov, y_Mov, z_Mov )
-%    FFD_DIHEDRAL_ANGLE	(  8, Scale | Mark. List | FFD_BoxTag, x_Orig, y_Orig, z_Orig, x_End, y_End, z_End )
-%    FFD_TWIST_ANGLE 	(  9, Scale | Mark. List | FFD_BoxTag, x_Orig, y_Orig, z_Orig, x_End, y_End, z_End )
-%    FFD_ROTATION 	( 10, Scale | Mark. List | FFD_BoxTag, x_Orig, y_Orig, z_Orig, x_End, y_End, z_End )
-%    FFD_CAMBER 	( 11, Scale | Mark. List | FFD_BoxTag, i_Ind, j_Ind )
-%    FFD_THICKNESS 	( 12, Scale | Mark. List | FFD_BoxTag, i_Ind, j_Ind )
-%    FFD_VOLUME 	( 13, Scale | Mark. List | FFD_BoxTag, i_Ind, j_Ind )
-%    FOURIER 		( 14, Scale | Mark. List | Lower(0)/Upper(1) side, index, cos(0)/sin(1) )
 %
 % Optimization objective function with scaling factor
 % ex= Objective * Scale
@@ -154,9 +90,21 @@ OPT_OBJECTIVE= DRAG * 0.1
 % ex= (Objective = Value ) * Scale, use '>','<','='
 OPT_CONSTRAINT= (LIFT > 0.2864) * 0.1; (MAX_THICKNESS_SEC1 > 0.0570) * 0.1; (MAX_THICKNESS_SEC2 > 0.0513) * 0.1; (MAX_THICKNESS_SEC3 > 0.0457) * 0.1; (MAX_THICKNESS_SEC4 > 0.0399) * 0.1; (MAX_THICKNESS_SEC5 > 0.0343) * 0.1
 %
+% Maximum number of iterations
+OPT_ITERATIONS= 100
+%
+% Requested accuracy
+OPT_ACCURACY= 1E-10
+%
+% Upper bound for each design variable
+OPT_BOUND_UPPER= 0.3
+%
+% Lower bound for each design variable
+OPT_BOUND_LOWER= -0.3
+%
 % Optimization design variables, separated by semicolons
-DEFINITION_DV= ( 7, 1.0 | UPPER_SIDE, LOWER_SIDE, TIP | WING, 0, 1, 0, 0.0, 0.0, 1.0 ); ( 7, 1.0 | UPPER_SIDE, 
-...
+% ex= FFD_CONTROL_POINT ( 7, Scale | Mark. List | FFD_BoxTag, i_Ind, j_Ind, k_Ind, x_Mov, y_Mov, z_Mov )
+DEFINITION_DV= ( 7, 1.0 | UPPER_SIDE, LOWER_SIDE, TIP | WING, 0, 1, 0, 0.0, 0.0, 1.0 ); ( 7, 1.0 | UPPER_SIDE, LOWER_SIDE, TIP | WING, 1, 1, 0, 0.0, 0.0, 1.0 ); ...
 ```
 Here, we define the objective function for the optimization as drag with a lift constraint and thickness constraints along 5 sections of the wing. The DEFINITION_DV is the list of design variables. For this problem, we want to minimize the drag by changing the position of the control points of the control box. To do so, we define the set of FFD control points. Each design variable is separated by a semicolon. The first value in the parentheses is the variable type, which is 7 for control point movement. The second value is the scale of the variable (typically left as 1.0). The name between the vertical bars is the marker tag(s) where the variable deformations will be applied. The final seven values in the parentheses are the particular information about the deformation: identification of the FFD tag, the i, j, and k index of the control point, and the allowed x, y, and z movement direction of the control point. Note that other types of design variables have their own specific input format. 
 
