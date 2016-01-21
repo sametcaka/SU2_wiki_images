@@ -18,21 +18,20 @@ The following tutorial will walk you through the steps required when performing 
 
 ### Problem Setup
 
-The goal of this wing design problem is to minimize the coefficient of drag by changing the shape while imposing lift and wing section thickness constraints. As design variables, we will use a free-form deformation approach. In this approach, a lattice of control points making up a bounding box are placed around the geometry, and the movement of these control points smoothly deforms the surface shape of the geometry inside. We begin with a 3D fixed-wing geometry (initially the ONERA M6) at transonic speed in air (inviscid). 
+The goal of this wing design problem is to minimize the coefficient of drag by changing the shape while imposing lift and wing section thickness constraints. As design variables, we will use a free-form deformation approach. In this approach, a lattice of control points making up a bounding box are placed around the geometry, and the movement of these control points smoothly deforms the surface shape of the geometry inside. We begin with a 3D fixed-wing geometry (initially the ONERA M6) at transonic speed in air (inviscid). The flow conditions are the same as for the previous [[Inviscid ONERA M6]] tutorial.
 
-### Mesh Description and FFD Setup 
-
-The mesh consists of a far-field boundary divided in three surfaces (XNORMAL_FACES, ZNORMAL_FACES, YNORMAL_FACES), an Euler wall (flow tangency) divided into three surfaces (UPPER_SIDE, LOWER_SIDE, TIP), and a symmetry plane (SYMMETRY_FACE). The flow conditions are the same as for the previous [[Inviscid ONERA M6]] tutorial. The surface mesh can be seen in Figure (1).
- 
 ![Opt. ONERA Grid](http://su2.stanford.edu/github_wiki/onera_grid.png)
 Figure (1): View of the initial surface computational mesh.
 
-![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/onera_ffd.png)
-Figure (2): View of the initial FFD box, control points and the surface mesh.
+### Mesh Description
+
+The mesh consists of a far-field boundary divided in three surfaces (XNORMAL_FACES, ZNORMAL_FACES, YNORMAL_FACES), an Euler wall (flow tangency) divided into three surfaces (UPPER_SIDE, LOWER_SIDE, TIP), and a symmetry plane (SYMMETRY_FACE). The baseline mesh is the same as for the previous [[Inviscid ONERA M6]] tutorial. The surface mesh can be seen in Figure (1).
+
+### Setting up a Free-Form Deformation Box
  
 The mesh file that is provided for this test case already contains the FFD information. However, if you are interested in repeating this process for your own design cases, it is necessary to calculate the position of the control points and the parametric coordinates. The description below describes how to set up FFD boxes for deformation.
 
- The design variables are defined using the FFD methodology. To define an FFD box, the config FFD section in the config file needs to be modified as shown below.
+The design variables are defined using the FFD methodology. To define an FFD box, the config FFD section in the config file needs to be modified as shown below.
  
 ```
 % -------------------- FREE-FORM DEFORMATION PARAMETERS -----------------------%
@@ -59,7 +58,8 @@ FFD_CONTINUITY= 1ST_DERIVATIVE
 
 Note that, only the corners of the box and the polynomial degree in each direction are provided. The tag for the FFD box can be specified as a string name. Here, we choose "WING," as we are placing the FFD box around the wing. The provided mesh file is ready for optimization, but in the case that a user is specifying their own FFD box for a problem, the SU2_DEF module should be called after defining the options above (the levels, tag, degrees, and corner points) with the DV_KIND option set to FFD_SETTING in order to compute and write the FFD_CONTROL_POINTS and FFD_SURFACE_POINTS information to the grid file. If the FFD points are already defined in the .su2 mesh file, then the FFD_SETTING is set to FFD_CONTROL_POINT. Note that this mapping for the FFD variables only needs to be computed and stored once in the mesh file before performing design. We will describe this below.
 
-
+![Opt. ONERA FFD](http://su2.stanford.edu/github_wiki/onera_ffd.png)
+Figure (2): View of the initial FFD box around the ONERA M6 wing, including the control points (spheres).
 
 Now that the FFD boxes have been set up, follow these steps at a terminal command line after defining the tags, degrees, and corner points for your FFD box (we'll use the ONERA M6 as an example):
  1. Move to the directory containing the config file (inv_ONERAM6_adv.cfg) and the mesh file (mesh_ONERAM6_inv_FFD.su2). Make sure that the SU2 tools were compiled, installed, and that their install location was added to your path.
