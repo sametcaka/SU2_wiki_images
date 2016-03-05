@@ -105,9 +105,11 @@ Figure (3): Coefficient of pressure distribution along the airfoil surface. Noti
 #### Adjoint Solution
 
 ![NACA 0012 Adjoint Density](http://su2.stanford.edu/github_wiki/naca0012_psirho.png)
+
 Figure (4): Contours of the adjoint density variable.
 
 ![NACA 0012 Surface Sensitivity](http://su2.stanford.edu/github_wiki/naca0012_sensitivity.png)
+
 Figure (5): Surface sensitivities. The surface sensitivity is the change in the objective function due to an infinitesimal deformation of the surface in the local normal direction. These values are calculated at each node on the airfoil surface from the flow and adjoint solutions at negligible computational cost.
 
 Congratulations! You've successfully performed your first flow simulations with SU2. Move on to the tutorials to learn much more about using the code, and don't forget to read through the information in the user's guide. Having problems with the quick start or visualizing the results?  Visit the FAQs page, or see our forum at CFD-online.
