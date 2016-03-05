@@ -28,9 +28,6 @@ $ git clone https://github.com/su2code/TestCases.git
 The test cases can also be downloaded along with the pre-compiled binary files using the link specified above. 
 If you would like to run our tutorial cases or experiment with some other available cases, be sure to download these additional files.
 
-* Release Notes are available for major and interim releases.
-* The development team looks forward to your feedback. Please join the SU2 community by subscribing to the user's mailing list to receive important updates about the code, and send your feedback directly to the developers through the developer's mailing list. See the [Contact](http://su2.stanford.edu/contact.html) page for details on the mailing lists.
-
 ## Registering
 
 When downloading SU2, please take a few seconds to register by filling out the form on this [link](https://docs.google.com/forms/d/1hc1IXqjOeV4mbadyV2Q3IpUX-t2qLWGFES-gYm9nOFo/viewform) or the page linked at http://su2.stanford.edu/download.html. At the completion of the registration page, you will be re-directed to the appropriate distribution of the software. If you have already registered with us, please proceed to the URL provided to you when you completed the registration process. The information collected is used ONLY for usage statistics by the ADL development team.  You will not be contacted except for critical bug fixes to the software or the announcement of important SU2 releases. We encourage all of our users to join our growing community by joining the susquared-users mailing list. Your cooperation is greatly appreciated and lets us build a better tool to suit the needs of our community. Thanks!
@@ -42,3 +39,8 @@ The most current version of the software package is available on the SU2code's G
 ## Third-Party Downloads
 
 A number of optional third-party software packages that extend the capability of SU2 are available. More information on these packages can be found on the [[Installation]] page.
+
+## Additional Notes
+
+* Release Notes are available for major and interim releases.
+* The development team looks forward to your feedback. Please join the SU2 community by subscribing to the user's mailing list to receive important updates about the code, and send your feedback directly to the developers through the developer's mailing list. See the [Contact](http://su2.stanford.edu/contact.html) page for details on the mailing lists.
