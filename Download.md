@@ -21,7 +21,7 @@ $ svn checkout https://github.com/su2code/SU2/trunk
 You may also browse the code on [github](https://github.com/su2code) directly. A link on the right hand side provides the option to download the code repository as a ZIP file.
 
 ### Testcases
-Test cases (configuration and mesh files) are included in a separate distribution, now available on [GitHub](https://github.com/su2code/TestCases) and can be accessed using  
+Test cases (configuration and mesh files) are included in a separate distribution, also available on [GitHub](https://github.com/su2code/TestCases) and can be accessed using  
 
 $ git clone https://github.com/su2code/TestCases.git  
 
