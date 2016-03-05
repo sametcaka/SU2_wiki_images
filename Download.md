@@ -25,7 +25,7 @@ Test cases (configuration and mesh files) are included in a separate distributio
 
 $ git clone https://github.com/su2code/TestCases.git  
 
-The can also be downloaded along with the pre-compiled binary files using the link specified above. 
+The test cases can also be downloaded along with the pre-compiled binary files using the link specified above. 
 If you would like to run our tutorial cases or experiment with some other available cases, be sure to download these additional files.
 
 * Release Notes are available for major and interim releases.
