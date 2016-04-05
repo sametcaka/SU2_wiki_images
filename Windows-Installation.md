@@ -1,10 +1,10 @@
 As of release 4.1.1, SU2 supports Windows platforms from Windows 7 through Windows 10 in 32-bit and 64-bit architectures (see details and limitations below) in serial (multi-threaded but no MPI) mode only. Please note that the executables have been built to support any version of Windows but have only been tested in Windows 10, x64 platform. The 32-bit versions are available for legacy support but are limited to smaller problems due to the 2 GB memory limit in 32-bit systems; a 64-bit architecture is recommended. Windows binaries are packaged as an installer (.exe). If you encounter a problem installing or running in Windows please contact the support team for assistance. 
 
-**The x86 (32-bit) version** 
+**x86 (32-bit) version** 
 
 This version is built with CGNS 3.3.0 but no Tecplot binary support since Tecplot no longer supports the x86 architecture in their Tecio library. Tecplot text file output is always available. 
 
-**The x64 (64-bit) version**
+**x64 (64-bit) version**
 
 This version is built with CGNS 3.3.0 and Tecplot binary support. 
 
@@ -17,3 +17,7 @@ This version is built with CGNS 3.3.0 and Tecplot binary support.
 ## Running SU2 in Windows
 
 Running SU2 in Windows is identical to running in Linux of Mac OS environments and is run from the command line (wither cmd.exe or the freely-available Console2 for Windows).
+
+## What's up with MPI on Windows? 
+
+SU2 has been successfully integrated with MS MPI, version 7 and a parallel version for Windows (including the necessary MPI package) is planned for the near future. SU2 currently relies on ParMETIS, a third-party software tool, for parallel grid partitioning and this package does not currently have Windows support nor integration with MS MPI. Once properly configured for METIS partitioning (supported in Windows and already integrated into SU2) in parallel solutions, a fully-parallel version of SU2 for Windows will be released.  
