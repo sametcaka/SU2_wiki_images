@@ -1,12 +1,6 @@
-As of release 4.1.1, SU2 supports Windows platforms from Windows 7 through Windows 10 in (x86) 32-bit and (x64) 64-bit architectures (see details and limitations below) in serial (multi-threaded but no MPI) mode only. Please note that the executables have been built to support any version of Windows but have only been tested on Windows 10, x64 platform. The x86 versions are available for legacy support but are limited to smaller problems due to the 2 GB memory limit in x86 systems; a 64-bit architecture is recommended. Windows binaries are packaged as an installer (.exe). If you encounter a problem installing or running in Windows please contact the support team for assistance. 
+As of release 4.1.1, SU2 supports Windows platforms from Windows 7 through Windows 10 in (x86) 32-bit and (x64) 64-bit architectures (see details and limitations below) in serial (multi-threaded but no MPI) mode only. Please note that the executables have been built to support any version of Windows but have only been tested on Windows 7 and Windows 10, x64 platform. The x86 versions are available for legacy support but are limited to smaller problems due to the 2 GB memory limit in x86 systems; a 64-bit architecture is recommended. Windows binaries are packaged as an installer (.exe). If you encounter a problem installing or running in Windows please contact the support team for assistance. 
 
-**x86 (32-bit) version** 
-
-This version is built with CGNS 3.3.0 but no Tecplot binary support since Tecplot no longer supports the x86 architecture in their Tecio library. Tecplot text file output is always available. 
-
-**x64 (64-bit) version**
-
-This version is built with CGNS 3.3.0 and Tecplot binary support. 
+This version is built with CGNS 3.3.0 but no Tecplot binary support (Tecplot text format output is always available).   
 
 ## Installation 
 
