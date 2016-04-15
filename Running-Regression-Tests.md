@@ -5,7 +5,7 @@ When you are ready to combine your modifications into the develop branch, creati
 If you are working with a forked version of the repository, you can use the following directions to run these same regression tests within your repository rather than within the su2code/ repository. This is preferable if you are not ready to submit your code to the develop branch and just want to run the tests, or if you want to create your own regression tests.
 
  
-1. Modify the travis.yml file in the develop branch to update the ******email address****** and ******repository url******. At this point you can also modify which branch will have the tests run. Commit the change to your fork/develop.
+1. Modify the travis.yml file in the develop branch to update the ***email address*** and ***repository url***. At this point you can also modify which branch will have the tests run. Commit the change to your fork/develop.
 2. Sign up for Travis CI and allow access to your account. 
 3. Activate the repository within Travis CI.
 4. Modify the "README" file in the SU2/ directory such that the url points to the results for your fork rather than su2code/SU2.
