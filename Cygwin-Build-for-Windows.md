@@ -1,5 +1,5 @@
 ### Overview
-Cygwin is a linux emulator, which allows the user to run linux programs on a Windows machine. Downloads and more information on Cygwin is available at http://www.cygwin.com/. To compile and run SU2 in Cygwin on a Windows machine, you will need to configure Cygwin with the appropriate packages (listed below), and then continue from within Cygwin as though you were using a linux machine. 
+Cygwin provides a unix-like environment on a Windows machine, and emulates some of the functionality of a linux distribution. Downloads and more information on Cygwin is available at http://www.cygwin.com/. To compile and run SU2 in Cygwin on a Windows machine, you will need to configure Cygwin with the appropriate packages (listed below), and then continue from within Cygwin as though you were using a linux machine. 
 In summary, the steps are:
 
 1. Download Cygwin installer
