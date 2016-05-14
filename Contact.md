@@ -7,7 +7,7 @@ If you find an error in SU2 or would like to submit a feature request, please us
 ### SU2 User's Mailing List
 Users are encouraged to join the SU2 user's email list. This list will be used to communicate important information to users such as new releases and bug fixes. It will be used for forwarding information alone, and the ability to reply or post to the list is disabled for non-developers. If you have comments, requests, or questions for the developers, please see the developer's mailing list below. To join, follow the link below, enter your email address, and follow the directions for confirmation. Your email address will not be shared or used for anything except email communication from the development team.
 
-[Join the List!](https://mailman.stanford.edu/mailman/listinfo/su2code-users)
+[Join the List!](https://mailman.stanford.edu/mailman/listinfo/susquared-users)
 
 ### Join the SU2 Developer Team
 The SU2 community continues to grow rapidly, and together, we are making a measurable, worldwide impact on CFD. Now it's time to tap into our collective expertise, creativity, and coding skills to take SU2 to the next level.
