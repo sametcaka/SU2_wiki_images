@@ -7,6 +7,7 @@ Don't forget to check out this page on how to get the test cases set up on your 
 Now, get to work:
 
 * [[Inviscid Bump in a Channel]]
+* [[Inviscid Supersonic Wedge]]
 * [[Inviscid ONERA M6]]
 * [[Laminar Flat Plate]]
 * [[Laminar Cylinder]]
@@ -14,4 +15,3 @@ Now, get to work:
 * [[Turbulent ONERA M6]]
 * [[Optimal Shape Design of a Transonic Airfoil]]
 * [[Constrained Optimal Shape Design of a Fixed Wing]]
-* [[Inviscid Supersonic Wedge]]
