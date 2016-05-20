@@ -36,6 +36,7 @@
   * [[Code Review]]
   * [[Code Structure]]
   * [[Style Guide]]
+  * [[Advanced AD Techniques]]
 * [[FAQ]]
 * [[License]]
 * [[Contact]]
