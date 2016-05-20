@@ -10,6 +10,7 @@
         * [[Parallel and CGNS Build]]
         * [[AD Build]]
     * [[Windows Installation]]
+    * [[Windows Demo]]
     * [[Cygwin Build for Windows]]
   * [[Input Files]]
     * [[Configuration File]]
