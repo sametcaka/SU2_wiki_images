@@ -77,5 +77,5 @@ Options:
 * -f FILE, --file=FILE read config from FILE
 * -r NAME, --name=NAME try to restart from project file NAME
 * -n PARTITIONS, --partitions=PARTITIONS number of PARTITIONS
-* -g GRADIENT, --gradient=GRADIENT Method for computing the GRADIENT (ADJOINT, FINDIFF, NONE)
+* -g GRADIENT, --gradient=GRADIENT Method for computing the GRADIENT (ADJOINT, DISCRETE_ADJOINT, FINDIFF, NONE)
 * -q QUIET, --quiet=QUIET True/False Quiet all SU2 output (optimizer output only)
