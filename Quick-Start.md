@@ -29,7 +29,7 @@ The NACA0012 airfoil is one of the four-digit wing sections developed by the Nat
 
 This problem will solve the Euler equations on the NACA0012 airfoil at an angle of attack of 1.25 degrees, using air with the following freestream conditions:
 
-- Pressure = 101325 Nm-2
+- Pressure = 101,325 Pa
 - Temperature = 273.15 K
 - Mach number = 0.8
 
