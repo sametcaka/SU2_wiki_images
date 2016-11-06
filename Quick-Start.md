@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the Quick Start Tutorial for the SU2 software suite. This tutorial is intended to demonstrate some of the key features of the analysis and design tools in an easily accessible format. Completion of this tutorial only requires a few minutes. If you haven't done so already, please visit the Download and Installation pages to obtain the most recent stable release of the software and details for installation. This tutorial requires only the SU2_CFD tool from the SU2 suite.
+Welcome to the Quick Start Tutorial for the SU2 software suite. This tutorial is intended to demonstrate some of the key features of the analysis and design tools in an easily accessible format. Completion of this tutorial only requires a few minutes. If you haven't done so already, please visit the  and Installation pages to obtain the most recent stable release of the software and details for installation. This tutorial requires only the SU2_CFD tool from the SU2 suite.
 
 ## Goals
 Upon completing this simple tutorial, the user will be familiar with performing the flow and continuous adjoint simulation of external, inviscid flow around a 2D geometry and be able to plot both the flow solution and the surface sensitivities that result. The specific geometry chosen for the tutorial is the NACA 0012 airfoil. Consequently, the following capabilities of SU2 will be showcased in this tutorial:
