@@ -12,7 +12,7 @@ The key C++ and Python tools in the SU2 software suite are briefly described bel
 - **SU2_SOL (Solution Export Code)**: Generates the volumetric and surface solution files from SU2 restart files.
 - **SU2_GEO (Geometry Definition Code)**: Geometry preprocessing and definition code. In particular, this module performs the calculation of geometric constraints for shape optimization. 
 
-While they are not C++ modules, two other similar directories included in the source distribution should be mentioned. First, the **SU2_IDE** (Integrated Development Environment) directory contains files associated with various IDEs to aid developers (Eclipse, VisualStudio, Wing, Xcode). Second, the **SU2_PY** directory contains all of the files making up the Python framework, and some of these will be highlighted next.
+While they are not C++ modules, two other similar directories included in the source distribution should be mentioned. First, the **SU2_IDE** (Integrated Development Environment) directory contains files associated with various IDEs to aid developers (Eclipse, VisualStudio, Wing, Xcode). Second, the **SU2_PY** directory contains all of the files making up the Python framework, and some of these will be highlighted in a section below.
 
 ### Algorithmic Differentiation Support and Discrete Adjoint
 
