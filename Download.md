@@ -1,6 +1,6 @@
 ## Downloading SU2
 
-SU2 is available for download under the GNU Lesser General Public License (LGPL) v2.1. Please refer to the License page for terms and conditions. 
+SU2 is available for download under the GNU Lesser General Public License (LGPL) v2.1. Please refer to the [License](https://github.com/su2code/SU2/wiki/License) page for terms and conditions. 
 
 ### SU2 code and Binaries
 Source code tar files are available for download, along with pre-compiled binary executables for selected platforms (Mac/Linux/Windows).
