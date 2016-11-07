@@ -7,7 +7,7 @@ SU2 has been designed with ease of installation and use in mind. This means that
 The binary executables available on the Download page are intended to get new users up and running as quickly as possible. This option is best for novice CFD users or those looking to quickly sample some of the features of SU2. To make these binary distributions available to a wide range of potential users, some advanced features requiring external libraries and dependencies have been disabled (most notably the ability to run simulations in parallel). In other words, the pre-compiled binary executables are simply the serial version of the SU2 C++ modules.
 No compilation is required for users who select the binary distribution of SU2. Simply install the binaries, open a terminal, and proceed to the Quick Start Tutorial. Binaries are available for multiple platforms, including installers for Windows.
 
-**Windows users**: please refer to the Windows Installation Guide. 
+**Windows users**: please refer to the [Windows Installation Guide](https://github.com/su2code/SU2/wiki/Windows-Installation). 
 
 ## Required Software for Running SU2
 
