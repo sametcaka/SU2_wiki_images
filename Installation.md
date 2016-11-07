@@ -38,7 +38,7 @@ Note that there are also a number of excellent contributions from the open-sourc
 
 ### CGNS Library
 
-To make creating your own meshes easier and more accessible, support for the open CGNS data standard has been including within SU2. The main advantage gained is that complex meshes created in a third-party software package (one that supports unstructured CGNS file export) can be used directly within SU2 without the need for conversion to the native format. Moreover, the size of the mesh file (particularly for large test cases) can be significantly reduced.  If needed, a converter from CGNS to the .su2 format has been built into SU2 as well. Users should obtain and follow the instructions supplied for building the CGNS library (Version 3.1.4 recommended) from the official CGNS site. Details on compiling with and using the CGNS library for mesh input can be found on the documentation page concerning meshes.
+To make creating your own meshes easier and more accessible, support for the open CGNS data standard has been included within SU2. The main advantage gained is that complex meshes created in a third-party software package (one that supports unstructured CGNS file export) can be used directly within SU2 without the need for conversion to the native format. Moreover, the size of the mesh file (particularly for large test cases) can be significantly reduced.  If needed, a converter from CGNS to the .su2 format has been built into SU2 as well. Users should obtain and follow the instructions supplied for building the CGNS library (Version 3.1.4 recommended) from the official CGNS site. Details on compiling with and using the CGNS library for mesh input can be found on the documentation page concerning meshes.
 
 ### Parallel Tools
 
