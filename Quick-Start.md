@@ -115,4 +115,4 @@ Figure (4): Contours of the adjoint density variable.
 
 Figure (5): Surface sensitivities. The surface sensitivity is the change in the objective function due to an infinitesimal deformation of the surface in the local normal direction. These values are calculated at each node on the airfoil surface from the flow and adjoint solutions at negligible computational cost using an additional step not described in this tutorial.
 
-Congratulations! You've successfully performed your first flow simulations with SU2. Move on to the tutorials to learn much more about using the code, and don't forget to read through the information in the user's guide. Having problems with the quick start or visualizing the results?  Visit the FAQs page, or see our forum at CFD-online.
+Congratulations! You've successfully performed your first flow simulations with SU2. Move on to the tutorials to learn much more about using the code, and don't forget to read through the information in the user's guide. Having problems with the quick start or visualizing the results?  Visit the [FAQs](https://github.com/su2code/SU2/wiki/FAQ) page, or see our forum at CFD-online.
