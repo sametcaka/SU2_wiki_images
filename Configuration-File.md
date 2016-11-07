@@ -1,6 +1,6 @@
 The configuration file is a text file that contains a user's options for a particular problem to be solved with the SU2 suite. It is specified as an input upon execution of SU2 components. This section briefly describes the file format and other conventions. 
 
-The SU2 configuration file name is typically carries a name of the form *filename.cfg*. The file extension .cfg is optional (this is our own convention), and the prefix can be any valid string with no spaces; e.g. config.cfg, su2-config.cfg, and flow_config.cfg are all suitable file names. 
+The SU2 configuration file name typically carries a name of the form *filename.cfg*. The file extension .cfg is optional (this is our own convention), and the prefix can be any valid string with no spaces; e.g. config.cfg, su2-config.cfg, and flow_config.cfg are all suitable file names. 
 
 **Note: An example configuration file, called config_template.cfg, can be found in the root SU2/ directory. The developers keep this file up to date with the latest options, and it serves as the first reference for the available options in SU2**
 
