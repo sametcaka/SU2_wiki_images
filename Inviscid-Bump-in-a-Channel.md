@@ -83,8 +83,12 @@ CFL_NUMBER= 6.0
 %
 % Multi-Grid Levels (0 = no multi-grid)
 MGLEVEL= 3    
+```
+
 For this problem, Euler Implicit time integration with a CFL number of 6 is chosen. Convergence is also accelerated with three levels of multigrid. We will discuss some of these options in later tutorials.
+
 Setting the convergence criteria:
+```
 % Convergence criteria (CAUCHY, RESIDUAL)
 CONV_CRITERIA= RESIDUAL
 %
