@@ -7,7 +7,6 @@
     * [[Build from Source]]
         * [[Simple Build]]
         * [[Parallel Build]]
-        * [[Parallel and CGNS Build]]
         * [[AD Build]]
         * [[Python Wrapper Build]]
     * [[Windows Installation]]
