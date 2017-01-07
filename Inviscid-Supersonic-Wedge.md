@@ -9,7 +9,7 @@ Upon completing this tutorial, the user will be familiar with performing a simul
 - Euler implicit time integration
 - Supersonic Inlet, Outlet, and Euler Wall boundary conditions
 
-The intent of this tutorial is to introduce a simple, inviscid flow problem that will allow users to become familiar with using a CGNS mesh. This will require SU2 to be built with CGNS support (CGNS should be automatically built and linked for you during compilation), and some new options in the configuration file related to CGNS meshes and their conversion will be discussed.
+The intent of this tutorial is to introduce a simple, inviscid flow problem that will allow users to become familiar with using a CGNS mesh. This will require SU2 to be built with CGNS support (CGNS will be automatically built and linked for you during compilation), and some new options in the configuration file related to CGNS meshes and their conversion will be discussed.
 
 ## Resources
 
