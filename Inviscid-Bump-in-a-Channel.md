@@ -21,7 +21,7 @@ The following tutorial will walk you through the steps required when solving for
 
 ## Background
 
-This example uses a 2D channel geometry that features a circular bump along the lower wall. It is meant to be a simple test in inviscid flow for the subsonic inlet and outlet boundary conditions that are required for an internal flow calculation. The geometry is based on an example in Chapter 11 of Numerical Computation of Internal and External Flows: The Fundamentals of Computational Fluid Dynamics (Second Edition) by Charles Hirsch.
+This example uses a 2D channel geometry that features a circular bump along the lower wall. It is meant to be a simple test in inviscid flow for the subsonic inlet and outlet boundary conditions that are required for an internal flow calculation. The geometry is adapted from an example in Chapter 11 of Numerical Computation of Internal and External Flows: The Fundamentals of Computational Fluid Dynamics (Second Edition) by Charles Hirsch.
 
 ## Problem Setup
 
@@ -40,7 +40,7 @@ The channel is of length 3L, height L, with a circular bump centered along the l
 ![Channel Mesh](http://su2.stanford.edu/github_wiki/channel_mesh_bcs.png)
 Figure (1): The computational mesh with boundary conditions highlighted.
 
-The boundary conditions for the channel are also highlighted in the figure. Inlet, outlet, and Euler wall boundary conditions are used. The Euler wall boundary condition enforces flow tangency at the upper and lower walls. It is important to note that the subsonic inlet and outlet boundary conditions are based on characteristic information, meaning that only certain flow quantities can be specified at the inlet and outlet. In SU2, the stagnation temperature, stagnation pressure, and a unit vector describing the incoming flow direction must all be specified (the density and velocity, or mass flow, can also be specified). At an exit boundary, only the static pressure is required. These options are explained in further detail below under configuration file options. If there are multiple inlet or outlet boundaries for a problem, this information can be specified for each additional boundary by continuing the lists under the MARKER_INLET or MARKER_OUTLET specifications.
+The boundary conditions for the channel are also highlighted in the figure. Inlet, outlet, and Euler wall boundary conditions are used. The Euler wall boundary condition enforces flow tangency at the upper and lower walls. It is important to note that the subsonic inlet and outlet boundary conditions are based on characteristic information, meaning that only certain flow quantities can be specified at the inlet and outlet. In SU2, the stagnation temperature, stagnation pressure, and a unit vector describing the incoming flow direction must all be specified (the density and velocity, or mass flow, can also be specified). At a subsonic exit boundary, only the static pressure is required. These options are explained in further detail below under configuration file options. If there are multiple inlet or outlet boundaries for a problem, this information can be specified for each additional boundary by continuing the lists under the MARKER_INLET or MARKER_OUTLET specifications.
 
 ### Configuration File Options
 
