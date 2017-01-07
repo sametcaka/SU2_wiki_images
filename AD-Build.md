@@ -6,7 +6,7 @@ In order to use the [discrete adjoint solver](https://github.com/su2code/SU2/wik
 The initialization and compilation of these libraries as well as the configuration of SU2 is handled by the python script `preconfigure.py` inside the main directory. This script accepts the **same arguments** as the usual configure script (except `CXXFLAGS=...`) but in addition it offers the option `--enable-autodiff` to enable AD (reverse mode) for the discrete adjoint solver.
 
 ### Example 
-Assume that your configuration (see [[Simple Build]], [[Parallel Build]] or [[Parallel and CGNS Build]]) is done using the command
+Assume that your configuration (see [[Simple Build]] or [[Parallel Build]]) is done using the command
 
     ./configure --enable-mpi --prefix=$SU2_INSTALLPATH --with-cgns-lib=$PATH_TO_CGNSLIB --with-cgns-include=$PATH_TO_CGNSINCLUDE CXXFLAGS="-O3 -Wall"
 
