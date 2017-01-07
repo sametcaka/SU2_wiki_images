@@ -20,6 +20,7 @@ In general, all SU2 execution occurs via command line arguments within a termina
 Users of SU2 need a data visualization tool to post-process solution files. The software currently supports .vtk and .plt output formats natively read by ParaView and Tecplot, respectively. ParaView provides full functionality for data visualization and is freely available under an open source license. Tecplot is a commercially-licensed software package widely used by the scientific computing community and is available for purchase. Some SU2 results are also output to comma-separated value (.csv) files, which can be read by a number of software packages. Furthermore, CGNS output files can also be generated, which can also be read by the majority of visualization programs. The two most typical packages used by the development team are the following:
 - ParaView
 - Tecplot
+- FieldView
 
 ## Optional Third-Party Software
 
@@ -27,29 +28,28 @@ Although not required, several third-party packages help extend the capabilities
 
 ### Grid Generation
 
-Users wishing to perform analyses on their own meshes must have a means of generating them. The native SU2 grid format is designed for readability and ease of use: users with simple computational domains can write scripts to generate the appropriate meshes (and some example scripts are provided in the mesh files page). For more complex configurations, grid generation software is recommended (with capability to export to SU2 or CGNS file formats). Several open-source and commercial products are available, and a list of those used by the development team is included below.
-- Pointwise/Gridgen (Direct export to the SU2 native mesh format is available within Pointwise V17 and more recent versions)
+Users wishing to perform analyses on their own meshes must have a means of generating them. The native SU2 grid format is designed for readability and ease of use: users with simple computational domains can write scripts to generate the appropriate meshes (and some example scripts are provided in the mesh files page). For more complex configurations, grid generation software is recommended, and it should have the capability to export to SU2 or CGNS file formats. Several open-source and commercial products are available, and a list of those used by the development team is included below.
+- Pointwise
 - Gmsh
 - ICEM CFD
 - Gambit
-- Cubit
 
-Note that there are also a number of excellent contributions from the open-source community for creating and converting meshes between various formats (e.g., OpenFOAM to SU2 formats). The developers encourage members of the community to share their contributions in this regard, and many of these contributions can be found in the threads of the SU2 forum on CFD Online.
+Note that there are also a number of excellent contributions from the open-source community for creating and converting meshes between various formats (e.g., OpenFOAM to SU2 format). The developers encourage members of the community to share their contributions in this regard, and many of these contributions can be found in the threads of the SU2 forum on CFD Online.
 
 ### CGNS Library
 
-To make creating your own meshes easier and more accessible, support for the open CGNS data standard has been included within SU2. The main advantage gained is that complex meshes created in a third-party software package (one that supports unstructured CGNS file export) can be used directly within SU2 without the need for conversion to the native format. Moreover, the size of the mesh file (particularly for large test cases) can be significantly reduced.  If needed, a converter from CGNS to the .su2 format has been built into SU2 as well. Users should obtain and follow the instructions supplied for building the CGNS library (Version 3.1.4 recommended) from the official CGNS site. Details on compiling with and using the CGNS library for mesh input can be found on the documentation page concerning meshes.
+To make creating your own meshes easier and more accessible, support for the open CGNS data standard has been included within SU2. The main advantage gained is that complex meshes created in a third-party software package (one that supports unstructured, single-zone CGNS file export) can be used directly within SU2 without the need for conversion to the native format. Moreover, as CGNS is a binary format, the size of the mesh files can be significantly reduced.  If needed, a converter from CGNS to the SU2 format has been built into SU2 (see the [[inviscid wedge tutorial|Inviscid Supersonic Wedge]]). Starting with SU2 v4.3, the source for version 3.3.0 of the CGNS library is shipped with SU2 in the externals/ directory, and it is automatically built and linked for you when compiling SU2.
 
 ### Parallel Tools
 
-Users wishing to run simulations on distributed-memory computers using domain partitioning will need an implementation of the Message Passing Interface (MPI) standard.  In these situations, SU2 performs the partitioning using the METIS software package. METIS comes packaged with the SU2 source code in the externals/ directory, and it will be automatically built and linked during the configure; make; make install process with the autotools (see the instructions for installation from source). A variety of implementations of the MPI standard exist, and they can often be installed using package managers on Linux or Mac OS X. Alternatively, users can download and build their own MPI implementations from source. The following are some well-known, freely-available implementations of MPI:
+Users wishing to run simulations on distributed-memory computers using mesh partitioning will need an implementation of the Message Passing Interface (MPI) standard.  In these situations, SU2 performs the partitioning using the ParMETIS software package. ParMETIS comes packaged with the SU2 source code in the externals/ directory, and it will be automatically built and linked during the configure; make; make install process with the autotools (see the instructions for installation from source). A variety of implementations of the MPI standard exist, and they can often be installed using package managers on Linux or Mac OS X. Alternatively, users can download and build their own MPI implementations from source. The following are some well-known, freely-available implementations of MPI:
 - OpenMPI
 - MPICH
 - MVAPICH
 
 ### Python & Python Modules
 
-Each of the C++ modules for SU2 can be called directly from the command line and do not require Python (even for parallel calculations with MPI). However, the coupling of the C++ modules needed for, for example, design optimization problems can be automated via the execution of the appropriate Python scripts included in the software distribution. For instance, when performing shape design, the shape_optimization.py script is available to automate all steps.  Note that this script has additional dependencies on the NumPy and SciPy modules for scientific computing in Python (including optimization routines in the SciPy library). These packages are freely available at the sites linked below:
+Each of the C++ modules for SU2 can be called directly from the command line and do not require Python (even for parallel calculations with MPI). However, the coupling of the C++ modules needed for, for example, design optimization problems can be automated via the execution of the appropriate Python scripts included in the software distribution. For instance, when performing shape design, the shape_optimization.py script is available to automate all steps.  Note that this script has additional dependencies on the NumPy and SciPy modules for scientific computing in Python, including optimization routines in the SciPy library. These packages are freely available at the sites linked below:
 - Python
 - NumPy
 - SciPy
