@@ -7,14 +7,14 @@ Upon completing this tutorial, the user will be familiar with performing a simul
 - Multigrid
 - JST numerical scheme in space
 - Euler implicit time integration
-- Euler Wall, Symmetry, and Farfield boundary conditions
+- Euler Wall, Symmetry, and Far-field boundary conditions
 - Code parallelism (recommended)
 
 We will also discuss the details for setting up 3D flow conditions and some of the multigrid options within the configuration file.
 
 ## Resources
 
-The resources for this tutorial can be found in the TestCases/euler/oneram6/ directory. You will need the configuration file (inv_ONERAM6_JST.cfg) and the mesh file (mesh_ONERAM6_inv.su2).
+The resources for this tutorial can be found in the TestCases/euler/oneram6/ directory. You will need the configuration file (inv_ONERAM6.cfg) and the mesh file (mesh_ONERAM6_inv.su2).
 
 ## Tutorial
 
@@ -35,7 +35,7 @@ These transonic flow conditions will cause the typical "lambda" shock along the 
 
 ### Mesh Description
 
-The computational domain is a large parallelepiped with the wing half-span on one boundary in the x-z plane. The mesh consists of 582,752 tetrahedral elements and 108,396 nodes. Three boundary conditions are employed: Euler wall on the wing surface, the far-field characteristic-based condition on the far-field markers, and a symmetry boundary condition for the marker where the wing half-span is attached. The symmetry condition acts to mirror the flow about the x-z plane, reducing the complexity of the mesh and the computational cost. Images of the entire domain and the triangular elements on the wing surface are shown below.
+The computational domain is a large parallelepiped with the wing half-span on one boundary in the x-z plane. The mesh consists of 582,752 tetrahedral elements and 108,396 nodes. Three boundary conditions are employed: Euler wall on the wing surface, a far-field characteristic-based condition on the far-field markers, and a symmetry boundary condition for the marker where the wing half-span is attached. The symmetry condition acts to mirror the flow about the x-z plane, reducing the complexity of the mesh and the computational cost. Images of the entire domain and the triangular elements on the wing surface are shown below.
 
 ![ONERA M6 Mesh](http://su2.stanford.edu/github_wiki/oneram6_mesh_bcs.png)
 Figure (1): Far-field view of the computational mesh with boundary conditions.
