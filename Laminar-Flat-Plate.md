@@ -9,6 +9,7 @@ Upon completing this tutorial, the user will be familiar with performing a simul
 - Roe (Second-Order) numerical scheme in space
 - Euler implicit time integration
 - Inlet, Outlet, Symmetry, and Navier-Stokes Wall boundary conditions
+- Cauchy convergence criteria
 
 The intent of this tutorial is to introduce a common viscous test case which is used to explain how different equation sets can be chosen in SU2. We also introduce some details on the numerics and a new type of convergence criteria which monitors the change of a specific objective, such as lift or drag, in order to assess convergence.
 
