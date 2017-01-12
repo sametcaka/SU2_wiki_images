@@ -29,7 +29,7 @@ This problem will solve for the flow over the wedge with these conditions:
 - Freestream Pressure = 100000 Pa
 - Freestream Temperature = 300 K
 - Freestream Mach number = 2.0
-- Angle of attack (AoA) = 0.0 deg
+- Angle of attack (AOA) = 0.0 deg
 
 ### Mesh Description
 
