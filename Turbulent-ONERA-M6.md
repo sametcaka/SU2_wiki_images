@@ -29,7 +29,7 @@ This test case is for the ONERA M6 wing in viscous flow. The ONERA M6 wing was d
 This problem will solve the flow past the wing with these conditions:
 - Freestream Temperature = 288.15 K
 - Freestream Mach number = 0.8395
-- Angle of attack (AoA) = 3.06 deg
+- Angle of attack (AOA) = 3.06 deg
 - Reynolds number = 11.72E6
 - Reynolds length = 0.64607 m
 
@@ -56,7 +56,7 @@ Several of the key configuration file options for this simulation are highlighte
 MACH_NUMBER= 0.8395
 %
 % Angle of attack (degrees, only for compressible flows)
-AoA= 3.06
+AOA= 3.06
 %
 % Side-slip angle (degrees, only for compressible flows)
 SIDESLIP_ANGLE= 0.0
@@ -112,11 +112,11 @@ MU_T_REF= 273.15
 % Sutherland constant (110.4 default value for AIR SI)
 SUTHERLAND_CONSTANT= 110.4
 ```
-The options above set the conditions for a 3D, viscous flow. The MACH_NUMBER, AoA, and SIDESLIP_ANGLE options remain the same as they appeared for the inviscid ONERA M6 tutorial, which includes a description of the freestream flow direction. For the RANS equations, SU2 is using a calorically perfect gas which is selected by setting the FLUID_MODEL to STANDARD_AIR. The fluid flow properties can be changed by selecting a different fluid model.
+The options above set the conditions for a 3D, viscous flow. The MACH_NUMBER, AOA, and SIDESLIP_ANGLE options remain the same as they appeared for the inviscid ONERA M6 tutorial, which includes a description of the freestream flow direction. For the RANS equations, SU2 is using a calorically perfect gas which is selected by setting the FLUID_MODEL to STANDARD_AIR. The fluid flow properties can be changed by selecting a different fluid model.
 
 For a viscous simulation, the numerical experiment must match the physical reality. This flow similarity is achieved by matching the REYNOLDS_NUMBER and REYNOLDS_LENGTH to the original system (assuming the Mach number and the geometry already match). Upon starting a viscous simulation in SU2, the following steps are performed to set the flow conditions internally:
  1. Use the gas constants and freestream temperature to calculate the speed of sound.
- 2. Calculate the freestream velocity vector from the Mach number, AoA/sideslip angle, and speed of sound from step 1.
+ 2. Calculate the freestream velocity vector from the Mach number, AOA/sideslip angle, and speed of sound from step 1.
  3. Compute the freestream viscosity by using the viscosity model specified in the config file.
  4. Use the definition of the Reynolds number to find the freestream density from the supplied Reynolds information, freestream velocity, and freestream viscosity from step 3.
  5. Calculate the freestream pressure using the perfect gas law with the freestream temperature, specific gas constant, and freestream density from step 4.
