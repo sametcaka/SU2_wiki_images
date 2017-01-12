@@ -13,7 +13,7 @@ The intent of this tutorial is to introduce a simple, inviscid flow problem and 
 
 ## Resources
 
-The mesh (mesh_channel_256x128.su2) for this tutorial can be found in the "TestCases" repository under euler/channel/ and the configuration file (inv_channel.cfg) can be found in the "SU2" repository under TestCases/euler/channel/ .
+The mesh (mesh_channel_256x128.su2) for this tutorial can be found in the "su2code/TestCases" repository under euler/channel/ and the configuration file (inv_channel.cfg) can be found in the "su2code/SU2" repository under TestCases/euler/channel/. All tutorials in this series except for the Quickstart tutorial follow this pattern of storing the mesh and other large files in the "su2code/TestCases" repository. 
 
 ## Tutorial
 
