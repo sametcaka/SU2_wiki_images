@@ -86,7 +86,7 @@ REF_AREA= 0
 %
 % Flow non-dimensionalization (DIMENSIONAL, FREESTREAM_PRESS_EQ_ONE,
 %                              FREESTREAM_VEL_EQ_MACH, FREESTREAM_VEL_EQ_ONE)
-REF_DIMENSIONALIZATION= DIMENSIONAL
+REF_DIMENSIONALIZATION= FREESTREAM_VEL_EQ_ONE
 ```
 
 SU2 accepts arbitrary reference values for computing the force coefficients. A reference area can be supplied by the user for the calculation of force coefficients (e.g. a trapezoidal wing area) with the REF_AREA variable. If REF_AREA is set equal to zero, as for the ONERA M6, a reference area will be automatically calculated by summing all surface normal components in the positive z-direction on the monitored markers. For this ONERA M6 case SU2 performs a dimensional simulation (REF_DIMENSIONALIZATION= DIMENSIONAL). If you wish to perform a non-dimensional simulation you can pick one of the options specified above to yield the desired non-dimensional state. For non-dimesionalization case FREESTREAM_PRESS_EQ_ONE the free-stream values at the farfield will be (pressure=1.0, density=1.0, temperature=1.0). For FREESTREAM_VEL_EQ_MACH the free-stream values at the farfield will be (velocity=MACH, density=1.0, temperature=1.0) and for FREESTREAM_VEL_EQ_ONE the free-stream values at the farfield will be (velocity=1.0, density=1.0, temperature=1.0).
