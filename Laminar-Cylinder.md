@@ -31,7 +31,7 @@ This problem will solve the for the external flow over the cylinder with these c
 - Freestream temperature = 273.15 K
 - Freestream Mach number = 0.1
 - Angle of attack (AOA) = 0.0 degrees
-- Reynolds number = 40 for a cylinder radius of 0.3048 m (1 ft)
+- Reynolds number = 40 for a cylinder radius of 1 m 
 
 ### Mesh Description
 
