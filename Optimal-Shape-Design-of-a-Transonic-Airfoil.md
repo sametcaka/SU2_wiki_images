@@ -130,8 +130,11 @@ Figure (4): Adjoint density contours on the baseline NACA 0012 airfoil.
 
 To run this design case, follow these steps at a terminal command line:
 1. Move to the directory containing the config file (inv_NACA0012_basic.cfg) and the mesh file (mesh_NACA0012_inv.su2). Assuming that SU2 tools were compiled, installed, and that their install location was added to your path, the shape_optimization.py script, SU2_CFD, SU2_DOT, and SU2_DEF should all be available.
+
 2. Execute the shape optimization script by entering `$ python shape_optimization.py -f inv_NACA0012_basic.cfg' at the command line. Again, note that Python, NumPy, and SciPy are all required to run the script.
+
 3. The python script will drive the optimization process by executing flow solutions, adjoint solutions, gradient projection, and mesh deformation in order to drive the design toward an optimum. The optimization process will cease when certain tolerances set within the SciPy optimizer are met.
+
 4. Solution files containing the flow and surface data will be written for each flow solution and adjoint solution and can be found in the DESIGNS directory that is created. The flow solutions are in the DESIGNS/DSN_*/DIRECT/ directories. The file named history_project.dat (or history_project.csv for ParaView) will contain the functional values of interest resulting from each evaluation during the optimization.
 
 ### Results for the optimal shape design problem:
